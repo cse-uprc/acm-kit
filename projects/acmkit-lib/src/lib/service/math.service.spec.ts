@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { NumberAdderService } from './number-adder.service';
+import { MathService } from './math.service';
 
 describe('NumberAdderService', () => {
-  let service: NumberAdderService;
+  let service: MathService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NumberAdderService);
+    service = TestBed.inject(MathService);
   });
 
   it('should be created', () => {
