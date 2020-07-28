@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NumberAdderService } from 'acmkit-lib';
+import { MathService } from 'dist/acmkit-lib/lib/service/math.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { NumberAdderService } from 'acmkit-lib';
 export class AppComponent implements OnInit {
   title = 'acmAppTest';
   value = 0;
-  constructor(private adder: NumberAdderService) {}
+  constructor(private adder: MathService) {}
 
   ngOnInit() {
     this.value = this.adder.addNumbers(5, 6);

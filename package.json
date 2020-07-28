@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "build:ci": "npm run clean && npm run test:ci && npm run build:prod",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom",
+    "test": "ng test --watch=false",
+    "test:watch": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "version:patch": "cd projects/acmkit-lib/ && npm version patch && cd ../..",
