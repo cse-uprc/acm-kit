@@ -14,7 +14,7 @@
     "target": "es2015",
     "lib": ["es2018", "dom"],
     "paths": {
-      "acmkit-lib": ["dist/acmkit-lib/acmkit-lib", "dist/acmkit-lib"]
+      "acmkit-lib": ["projects/acmkit-lib/src/public-api.ts"]
     }
   }
 }
