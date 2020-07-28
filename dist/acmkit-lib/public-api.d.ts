@@ -7,4 +7,4 @@ export * from './lib/acmkit-lib.service';
 /**
  * Test Method adder
  */
-export * from './lib/service/number-adder.service';
+export * from './lib/service/math.service';
