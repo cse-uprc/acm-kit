@@ -1,0 +1,8 @@
+/*
+ * Public API Surface of acmkit-lib
+ */
+export * from './lib/acmkit-lib.component';
+export * from './lib/acmkit-lib.module';
+export * from './lib/acmkit-lib.service';
+export * from './lib/components/test-folder/test-folder.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2FjbWtpdC1saWIvIiwic291cmNlcyI6WyJwdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYyw0QkFBNEIsQ0FBQztBQUMzQyxjQUFjLHlCQUF5QixDQUFDO0FBQ3hDLGNBQWMsMEJBQTBCLENBQUM7QUFDekMsY0FBYyxvREFBb0QsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgYWNta2l0LWxpYlxuICovXG5cbmV4cG9ydCAqIGZyb20gJy4vbGliL2FjbWtpdC1saWIuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2FjbWtpdC1saWIubW9kdWxlJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2FjbWtpdC1saWIuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9jb21wb25lbnRzL3Rlc3QtZm9sZGVyL3Rlc3QtZm9sZGVyLmNvbXBvbmVudCc7XG4iXX0=
