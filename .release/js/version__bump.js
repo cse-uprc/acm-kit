@@ -17,7 +17,7 @@ rl.question("What type of version bump? ", function (bumpType) {
       "Version Change -- " +
         bumpType +
         ": " +
-        require("../projects/acmkit-lib/package.json").version
+        require("../../projects/acmkit-lib/package.json").version
     );
     exit();
   });
