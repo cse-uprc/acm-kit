@@ -116,21 +116,6 @@
             "browserTarget": "acmAppTest:build"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/acmAppTest/src/test.ts",
-            "polyfills": "projects/acmAppTest/src/polyfills.ts",
-            "tsConfig": "projects/acmAppTest/tsconfig.spec.json",
-            "karmaConfig": "projects/acmAppTest/karma.conf.js",
-            "assets": [
-              "projects/acmAppTest/src/favicon.ico",
-              "projects/acmAppTest/src/assets"
-            ],
-            "styles": ["projects/acmAppTest/src/styles.scss"],
-            "scripts": []
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
