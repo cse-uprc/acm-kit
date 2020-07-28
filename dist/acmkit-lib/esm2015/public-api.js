@@ -1,0 +1,7 @@
+/*
+ * Public API Surface of acmkit-lib
+ */
+export * from './lib/acmkit-lib.service';
+export * from './lib/acmkit-lib.component';
+export * from './lib/acmkit-lib.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2FjbWtpdC1saWIvIiwic291cmNlcyI6WyJwdWJsaWMtYXBpLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOztHQUVHO0FBRUgsY0FBYywwQkFBMEIsQ0FBQztBQUN6QyxjQUFjLDRCQUE0QixDQUFDO0FBQzNDLGNBQWMseUJBQXlCLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKlxyXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2YgYWNta2l0LWxpYlxyXG4gKi9cclxuXHJcbmV4cG9ydCAqIGZyb20gJy4vbGliL2FjbWtpdC1saWIuc2VydmljZSc7XHJcbmV4cG9ydCAqIGZyb20gJy4vbGliL2FjbWtpdC1saWIuY29tcG9uZW50JztcclxuZXhwb3J0ICogZnJvbSAnLi9saWIvYWNta2l0LWxpYi5tb2R1bGUnO1xyXG4iXX0=
