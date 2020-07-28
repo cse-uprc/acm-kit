@@ -28,6 +28,10 @@ git commit -m "ACMKIT: Incremental Release -- version bump"
 git push -u origin HEAD
 echo ''
 
+echo "Switching to master ..."
+git checkout master
+echo ''
+
 echo "---------------------------------------------"
 echo ''
 
