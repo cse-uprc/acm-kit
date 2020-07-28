@@ -10,11 +10,15 @@ export class MathService {
     return num1 + num2;
   }
 
-  subtractNumbes(num1, num2) {
+  subtractNumbers(num1, num2) {
     return num1 - num2;
   }
 
   multiplyNumbers(num1, num2) {
     return num1 * num2;
+  }
+
+  addThreeNumbers(num1, num2, num3) {
+    return num1 + num2 + num3;
   }
 }
