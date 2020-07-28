@@ -18,7 +18,7 @@ echo "Bumping Version ..."
 node .release/js/version__bump.js
 echo ''
 
-echo "Build Library ..."
+echo "Building Library ..."
 npm run acmbuild
 echo ''
 
@@ -26,6 +26,10 @@ echo "Pushing Branch ..."
 git add .
 git commit -m "ACMKIT: Incremental Release -- version bump"
 git push -u origin HEAD
+echo ''
+
+echo "Switching to master ..."
+git checkout master
 echo ''
 
 echo "---------------------------------------------"
