@@ -19,7 +19,7 @@ class AcmkitLibComponent {
 AcmkitLibComponent.ɵfac = function AcmkitLibComponent_Factory(t) { return new (t || AcmkitLibComponent)(); };
 AcmkitLibComponent.ɵcmp = ɵɵdefineComponent({ type: AcmkitLibComponent, selectors: [["ak-test-component"]], decls: 2, vars: 0, template: function AcmkitLibComponent_Template(rf, ctx) { if (rf & 1) {
         ɵɵelementStart(0, "p");
-        ɵɵtext(1, " Library is Working! ");
+        ɵɵtext(1, " Library is Working! On Version 1.0.1 ");
         ɵɵelementEnd();
     } }, encapsulation: 2 });
 /*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibComponent, [{
@@ -28,7 +28,7 @@ AcmkitLibComponent.ɵcmp = ɵɵdefineComponent({ type: AcmkitLibComponent, selec
                 selector: 'ak-test-component',
                 template: `
     <p>
-      Library is Working!
+      Library is Working! On Version 1.0.1
     </p>
   `,
                 styles: [],
