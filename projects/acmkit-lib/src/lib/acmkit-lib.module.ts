@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AcmkitLibComponent } from './acmkit-lib.component';
-import { TestFolderComponent } from './test-folder/test-folder.component';
+import { TestFolderComponent } from './components/test-folder/test-folder.component';
 
 @NgModule({
   declarations: [AcmkitLibComponent, TestFolderComponent],
