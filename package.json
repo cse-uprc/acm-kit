@@ -1,6 +1,6 @@
 {
   "name": "acmkit",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "version:patch": "cd projects/acmkit-lib/ && npm version patch && cd ../..",
+    "version:minor": "cd projects/acmkit-lib/ && npm version minor && cd ../..",
+    "version:major": "cd projects/acmkit-lib/ && npm version major && cd ../..",
     "acmbuild": "ng build acmkit-lib"
   },
   "private": true,
