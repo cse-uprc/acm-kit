@@ -1,18 +1,4 @@
-import { ɵɵdefineInjectable, ɵsetClassMetadata, Injectable, ɵɵdefineComponent, ɵɵelementStart, ɵɵtext, ɵɵelementEnd, Component, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
-
-var AcmkitLibService = /** @class */ (function () {
-    function AcmkitLibService() {
-    }
-    AcmkitLibService.ɵfac = function AcmkitLibService_Factory(t) { return new (t || AcmkitLibService)(); };
-    AcmkitLibService.ɵprov = ɵɵdefineInjectable({ token: AcmkitLibService, factory: AcmkitLibService.ɵfac, providedIn: 'root' });
-    return AcmkitLibService;
-}());
-/*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibService, [{
-        type: Injectable,
-        args: [{
-                providedIn: 'root'
-            }]
-    }], function () { return []; }, null); })();
+import { ɵɵdefineComponent, ɵɵelementStart, ɵɵtext, ɵɵelementEnd, ɵsetClassMetadata, Component, ɵɵdefineInjectable, Injectable, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
 
 var AcmkitLibComponent = /** @class */ (function () {
     function AcmkitLibComponent() {
@@ -35,11 +21,28 @@ var AcmkitLibComponent = /** @class */ (function () {
             }]
     }], function () { return []; }, null); })();
 
+var NumberAdderService = /** @class */ (function () {
+    function NumberAdderService() {
+    }
+    NumberAdderService.prototype.addNumbers = function (num1, num2) {
+        return num1 + num2;
+    };
+    NumberAdderService.ɵfac = function NumberAdderService_Factory(t) { return new (t || NumberAdderService)(); };
+    NumberAdderService.ɵprov = ɵɵdefineInjectable({ token: NumberAdderService, factory: NumberAdderService.ɵfac, providedIn: 'root' });
+    return NumberAdderService;
+}());
+/*@__PURE__*/ (function () { ɵsetClassMetadata(NumberAdderService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root',
+            }]
+    }], function () { return []; }, null); })();
+
 var AcmkitLibModule = /** @class */ (function () {
     function AcmkitLibModule() {
     }
     AcmkitLibModule.ɵmod = ɵɵdefineNgModule({ type: AcmkitLibModule });
-    AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, imports: [[]] });
+    AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, providers: [NumberAdderService], imports: [[]] });
     return AcmkitLibModule;
 }());
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent], exports: [AcmkitLibComponent] }); })();
@@ -48,11 +51,26 @@ var AcmkitLibModule = /** @class */ (function () {
         args: [{
                 declarations: [AcmkitLibComponent],
                 imports: [],
-                exports: [AcmkitLibComponent]
+                exports: [AcmkitLibComponent],
+                providers: [NumberAdderService],
             }]
     }], null, null); })();
 
-/*
+var AcmkitLibService = /** @class */ (function () {
+    function AcmkitLibService() {
+    }
+    AcmkitLibService.ɵfac = function AcmkitLibService_Factory(t) { return new (t || AcmkitLibService)(); };
+    AcmkitLibService.ɵprov = ɵɵdefineInjectable({ token: AcmkitLibService, factory: AcmkitLibService.ɵfac, providedIn: 'root' });
+    return AcmkitLibService;
+}());
+/*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return []; }, null); })();
+
+/**
  * Public API Surface of acmkit-lib
  */
 
@@ -60,5 +78,5 @@ var AcmkitLibModule = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, NumberAdderService };
 //# sourceMappingURL=acmkit-lib.js.map

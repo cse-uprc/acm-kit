@@ -4,20 +4,6 @@
     (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core));
 }(this, (function (exports, core) { 'use strict';
 
-    var AcmkitLibService = /** @class */ (function () {
-        function AcmkitLibService() {
-        }
-        AcmkitLibService.ɵfac = function AcmkitLibService_Factory(t) { return new (t || AcmkitLibService)(); };
-        AcmkitLibService.ɵprov = core.ɵɵdefineInjectable({ token: AcmkitLibService, factory: AcmkitLibService.ɵfac, providedIn: 'root' });
-        return AcmkitLibService;
-    }());
-    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AcmkitLibService, [{
-            type: core.Injectable,
-            args: [{
-                    providedIn: 'root'
-                }]
-        }], function () { return []; }, null); })();
-
     var AcmkitLibComponent = /** @class */ (function () {
         function AcmkitLibComponent() {
         }
@@ -39,11 +25,28 @@
                 }]
         }], function () { return []; }, null); })();
 
+    var NumberAdderService = /** @class */ (function () {
+        function NumberAdderService() {
+        }
+        NumberAdderService.prototype.addNumbers = function (num1, num2) {
+            return num1 + num2;
+        };
+        NumberAdderService.ɵfac = function NumberAdderService_Factory(t) { return new (t || NumberAdderService)(); };
+        NumberAdderService.ɵprov = core.ɵɵdefineInjectable({ token: NumberAdderService, factory: NumberAdderService.ɵfac, providedIn: 'root' });
+        return NumberAdderService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(NumberAdderService, [{
+            type: core.Injectable,
+            args: [{
+                    providedIn: 'root',
+                }]
+        }], function () { return []; }, null); })();
+
     var AcmkitLibModule = /** @class */ (function () {
         function AcmkitLibModule() {
         }
         AcmkitLibModule.ɵmod = core.ɵɵdefineNgModule({ type: AcmkitLibModule });
-        AcmkitLibModule.ɵinj = core.ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, imports: [[]] });
+        AcmkitLibModule.ɵinj = core.ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, providers: [NumberAdderService], imports: [[]] });
         return AcmkitLibModule;
     }());
     (function () { (typeof ngJitMode === "undefined" || ngJitMode) && core.ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent], exports: [AcmkitLibComponent] }); })();
@@ -52,13 +55,29 @@
             args: [{
                     declarations: [AcmkitLibComponent],
                     imports: [],
-                    exports: [AcmkitLibComponent]
+                    exports: [AcmkitLibComponent],
+                    providers: [NumberAdderService],
                 }]
         }], null, null); })();
+
+    var AcmkitLibService = /** @class */ (function () {
+        function AcmkitLibService() {
+        }
+        AcmkitLibService.ɵfac = function AcmkitLibService_Factory(t) { return new (t || AcmkitLibService)(); };
+        AcmkitLibService.ɵprov = core.ɵɵdefineInjectable({ token: AcmkitLibService, factory: AcmkitLibService.ɵfac, providedIn: 'root' });
+        return AcmkitLibService;
+    }());
+    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AcmkitLibService, [{
+            type: core.Injectable,
+            args: [{
+                    providedIn: 'root'
+                }]
+        }], function () { return []; }, null); })();
 
     exports.AcmkitLibComponent = AcmkitLibComponent;
     exports.AcmkitLibModule = AcmkitLibModule;
     exports.AcmkitLibService = AcmkitLibService;
+    exports.NumberAdderService = NumberAdderService;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
