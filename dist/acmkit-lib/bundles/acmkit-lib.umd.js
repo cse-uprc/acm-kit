@@ -31,11 +31,14 @@
         MathService.prototype.addNumbers = function (num1, num2) {
             return num1 + num2;
         };
-        MathService.prototype.subtractNumbes = function (num1, num2) {
+        MathService.prototype.subtractNumbers = function (num1, num2) {
             return num1 - num2;
         };
         MathService.prototype.multiplyNumbers = function (num1, num2) {
             return num1 * num2;
+        };
+        MathService.prototype.addThreeNumbers = function (num1, num2, num3) {
+            return num1 + num2 + num3;
         };
         MathService.ɵfac = function MathService_Factory(t) { return new (t || MathService)(); };
         MathService.ɵprov = core.ɵɵdefineInjectable({ token: MathService, factory: MathService.ɵfac, providedIn: 'root' });
