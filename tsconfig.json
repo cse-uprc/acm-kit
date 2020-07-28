@@ -9,25 +9,12 @@
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "typeRoots": ["node_modules/@types"],
     "importHelpers": true,
     "target": "es2015",
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "paths": {
-      "acmapp-lib": [
-        "dist/acmapp-lib/acmapp-lib",
-        "dist/acmapp-lib"
-      ],
-      "acmkit-lib": [
-        "dist/acmkit-lib/acmkit-lib",
-        "dist/acmkit-lib"
-      ]
+      "acmkit-lib": ["dist/acmkit-lib/acmkit-lib", "dist/acmkit-lib"]
     }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
   }
 }

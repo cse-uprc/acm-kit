@@ -1,54 +1,53 @@
-import { __decorate } from 'tslib';
-import { Component, NgModule, ɵɵdefineInjectable, Injectable } from '@angular/core';
+import { ɵɵdefineInjectable, ɵsetClassMetadata, Injectable, ɵɵdefineComponent, ɵɵelementStart, ɵɵtext, ɵɵelementEnd, Component, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
 
-let AcmkitLibComponent = class AcmkitLibComponent {
+class AcmkitLibService {
     constructor() { }
-    ngOnInit() {
-    }
-};
-AcmkitLibComponent = __decorate([
-    Component({
-        selector: 'ak-acmkit-lib',
-        template: `
+}
+AcmkitLibService.ɵfac = function AcmkitLibService_Factory(t) { return new (t || AcmkitLibService)(); };
+AcmkitLibService.ɵprov = ɵɵdefineInjectable({ token: AcmkitLibService, factory: AcmkitLibService.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibService, [{
+        type: Injectable,
+        args: [{
+                providedIn: 'root'
+            }]
+    }], function () { return []; }, null); })();
+
+class AcmkitLibComponent {
+    constructor() { }
+    ngOnInit() { }
+}
+AcmkitLibComponent.ɵfac = function AcmkitLibComponent_Factory(t) { return new (t || AcmkitLibComponent)(); };
+AcmkitLibComponent.ɵcmp = ɵɵdefineComponent({ type: AcmkitLibComponent, selectors: [["ak-test-component"]], decls: 2, vars: 0, template: function AcmkitLibComponent_Template(rf, ctx) { if (rf & 1) {
+        ɵɵelementStart(0, "p");
+        ɵɵtext(1, " Library is Working! ");
+        ɵɵelementEnd();
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibComponent, [{
+        type: Component,
+        args: [{
+                selector: 'ak-test-component',
+                template: `
     <p>
-      acmkit-lib works!
+      Library is Working!
     </p>
-  `
-    })
-], AcmkitLibComponent);
+  `,
+                styles: [],
+            }]
+    }], function () { return []; }, null); })();
 
-let TestFolderComponent = class TestFolderComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-TestFolderComponent = __decorate([
-    Component({
-        selector: 'ak-test-folder',
-        template: "<p>test-folder works!</p>\n",
-        styles: [""]
-    })
-], TestFolderComponent);
-
-let AcmkitLibModule = class AcmkitLibModule {
-};
-AcmkitLibModule = __decorate([
-    NgModule({
-        declarations: [AcmkitLibComponent, TestFolderComponent],
-        imports: [],
-        exports: [AcmkitLibComponent, TestFolderComponent],
-    })
-], AcmkitLibModule);
-
-let AcmkitLibService = class AcmkitLibService {
-    constructor() { }
-};
-AcmkitLibService.ɵprov = ɵɵdefineInjectable({ factory: function AcmkitLibService_Factory() { return new AcmkitLibService(); }, token: AcmkitLibService, providedIn: "root" });
-AcmkitLibService = __decorate([
-    Injectable({
-        providedIn: 'root'
-    })
-], AcmkitLibService);
+class AcmkitLibModule {
+}
+AcmkitLibModule.ɵmod = ɵɵdefineNgModule({ type: AcmkitLibModule });
+AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, imports: [[]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent], exports: [AcmkitLibComponent] }); })();
+/*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [AcmkitLibComponent],
+                imports: [],
+                exports: [AcmkitLibComponent]
+            }]
+    }], null, null); })();
 
 /*
  * Public API Surface of acmkit-lib
@@ -58,5 +57,5 @@ AcmkitLibService = __decorate([
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, TestFolderComponent };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService };
 //# sourceMappingURL=acmkit-lib.js.map

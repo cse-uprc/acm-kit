@@ -1,15 +1,17 @@
-import { __decorate } from "tslib";
 import { NgModule } from '@angular/core';
 import { AcmkitLibComponent } from './acmkit-lib.component';
-import { TestFolderComponent } from './components/test-folder/test-folder.component';
-let AcmkitLibModule = class AcmkitLibModule {
-};
-AcmkitLibModule = __decorate([
-    NgModule({
-        declarations: [AcmkitLibComponent, TestFolderComponent],
-        imports: [],
-        exports: [AcmkitLibComponent, TestFolderComponent],
-    })
-], AcmkitLibModule);
-export { AcmkitLibModule };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWNta2l0LWxpYi5tb2R1bGUuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9hY21raXQtbGliLyIsInNvdXJjZXMiOlsibGliL2FjbWtpdC1saWIubW9kdWxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ3pDLE9BQU8sRUFBRSxrQkFBa0IsRUFBRSxNQUFNLHdCQUF3QixDQUFDO0FBQzVELE9BQU8sRUFBRSxtQkFBbUIsRUFBRSxNQUFNLGdEQUFnRCxDQUFDO0FBT3JGLElBQWEsZUFBZSxHQUE1QixNQUFhLGVBQWU7Q0FBRyxDQUFBO0FBQWxCLGVBQWU7SUFMM0IsUUFBUSxDQUFDO1FBQ1IsWUFBWSxFQUFFLENBQUMsa0JBQWtCLEVBQUUsbUJBQW1CLENBQUM7UUFDdkQsT0FBTyxFQUFFLEVBQUU7UUFDWCxPQUFPLEVBQUUsQ0FBQyxrQkFBa0IsRUFBRSxtQkFBbUIsQ0FBQztLQUNuRCxDQUFDO0dBQ1csZUFBZSxDQUFHO1NBQWxCLGVBQWUiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgQWNta2l0TGliQ29tcG9uZW50IH0gZnJvbSAnLi9hY21raXQtbGliLmNvbXBvbmVudCc7XG5pbXBvcnQgeyBUZXN0Rm9sZGVyQ29tcG9uZW50IH0gZnJvbSAnLi9jb21wb25lbnRzL3Rlc3QtZm9sZGVyL3Rlc3QtZm9sZGVyLmNvbXBvbmVudCc7XG5cbkBOZ01vZHVsZSh7XG4gIGRlY2xhcmF0aW9uczogW0FjbWtpdExpYkNvbXBvbmVudCwgVGVzdEZvbGRlckNvbXBvbmVudF0sXG4gIGltcG9ydHM6IFtdLFxuICBleHBvcnRzOiBbQWNta2l0TGliQ29tcG9uZW50LCBUZXN0Rm9sZGVyQ29tcG9uZW50XSxcbn0pXG5leHBvcnQgY2xhc3MgQWNta2l0TGliTW9kdWxlIHt9XG4iXX0=
+import * as i0 from "@angular/core";
+export class AcmkitLibModule {
+}
+AcmkitLibModule.ɵmod = i0.ɵɵdefineNgModule({ type: AcmkitLibModule });
+AcmkitLibModule.ɵinj = i0.ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, imports: [[]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && i0.ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent], exports: [AcmkitLibComponent] }); })();
+/*@__PURE__*/ (function () { i0.ɵsetClassMetadata(AcmkitLibModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [AcmkitLibComponent],
+                imports: [],
+                exports: [AcmkitLibComponent]
+            }]
+    }], null, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWNta2l0LWxpYi5tb2R1bGUuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9hY21raXQtbGliLyIsInNvdXJjZXMiOlsibGliL2FjbWtpdC1saWIubW9kdWxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDekMsT0FBTyxFQUFFLGtCQUFrQixFQUFFLE1BQU0sd0JBQXdCLENBQUM7O0FBVTVELE1BQU0sT0FBTyxlQUFlOzttREFBZixlQUFlOzZHQUFmLGVBQWUsa0JBSmpCLEVBQ1I7d0ZBR1UsZUFBZSxtQkFMWCxrQkFBa0IsYUFHdkIsa0JBQWtCO2tEQUVqQixlQUFlO2NBTjNCLFFBQVE7ZUFBQztnQkFDUixZQUFZLEVBQUUsQ0FBQyxrQkFBa0IsQ0FBQztnQkFDbEMsT0FBTyxFQUFFLEVBQ1I7Z0JBQ0QsT0FBTyxFQUFFLENBQUMsa0JBQWtCLENBQUM7YUFDOUIiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgQWNta2l0TGliQ29tcG9uZW50IH0gZnJvbSAnLi9hY21raXQtbGliLmNvbXBvbmVudCc7XG5cblxuXG5ATmdNb2R1bGUoe1xuICBkZWNsYXJhdGlvbnM6IFtBY21raXRMaWJDb21wb25lbnRdLFxuICBpbXBvcnRzOiBbXG4gIF0sXG4gIGV4cG9ydHM6IFtBY21raXRMaWJDb21wb25lbnRdXG59KVxuZXhwb3J0IGNsYXNzIEFjbWtpdExpYk1vZHVsZSB7IH1cbiJdfQ==

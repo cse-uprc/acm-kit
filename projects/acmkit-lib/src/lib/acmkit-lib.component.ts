@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ak-acmkit-lib',
+  selector: 'ak-test-component',
   template: `
     <p>
-      acmkit-lib works!
+      Library is Working!
     </p>
   `,
-  styles: [
-  ]
+  styles: [],
 })
 export class AcmkitLibComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
