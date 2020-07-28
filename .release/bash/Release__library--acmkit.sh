@@ -18,7 +18,7 @@ echo "Bumping Version ..."
 node .release/js/version__bump.js
 echo ''
 
-echo "Build Library ..."
+echo "Building Library ..."
 npm run acmbuild
 echo ''
 
