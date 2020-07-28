@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'ak-test-component',
   template: `
     <p>
-      Library is Working! On Version 1.0.1
+      Library is Working! On Version 1.0.3 Finally
     </p>
   `,
   styles: [],

@@ -21,7 +21,7 @@ var AcmkitLibComponent = /** @class */ (function () {
     AcmkitLibComponent.ɵfac = function AcmkitLibComponent_Factory(t) { return new (t || AcmkitLibComponent)(); };
     AcmkitLibComponent.ɵcmp = ɵɵdefineComponent({ type: AcmkitLibComponent, selectors: [["ak-test-component"]], decls: 2, vars: 0, template: function AcmkitLibComponent_Template(rf, ctx) { if (rf & 1) {
             ɵɵelementStart(0, "p");
-            ɵɵtext(1, " Library is Working! On Version 1.0.1 ");
+            ɵɵtext(1, " Library is Working! On Version 1.0.3 Finally ");
             ɵɵelementEnd();
         } }, encapsulation: 2 });
     return AcmkitLibComponent;
@@ -30,7 +30,7 @@ var AcmkitLibComponent = /** @class */ (function () {
         type: Component,
         args: [{
                 selector: 'ak-test-component',
-                template: "\n    <p>\n      Library is Working! On Version 1.0.1\n    </p>\n  ",
+                template: "\n    <p>\n      Library is Working! On Version 1.0.3 Finally\n    </p>\n  ",
                 styles: [],
             }]
     }], function () { return []; }, null); })();
