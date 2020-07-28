@@ -23,15 +23,21 @@ AcmkitLibComponent.ɵcmp = ɵɵdefineComponent({ type: AcmkitLibComponent, selec
             }]
     }], function () { return []; }, null); })();
 
-class NumberAdderService {
+class MathService {
     constructor() { }
     addNumbers(num1, num2) {
         return num1 + num2;
     }
+    subtractNumbes(num1, num2) {
+        return num1 - num2;
+    }
+    multiplyNumbers(num1, num2) {
+        return num1 * num2;
+    }
 }
-NumberAdderService.ɵfac = function NumberAdderService_Factory(t) { return new (t || NumberAdderService)(); };
-NumberAdderService.ɵprov = ɵɵdefineInjectable({ token: NumberAdderService, factory: NumberAdderService.ɵfac, providedIn: 'root' });
-/*@__PURE__*/ (function () { ɵsetClassMetadata(NumberAdderService, [{
+MathService.ɵfac = function MathService_Factory(t) { return new (t || MathService)(); };
+MathService.ɵprov = ɵɵdefineInjectable({ token: MathService, factory: MathService.ɵfac, providedIn: 'root' });
+/*@__PURE__*/ (function () { ɵsetClassMetadata(MathService, [{
         type: Injectable,
         args: [{
                 providedIn: 'root',
@@ -41,7 +47,7 @@ NumberAdderService.ɵprov = ɵɵdefineInjectable({ token: NumberAdderService, fa
 class AcmkitLibModule {
 }
 AcmkitLibModule.ɵmod = ɵɵdefineNgModule({ type: AcmkitLibModule });
-AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, providers: [NumberAdderService], imports: [[]] });
+AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, providers: [MathService], imports: [[]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent], exports: [AcmkitLibComponent] }); })();
 /*@__PURE__*/ (function () { ɵsetClassMetadata(AcmkitLibModule, [{
         type: NgModule,
@@ -49,7 +55,7 @@ AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_F
                 declarations: [AcmkitLibComponent],
                 imports: [],
                 exports: [AcmkitLibComponent],
-                providers: [NumberAdderService],
+                providers: [MathService],
             }]
     }], null, null); })();
 
@@ -73,5 +79,5 @@ AcmkitLibService.ɵprov = ɵɵdefineInjectable({ token: AcmkitLibService, factor
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, NumberAdderService };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, MathService };
 //# sourceMappingURL=acmkit-lib.js.map
