@@ -14,7 +14,7 @@
     "version:patch": "cd projects/acmkit-lib/ && npm version patch && cd ../..",
     "version:minor": "cd projects/acmkit-lib/ && npm version minor && cd ../..",
     "version:major": "cd projects/acmkit-lib/ && npm version major && cd ../..",
-    "acmbuild": "ng build acmkit-lib"
+    "acmbuild": "ng build acmkit-lib --prod"
   },
   "private": true,
   "dependencies": {
