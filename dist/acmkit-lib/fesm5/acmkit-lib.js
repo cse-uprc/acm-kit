@@ -47,6 +47,9 @@ var MathService = /** @class */ (function () {
     MathService.prototype.addThreeNumbers = function (num1, num2, num3) {
         return num1 + num2 + num3;
     };
+    MathService.prototype.testMethod = function () {
+        console.log('This is from the library');
+    };
     MathService.ɵprov = ɵɵdefineInjectable({ factory: function MathService_Factory() { return new MathService(); }, token: MathService, providedIn: "root" });
     MathService = __decorate([
         Injectable({
