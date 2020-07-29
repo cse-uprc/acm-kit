@@ -23,7 +23,7 @@ npm run acmbuild
 echo ''
 
 echo "Bundling Styles ..."
-cp -r projects/acmkit-lib/src/lib/assets/ dist/acmkit-lib/
+cp -r style/assets/ dist/acmkit-lib/
 echo ''
 
 echo "Pushing Branch ..."
