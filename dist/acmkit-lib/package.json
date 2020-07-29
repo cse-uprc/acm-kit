@@ -1,6 +1,6 @@
 {
   "name": "acmkit-lib",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "peerDependencies": {
     "@angular/common": "^9.1.12",
     "@angular/core": "^9.1.12"
@@ -16,8 +16,6 @@
   "fesm5": "fesm5/acmkit-lib.js",
   "fesm2015": "fesm2015/acmkit-lib.js",
   "typings": "acmkit-lib.d.ts",
-  "sideEffects": false,
-  "scripts": {
-    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy. This is not allowed.\\nPlease delete and rebuild the package, without compiling with Ivy, before attempting to publish.\\n')\" && exit 1"
-  }
+  "metadata": "acmkit-lib.metadata.json",
+  "sideEffects": false
 }
