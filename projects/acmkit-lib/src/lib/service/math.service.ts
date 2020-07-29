@@ -21,4 +21,8 @@ export class MathService {
   addThreeNumbers(num1, num2, num3) {
     return num1 + num2 + num3;
   }
+
+  testMethod() {
+    console.log('This is from the library');
+  }
 }
