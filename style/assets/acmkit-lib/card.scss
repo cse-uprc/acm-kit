@@ -1,0 +1,90 @@
+html {
+  background-color: gray;
+  padding: 50px;
+}
+
+.detail {
+  width: 100%;
+}
+
+.detail .left-column {
+  padding-right: 24px;
+  float: left;
+}
+
+.detail .right-column {
+  float: right;
+}
+
+.card {
+  width: 100%;
+  display: inline-block;
+  height: auto;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #ffffff 12%, #fffff5 100%);
+  margin-bottom: 15px;
+}
+
+.padding-card {
+  padding: 20px;
+}
+
+.detail .content {
+  padding: 24px;
+  width: 50%;
+  display: inline-block;
+}
+
+.detail .label-header {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.content .label-text {
+  font-size: 20px;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+.leftColumn {
+  float: left;
+  padding-right: 24px;
+}
+
+.rightColumn {
+  float: right;
+}
+
+.column-wide {
+  width: 60%;
+}
+
+.column-narrow {
+  width: 40%;
+}
+
+.column-half {
+  width: 50%;
+}
+
+.detail .header {
+  display: inline-block;
+  height: auto;
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  background: #eeeff0;
+  border-bottom: 1px solid #d2d4d6;
+  padding: 10px 15px;
+}
+
+.header .title {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: ColinSerifWeb-Bold, Georgia, "Times New Roman", Times, serif;
+  color: #363b42;
+  display: inline-block;
+}
+
+.card-padding {
+  padding: 10px;
+}
