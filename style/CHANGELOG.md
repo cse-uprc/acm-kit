@@ -13,6 +13,8 @@
 
 > Test Style
 
+> Added blue, green, and purple style colors.
+
 <h3 style="color: orange;font-weight:900"> Changed</h3>
 
 > From Bootstrap to Bootstrap-sass
