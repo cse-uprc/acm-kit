@@ -1,0 +1,11 @@
+{
+  "name": "acmkit-style",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "^3.4.1"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^4.5.0"
+  }
+}

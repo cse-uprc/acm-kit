@@ -15,6 +15,14 @@
             "tsConfig": "projects/acmkit-lib/tsconfig.lib.json",
             "project": "projects/acmkit-lib/ng-package.json"
           },
+          "styles": [
+            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+            "src/styles.scss"
+          ],
+          "scripts": [
+            "./node_modules/jquery/dist/jquery.min.js",
+            "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+          ],
           "configurations": {
             "production": {
               "tsConfig": "projects/acmkit-lib/tsconfig.lib.prod.json"
