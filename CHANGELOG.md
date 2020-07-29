@@ -1,4 +1,4 @@
-# App Info
+# ACM Kit Components and Services
 
 - Changlog to keep library of what features, components, and services are being added per release.
 
@@ -6,7 +6,7 @@
 
 ---
 
-## **Release v3.0.0** - _07/28/2020_
+## **Release v6.0.0** - _07/28/2020_
 
 <h3 style="color: green;font-weight:900"> Added</h3>
 
