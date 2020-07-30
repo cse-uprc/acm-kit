@@ -1,4 +1,4 @@
-cd C:/Users/sambu/OneDrive/Desktop/acmkit
+cd C:/Users/sambu/OneDrive/Desktop/acm-kit
 echo "---------------------------------------------"
 echo "Beginning Deletion of Tags ..."
 echo ''
