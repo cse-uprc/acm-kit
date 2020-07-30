@@ -7,6 +7,14 @@
 
 ---
 
+## [unreleased]
+
+<h3 style="color: green;font-weight:900"> Added</h3>
+
+> Added card styling.
+
+---
+
 ## **Release v6.0.0** - _07/28/2020_
 
 <h3 style="color: green;font-weight:900"> Added</h3>
