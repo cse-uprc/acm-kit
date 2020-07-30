@@ -115,5 +115,5 @@ AcmkitLibService = __decorate([
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AngularTestTitleComponent, MathService, CardComponent as ɵa };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AngularTestTitleComponent, CardComponent, MathService };
 //# sourceMappingURL=acmkit-lib.js.map
