@@ -21,4 +21,6 @@
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 
 /* Style class for testing -- imports from local*/
-@import "./acmkit-lib/testStyles.scss";
+@import "./acmkit-lib/testStyles";
+@import "./acmkit-lib/card";
+@import "./acmkit-lib/utility";

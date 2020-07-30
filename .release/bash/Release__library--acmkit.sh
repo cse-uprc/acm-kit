@@ -22,10 +22,6 @@ echo "Building Library ..."
 npm run acmbuild
 echo ''
 
-echo "Bundling Styles ..."
-cp -r style/ dist/acmkit-lib/style
-echo ''
-
 echo "Pushing Branch ..."
 git add .
 git commit -m "ACMKIT: Incremental Release -- version bump"
