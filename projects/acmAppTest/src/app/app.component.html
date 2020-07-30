@@ -1,14 +1,27 @@
 <div class="global-app-background">
-  <div class="row">
-    <div class="col-md-7">
-      <ak-card title="Test Card">
-        <div>{{ title }}</div>
-      </ak-card>
+  <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+    <a class="navbar-brand" href="#">ACM Website</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#basicExampleNav"
+      aria-controls="basicExampleNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="col-md-5">
-      <ak-card title="Test Card">
-        <div>{{ title }}</div>
-      </ak-card>
-    </div>
-  </div>
+  </nav>
 </div>
