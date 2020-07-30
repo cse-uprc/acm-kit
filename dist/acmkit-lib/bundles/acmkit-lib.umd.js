@@ -338,8 +338,8 @@
     exports.AcmkitLibModule = AcmkitLibModule;
     exports.AcmkitLibService = AcmkitLibService;
     exports.AngularTestTitleComponent = AngularTestTitleComponent;
+    exports.CardComponent = CardComponent;
     exports.MathService = MathService;
-    exports.ɵa = CardComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

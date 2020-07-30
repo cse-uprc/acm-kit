@@ -9,6 +9,10 @@ export * from './lib/acmkit-lib.service';
  */
 export * from './lib/components/angular-test-title/angular-test-title.component';
 /**
+ * Components
+ */
+export * from './lib/components/card/card.component';
+/**
  * Test Services
  */
 export * from './lib/service/math.service';
