@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core')) :
-    typeof define === 'function' && define.amd ? define('acmkit-lib', ['exports', '@angular/core'], factory) :
-    (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core));
-}(this, (function (exports, core) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/platform-browser'), require('@angular/router')) :
+    typeof define === 'function' && define.amd ? define('acmkit-lib', ['exports', '@angular/core', '@angular/platform-browser', '@angular/router'], factory) :
+    (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core, global.ng.platformBrowser, global.ng.router));
+}(this, (function (exports, core, platformBrowser, router) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -254,6 +254,33 @@
         return AngularTestTitleComponent;
     }());
 
+    var CardComponent = /** @class */ (function () {
+        function CardComponent(router) {
+            this.router = router;
+            this.editRoute = '/';
+        }
+        CardComponent.prototype.ngOnInit = function () { };
+        CardComponent.prototype.onEditClick = function () {
+            this.router.navigate([this.editRoute]);
+        };
+        CardComponent.ctorParameters = function () { return [
+            { type: router.Router }
+        ]; };
+        __decorate([
+            core.Input()
+        ], CardComponent.prototype, "title", void 0);
+        __decorate([
+            core.Input()
+        ], CardComponent.prototype, "editRoute", void 0);
+        CardComponent = __decorate([
+            core.Component({
+                selector: 'ak-card',
+                template: "<div class=\"card\" [ngClass]=\"{ 'card-padding': !title }\">\r\n  <div *ngIf=\"title\" class=\"header\">\r\n    <div class=\"title\">{{ title }}</div>\r\n    <div *ngIf=\"editRoute\" class=\"edit-icon\"></div>\r\n  </div>\r\n  <div class=\"content-padding\"><ng-content></ng-content></div>\r\n</div>\r\n"
+            })
+        ], CardComponent);
+        return CardComponent;
+    }());
+
     var MathService = /** @class */ (function () {
         function MathService() {
         }
@@ -286,9 +313,9 @@
         }
         AcmkitLibModule = __decorate([
             core.NgModule({
-                declarations: [AcmkitLibComponent, AngularTestTitleComponent],
-                imports: [],
-                exports: [AcmkitLibComponent, AngularTestTitleComponent],
+                declarations: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
+                imports: [platformBrowser.BrowserModule, router.RouterModule],
+                exports: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
                 providers: [MathService],
             })
         ], AcmkitLibModule);
@@ -312,6 +339,7 @@
     exports.AcmkitLibService = AcmkitLibService;
     exports.AngularTestTitleComponent = AngularTestTitleComponent;
     exports.MathService = MathService;
+    exports.ɵa = CardComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

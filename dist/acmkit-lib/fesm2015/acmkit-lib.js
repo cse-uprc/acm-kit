@@ -1,5 +1,7 @@
 import { __decorate } from 'tslib';
 import { Component, Input, ɵɵdefineInjectable, Injectable, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { Router, RouterModule } from '@angular/router';
 
 let AcmkitLibComponent = class AcmkitLibComponent {
     constructor() { }
@@ -33,6 +35,32 @@ AngularTestTitleComponent = __decorate([
     })
 ], AngularTestTitleComponent);
 
+let CardComponent = class CardComponent {
+    constructor(router) {
+        this.router = router;
+        this.editRoute = '/';
+    }
+    ngOnInit() { }
+    onEditClick() {
+        this.router.navigate([this.editRoute]);
+    }
+};
+CardComponent.ctorParameters = () => [
+    { type: Router }
+];
+__decorate([
+    Input()
+], CardComponent.prototype, "title", void 0);
+__decorate([
+    Input()
+], CardComponent.prototype, "editRoute", void 0);
+CardComponent = __decorate([
+    Component({
+        selector: 'ak-card',
+        template: "<div class=\"card\" [ngClass]=\"{ 'card-padding': !title }\">\r\n  <div *ngIf=\"title\" class=\"header\">\r\n    <div class=\"title\">{{ title }}</div>\r\n    <div *ngIf=\"editRoute\" class=\"edit-icon\"></div>\r\n  </div>\r\n  <div class=\"content-padding\"><ng-content></ng-content></div>\r\n</div>\r\n"
+    })
+], CardComponent);
+
 let MathService = class MathService {
     constructor() { }
     addNumbers(num1, num2) {
@@ -62,9 +90,9 @@ let AcmkitLibModule = class AcmkitLibModule {
 };
 AcmkitLibModule = __decorate([
     NgModule({
-        declarations: [AcmkitLibComponent, AngularTestTitleComponent],
-        imports: [],
-        exports: [AcmkitLibComponent, AngularTestTitleComponent],
+        declarations: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
+        imports: [BrowserModule, RouterModule],
+        exports: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
         providers: [MathService],
     })
 ], AcmkitLibModule);
@@ -87,5 +115,5 @@ AcmkitLibService = __decorate([
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AngularTestTitleComponent, MathService };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AngularTestTitleComponent, MathService, CardComponent as ɵa };
 //# sourceMappingURL=acmkit-lib.js.map

@@ -1,5 +1,7 @@
 import { __decorate } from 'tslib';
 import { Component, Input, ɵɵdefineInjectable, Injectable, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { Router, RouterModule } from '@angular/router';
 
 var AcmkitLibComponent = /** @class */ (function () {
     function AcmkitLibComponent() {
@@ -30,6 +32,33 @@ var AngularTestTitleComponent = /** @class */ (function () {
         })
     ], AngularTestTitleComponent);
     return AngularTestTitleComponent;
+}());
+
+var CardComponent = /** @class */ (function () {
+    function CardComponent(router) {
+        this.router = router;
+        this.editRoute = '/';
+    }
+    CardComponent.prototype.ngOnInit = function () { };
+    CardComponent.prototype.onEditClick = function () {
+        this.router.navigate([this.editRoute]);
+    };
+    CardComponent.ctorParameters = function () { return [
+        { type: Router }
+    ]; };
+    __decorate([
+        Input()
+    ], CardComponent.prototype, "title", void 0);
+    __decorate([
+        Input()
+    ], CardComponent.prototype, "editRoute", void 0);
+    CardComponent = __decorate([
+        Component({
+            selector: 'ak-card',
+            template: "<div class=\"card\" [ngClass]=\"{ 'card-padding': !title }\">\r\n  <div *ngIf=\"title\" class=\"header\">\r\n    <div class=\"title\">{{ title }}</div>\r\n    <div *ngIf=\"editRoute\" class=\"edit-icon\"></div>\r\n  </div>\r\n  <div class=\"content-padding\"><ng-content></ng-content></div>\r\n</div>\r\n"
+        })
+    ], CardComponent);
+    return CardComponent;
 }());
 
 var MathService = /** @class */ (function () {
@@ -64,9 +93,9 @@ var AcmkitLibModule = /** @class */ (function () {
     }
     AcmkitLibModule = __decorate([
         NgModule({
-            declarations: [AcmkitLibComponent, AngularTestTitleComponent],
-            imports: [],
-            exports: [AcmkitLibComponent, AngularTestTitleComponent],
+            declarations: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
+            imports: [BrowserModule, RouterModule],
+            exports: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
             providers: [MathService],
         })
     ], AcmkitLibModule);
@@ -93,5 +122,5 @@ var AcmkitLibService = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AngularTestTitleComponent, MathService };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AngularTestTitleComponent, MathService, CardComponent as ɵa };
 //# sourceMappingURL=acmkit-lib.js.map
