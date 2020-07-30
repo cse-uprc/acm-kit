@@ -8,7 +8,7 @@ import { MathService } from './service/math.service';
 
 @NgModule({
   declarations: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
-  imports: [BrowserModule, RouterModule.forRoot([])],
+  imports: [BrowserModule, RouterModule],
   exports: [AcmkitLibComponent, AngularTestTitleComponent, CardComponent],
   providers: [MathService],
 })
