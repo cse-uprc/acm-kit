@@ -2,34 +2,34 @@
   width: 100%;
   display: inline-block;
   height: auto;
-  border-radius: 8px;
+  border-radius: $border-radius-full;
   text-align: left;
-  background: linear-gradient(to bottom, #ffffff 12%, #fffff5 100%);
-  margin-bottom: 15px;
+  background: linear-gradient(to bottom, $white 12%, $dark-white 100%);
+  margin-bottom: $margin-half;
 }
 
 .header {
   display: inline-block;
   height: auto;
   width: 100%;
-  border-radius: 8px 8px 0 0;
-  background: #eeeff0;
-  border-bottom: 1px solid #d2d4d6;
-  padding: 10px 15px;
+  border-radius: $border-radius-full $border-radius-full 0 0;
+  background: $wheat;
+  border-bottom: 1px solid $dark-wheat;
+  padding: $padding-half $margin-half;
 }
 
 .header .title {
-  font-size: 20px;
+  font-size: $header-font-size;
   font-weight: 600;
-  font-family: ColinSerifWeb-Bold, Georgia, "Times New Roman", Times, serif;
-  color: #363b42;
+  font-family: $header-font-family;
+  color: $dark-gray;
   display: inline-block;
 }
 
 .card-padding {
-  padding: 20px;
+  padding: $padding-full;
 }
 
 .content-padding {
-  padding: 15px;
+  padding: $padding-half;
 }
