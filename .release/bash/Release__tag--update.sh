@@ -1,4 +1,4 @@
-cd C:/Users/sambu/OneDrive/Desktop/acm-kit
+cd ../..
 
 echo "---------------------------------------------"
 echo "Begin Creation of New tag"
