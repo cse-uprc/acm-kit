@@ -18,6 +18,19 @@ AcmkitLibComponent = __decorate([
     })
 ], AcmkitLibComponent);
 
+let BasePageComponent = class BasePageComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+BasePageComponent = __decorate([
+    Component({
+        selector: 'ak-base-page',
+        template: "<div class=\"global-app-background\">\r\n  <ng-content></ng-content>\r\n</div>\r\n",
+        styles: [".global-app-background{-o-object-fit:cover;object-fit:cover;width:100%;height:100vh;background:url(../../../../style/assets/images/global-app-background.jpg) 0 0/cover no-repeat;text-align:center;position:absolute;overflow:auto;overflow-x:hidden!important}"]
+    })
+], BasePageComponent);
+
 let CardComponent = class CardComponent {
     constructor(router) {
         this.router = router;
@@ -48,9 +61,9 @@ let AcmkitLibModule = class AcmkitLibModule {
 };
 AcmkitLibModule = __decorate([
     NgModule({
-        declarations: [AcmkitLibComponent, CardComponent],
+        declarations: [AcmkitLibComponent, CardComponent, BasePageComponent],
         imports: [BrowserModule, RouterModule],
-        exports: [AcmkitLibComponent, CardComponent],
+        exports: [AcmkitLibComponent, CardComponent, BasePageComponent],
         providers: [],
     })
 ], AcmkitLibModule);
@@ -73,5 +86,5 @@ AcmkitLibService = __decorate([
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, CardComponent };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent };
 //# sourceMappingURL=acmkit-lib.js.map
