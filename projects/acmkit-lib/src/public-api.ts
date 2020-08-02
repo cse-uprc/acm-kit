@@ -9,3 +9,4 @@ export * from './lib/components/base-page/base-page.component';
  * Components
  */
 export * from './lib/components/card/card.component';
+export * from './lib/components/login-card/login-card.component';
