@@ -1,40 +1,40 @@
 .center-card {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .card-padding {
-    padding-top: 25px;
-    padding-bottom: 15px;
-    padding-left: 100px;
-    padding-right: 100px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .lccc-logo {
-    background: url(style/assets/images/lccc_logo.jpg);
-    background-size: contain;
-    width: 40px;
-    height: 40px;
-    margin: auto;
+  background: url($lccc-logo-image);
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  margin: auto;
 }
 
 .login-header {
-    margin-top: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .card-formatting {
-    display: grid;
-    padding-bottom: 15px;
-  }
+  display: grid;
+  padding-bottom: 15px;
+}
 
-input[type=text]:focus {
-    background-color: #f1f1f1;
-  }
+input[type="text"]:focus {
+  background-color: #f1f1f1;
+}
 
 .bottom-container {
-    text-align: center;
-    margin-top: 50px;
+  text-align: center;
+  margin-top: 50px;
 }
