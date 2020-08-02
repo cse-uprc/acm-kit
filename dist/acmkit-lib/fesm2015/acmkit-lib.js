@@ -20,14 +20,12 @@ AcmkitLibComponent = __decorate([
 
 let BasePageComponent = class BasePageComponent {
     constructor() { }
-    ngOnInit() {
-    }
+    ngOnInit() { }
 };
 BasePageComponent = __decorate([
     Component({
         selector: 'ak-base-page',
-        template: "<div class=\"global-app-background\">\r\n  <ng-content></ng-content>\r\n</div>\r\n",
-        styles: [".global-app-background{-o-object-fit:cover;object-fit:cover;width:100%;height:100vh;background:url(../../../../style/assets/images/global-app-background.jpg) 0 0/cover no-repeat;text-align:center;position:absolute;overflow:auto;overflow-x:hidden!important}"]
+        template: "<div class=\"global-app-background\">\r\n  <ng-content></ng-content>\r\n</div>\r\n"
     })
 ], BasePageComponent);
 
@@ -65,7 +63,7 @@ let LoginCardComponent = class LoginCardComponent {
 LoginCardComponent = __decorate([
     Component({
         selector: 'ak-login-card',
-        template: "<div class=\"center-card\">\r\n    <ak-card>\r\n        <div class=\"padding-card\">\r\n\r\n            <div class=\"lccc-logo\"></div>\r\n            <h1 class=\"login-header\">UPRC ACM Login</h1>\r\n    \r\n            <p style=\"text-align:center; margin-bottom: 30px\">or <a routerLink=\"/create-account\">Create Account</a></p>\r\n    \r\n            <div class=\"card-formatting\">\r\n                <label>Username:</label>\r\n                <input type=\"text\">\r\n            </div>\r\n    \r\n            <div class=\"card-formatting\">\r\n                <label>Password:</label>\r\n                <input type=\"text\">\r\n            </div>\r\n\r\n            <button class=\"btn btn-primary\" type=\"button\">Login</button>\r\n\r\n            <p style=\"text-align:center; margin-top: 20px\"><a routerLink=\"/reset-password\">Forgot password?</a></p>\r\n\r\n            <p class=\"bottom-container\" >Check out our <a href=\"https://github.com/cse-uprc\" target=\"_blank\">GitHub</a>!</p>\r\n            \r\n        </div>\r\n    </ak-card>\r\n</div>\r\n\r\n"
+        template: "<div class=\"center-card\">\r\n  <ak-card>\r\n    <div class=\"padding-card\">\r\n      <div class=\"lccc-logo\"></div>\r\n      <h1 class=\"login-header\">UPRC ACM Login</h1>\r\n\r\n      <p style=\"text-align: center; margin-bottom: 30px;\">\r\n        or <a routerLink=\"/create-account\">Create Account</a>\r\n      </p>\r\n\r\n      <div class=\"card-formatting\">\r\n        <label>Username:</label>\r\n        <input type=\"text\" />\r\n      </div>\r\n\r\n      <div class=\"card-formatting\">\r\n        <label>Password:</label>\r\n        <input type=\"text\" />\r\n      </div>\r\n\r\n      <button class=\"btn btn-primary\" type=\"button\">Login</button>\r\n\r\n      <p style=\"text-align: center; margin-top: 20px;\">\r\n        <a routerLink=\"/reset-password\">Forgot password?</a>\r\n      </p>\r\n\r\n      <p class=\"bottom-container\">\r\n        Check out our\r\n        <a href=\"https://github.com/cse-uprc\" target=\"_blank\">GitHub</a>!\r\n      </p>\r\n    </div>\r\n  </ak-card>\r\n</div>\r\n"
     })
 ], LoginCardComponent);
 
