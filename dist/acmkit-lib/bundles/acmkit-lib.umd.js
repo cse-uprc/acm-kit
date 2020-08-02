@@ -278,14 +278,28 @@
         return CardComponent;
     }());
 
+    var LoginCardComponent = /** @class */ (function () {
+        function LoginCardComponent() {
+        }
+        LoginCardComponent.prototype.ngOnInit = function () {
+        };
+        LoginCardComponent = __decorate([
+            core.Component({
+                selector: 'ak-login-card',
+                template: "<div class=\"center-card\">\r\n    <ak-card>\r\n        <div class=\"padding-card\">\r\n\r\n            <div class=\"lccc-logo\"></div>\r\n            <h1 class=\"login-header\">UPRC ACM Login</h1>\r\n    \r\n            <p style=\"text-align:center; margin-bottom: 30px\">or <a routerLink=\"/create-account\">Create Account</a></p>\r\n    \r\n            <div class=\"card-formatting\">\r\n                <label>Username:</label>\r\n                <input type=\"text\">\r\n            </div>\r\n    \r\n            <div class=\"card-formatting\">\r\n                <label>Password:</label>\r\n                <input type=\"text\">\r\n            </div>\r\n\r\n            <button class=\"btn btn-primary\" type=\"button\">Login</button>\r\n\r\n            <p style=\"text-align:center; margin-top: 20px\"><a routerLink=\"/reset-password\">Forgot password?</a></p>\r\n\r\n            <p class=\"bottom-container\" >Check out our <a href=\"https://github.com/cse-uprc\" target=\"_blank\">GitHub</a>!</p>\r\n            \r\n        </div>\r\n    </ak-card>\r\n</div>\r\n\r\n"
+            })
+        ], LoginCardComponent);
+        return LoginCardComponent;
+    }());
+
     var AcmkitLibModule = /** @class */ (function () {
         function AcmkitLibModule() {
         }
         AcmkitLibModule = __decorate([
             core.NgModule({
-                declarations: [AcmkitLibComponent, CardComponent, BasePageComponent],
+                declarations: [AcmkitLibComponent, CardComponent, BasePageComponent, LoginCardComponent],
                 imports: [platformBrowser.BrowserModule, router.RouterModule],
-                exports: [AcmkitLibComponent, CardComponent, BasePageComponent],
+                exports: [AcmkitLibComponent, CardComponent, BasePageComponent, LoginCardComponent],
                 providers: [],
             })
         ], AcmkitLibModule);
@@ -309,6 +323,7 @@
     exports.AcmkitLibService = AcmkitLibService;
     exports.BasePageComponent = BasePageComponent;
     exports.CardComponent = CardComponent;
+    exports.LoginCardComponent = LoginCardComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
