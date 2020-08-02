@@ -1,4 +1,4 @@
-cd C:/Users/sambu/OneDrive/Desktop/acm-kit
+cd ../..
 
 echo "---------------------------------------------"
 echo "Beginning Release ..."

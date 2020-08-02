@@ -24,12 +24,16 @@ var AcmkitLibComponent = /** @class */ (function () {
             }]
     }], function () { return []; }, null); })();
 
+<<<<<<< HEAD
 var _c0 = ["*"];
+=======
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
 var BasePageComponent = /** @class */ (function () {
     function BasePageComponent() {
     }
     BasePageComponent.prototype.ngOnInit = function () {
     };
+<<<<<<< HEAD
     BasePageComponent.ɵfac = function BasePageComponent_Factory(t) { return new (t || BasePageComponent)(); };
     BasePageComponent.ɵcmp = ɵɵdefineComponent({ type: BasePageComponent, selectors: [["ak-base-page"]], ngContentSelectors: _c0, decls: 2, vars: 0, consts: [[1, "global-app-background"]], template: function BasePageComponent_Template(rf, ctx) { if (rf & 1) {
             ɵɵprojectionDef();
@@ -67,6 +71,18 @@ function CardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
 } }
 var _c0$1 = function (a0) { return { "card-padding": a0 }; };
 var _c1 = ["*"];
+=======
+    BasePageComponent = __decorate([
+        Component({
+            selector: 'ak-base-page',
+            template: "<div class=\"global-app-background\">\r\n  <ng-content></ng-content>\r\n</div>\r\n",
+            styles: [".global-app-background{-o-object-fit:cover;object-fit:cover;width:100%;height:100vh;background:url(../../../../style/assets/images/global-app-background.jpg) 0 0/cover no-repeat;text-align:center;position:absolute;overflow:auto;overflow-x:hidden!important}"]
+        })
+    ], BasePageComponent);
+    return BasePageComponent;
+}());
+
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
 var CardComponent = /** @class */ (function () {
     function CardComponent(router) {
         this.router = router;
@@ -168,8 +184,19 @@ var LoginCardComponent = /** @class */ (function () {
 var AcmkitLibModule = /** @class */ (function () {
     function AcmkitLibModule() {
     }
+<<<<<<< HEAD
     AcmkitLibModule.ɵmod = ɵɵdefineNgModule({ type: AcmkitLibModule });
     AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, providers: [], imports: [[BrowserModule, RouterModule]] });
+=======
+    AcmkitLibModule = __decorate([
+        NgModule({
+            declarations: [AcmkitLibComponent, CardComponent, BasePageComponent],
+            imports: [BrowserModule, RouterModule],
+            exports: [AcmkitLibComponent, CardComponent, BasePageComponent],
+            providers: [],
+        })
+    ], AcmkitLibModule);
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
     return AcmkitLibModule;
 }());
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent, CardComponent, BasePageComponent, LoginCardComponent], imports: [BrowserModule, RouterModule], exports: [AcmkitLibComponent, CardComponent, BasePageComponent, LoginCardComponent] }); })();
@@ -205,5 +232,9 @@ var AcmkitLibService = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
+<<<<<<< HEAD
 export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LoginCardComponent };
+=======
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent };
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
 //# sourceMappingURL=acmkit-lib.js.map

@@ -26,6 +26,7 @@ AcmkitLibComponent.ɵcmp = ɵɵdefineComponent({ type: AcmkitLibComponent, selec
             }]
     }], function () { return []; }, null); })();
 
+<<<<<<< HEAD
 const _c0 = ["*"];
 class BasePageComponent {
     constructor() { }
@@ -68,6 +69,22 @@ function CardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
 const _c0$1 = function (a0) { return { "card-padding": a0 }; };
 const _c1 = ["*"];
 class CardComponent {
+=======
+let BasePageComponent = class BasePageComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+BasePageComponent = __decorate([
+    Component({
+        selector: 'ak-base-page',
+        template: "<div class=\"global-app-background\">\r\n  <ng-content></ng-content>\r\n</div>\r\n",
+        styles: [".global-app-background{-o-object-fit:cover;object-fit:cover;width:100%;height:100vh;background:url(../../../../style/assets/images/global-app-background.jpg) 0 0/cover no-repeat;text-align:center;position:absolute;overflow:auto;overflow-x:hidden!important}"]
+    })
+], BasePageComponent);
+
+let CardComponent = class CardComponent {
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
     constructor(router) {
         this.router = router;
         this.editRoute = '/';
@@ -162,6 +179,7 @@ LoginCardComponent.ɵcmp = ɵɵdefineComponent({ type: LoginCardComponent, selec
             }]
     }], function () { return []; }, null); })();
 
+<<<<<<< HEAD
 class AcmkitLibModule {
 }
 AcmkitLibModule.ɵmod = ɵɵdefineNgModule({ type: AcmkitLibModule });
@@ -176,6 +194,18 @@ AcmkitLibModule.ɵinj = ɵɵdefineInjector({ factory: function AcmkitLibModule_F
                 providers: [],
             }]
     }], null, null); })();
+=======
+let AcmkitLibModule = class AcmkitLibModule {
+};
+AcmkitLibModule = __decorate([
+    NgModule({
+        declarations: [AcmkitLibComponent, CardComponent, BasePageComponent],
+        imports: [BrowserModule, RouterModule],
+        exports: [AcmkitLibComponent, CardComponent, BasePageComponent],
+        providers: [],
+    })
+], AcmkitLibModule);
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
 
 class AcmkitLibService {
     constructor() { }
@@ -197,5 +227,9 @@ AcmkitLibService.ɵprov = ɵɵdefineInjectable({ token: AcmkitLibService, factor
  * Generated bundle index. Do not edit.
  */
 
+<<<<<<< HEAD
 export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LoginCardComponent };
+=======
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent };
+>>>>>>> 3bc40f3903c2f62e392b66c7cd0b8033880642db
 //# sourceMappingURL=acmkit-lib.js.map

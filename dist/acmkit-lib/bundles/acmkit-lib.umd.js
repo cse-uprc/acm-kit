@@ -16,58 +16,21 @@
             } }, encapsulation: 2 });
         return AcmkitLibComponent;
     }());
-    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(AcmkitLibComponent, [{
-            type: core.Component,
-            args: [{
-                    selector: 'ak-test-component',
-                    template: "\n    <p>\n      Library is Working! On Version 1.0.3 Finally\n    </p>\n  ",
-                    styles: [],
-                }]
-        }], function () { return []; }, null); })();
-
-    var _c0 = ["*"];
     var BasePageComponent = /** @class */ (function () {
         function BasePageComponent() {
         }
         BasePageComponent.prototype.ngOnInit = function () {
         };
-        BasePageComponent.ɵfac = function BasePageComponent_Factory(t) { return new (t || BasePageComponent)(); };
-        BasePageComponent.ɵcmp = core.ɵɵdefineComponent({ type: BasePageComponent, selectors: [["ak-base-page"]], ngContentSelectors: _c0, decls: 2, vars: 0, consts: [[1, "global-app-background"]], template: function BasePageComponent_Template(rf, ctx) { if (rf & 1) {
-                core.ɵɵprojectionDef();
-                core.ɵɵelementStart(0, "div", 0);
-                core.ɵɵprojection(1);
-                core.ɵɵelementEnd();
-            } }, styles: [".global-app-background[_ngcontent-%COMP%]{-o-object-fit:cover;object-fit:cover;width:100%;height:100vh;background:url(../../../../style/assets/images/global-app-background.jpg) 0 0/cover no-repeat;text-align:center;position:absolute;overflow:auto;overflow-x:hidden!important}"] });
+        BasePageComponent = __decorate([
+            core.Component({
+                selector: 'ak-base-page',
+                template: "<div class=\"global-app-background\">\r\n  <ng-content></ng-content>\r\n</div>\r\n",
+                styles: [".global-app-background{-o-object-fit:cover;object-fit:cover;width:100%;height:100vh;background:url(../../../../style/assets/images/global-app-background.jpg) 0 0/cover no-repeat;text-align:center;position:absolute;overflow:auto;overflow-x:hidden!important}"]
+            })
+        ], BasePageComponent);
         return BasePageComponent;
     }());
-    /*@__PURE__*/ (function () { core.ɵsetClassMetadata(BasePageComponent, [{
-            type: core.Component,
-            args: [{
-                    selector: 'ak-base-page',
-                    templateUrl: './base-page.component.html',
-                    styleUrls: ['./base-page.component.scss']
-                }]
-        }], function () { return []; }, null); })();
 
-    function CardComponent_div_1_div_3_Template(rf, ctx) { if (rf & 1) {
-        core.ɵɵelement(0, "div", 6);
-    } }
-    function CardComponent_div_1_Template(rf, ctx) { if (rf & 1) {
-        core.ɵɵelementStart(0, "div", 3);
-        core.ɵɵelementStart(1, "div", 4);
-        core.ɵɵtext(2);
-        core.ɵɵelementEnd();
-        core.ɵɵtemplate(3, CardComponent_div_1_div_3_Template, 1, 0, "div", 5);
-        core.ɵɵelementEnd();
-    } if (rf & 2) {
-        var ctx_r0 = core.ɵɵnextContext();
-        core.ɵɵadvance(2);
-        core.ɵɵtextInterpolate(ctx_r0.title);
-        core.ɵɵadvance(1);
-        core.ɵɵproperty("ngIf", ctx_r0.editRoute);
-    } }
-    var _c0$1 = function (a0) { return { "card-padding": a0 }; };
-    var _c1 = ["*"];
     var CardComponent = /** @class */ (function () {
         function CardComponent(router) {
             this.router = router;
@@ -169,8 +132,14 @@
     var AcmkitLibModule = /** @class */ (function () {
         function AcmkitLibModule() {
         }
-        AcmkitLibModule.ɵmod = core.ɵɵdefineNgModule({ type: AcmkitLibModule });
-        AcmkitLibModule.ɵinj = core.ɵɵdefineInjector({ factory: function AcmkitLibModule_Factory(t) { return new (t || AcmkitLibModule)(); }, providers: [], imports: [[platformBrowser.BrowserModule, router.RouterModule]] });
+        AcmkitLibModule = __decorate([
+            core.NgModule({
+                declarations: [AcmkitLibComponent, CardComponent, BasePageComponent],
+                imports: [platformBrowser.BrowserModule, router.RouterModule],
+                exports: [AcmkitLibComponent, CardComponent, BasePageComponent],
+                providers: [],
+            })
+        ], AcmkitLibModule);
         return AcmkitLibModule;
     }());
     (function () { (typeof ngJitMode === "undefined" || ngJitMode) && core.ɵɵsetNgModuleScope(AcmkitLibModule, { declarations: [AcmkitLibComponent, CardComponent, BasePageComponent, LoginCardComponent], imports: [platformBrowser.BrowserModule, router.RouterModule], exports: [AcmkitLibComponent, CardComponent, BasePageComponent, LoginCardComponent] }); })();
