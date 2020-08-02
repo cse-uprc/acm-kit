@@ -3,13 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'ak-base-page',
   templateUrl: './base-page.component.html',
-  styleUrls: ['./base-page.component.scss']
 })
 export class BasePageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
