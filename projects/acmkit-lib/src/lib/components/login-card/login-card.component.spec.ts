@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { CardComponent } from 'acmkit-lib';
 import { LoginCardComponent } from './login-card.component';
 
 describe('LoginCardComponent', () => {
@@ -8,9 +9,9 @@ describe('LoginCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginCardComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [LoginCardComponent, CardComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

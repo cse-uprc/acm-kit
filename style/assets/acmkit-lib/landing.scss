@@ -1,0 +1,662 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+}
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 30px;
+  color: #232323;
+}
+h4 {
+  font-size: 18px;
+  color: #232323;
+}
+h6 {
+  font-size: 14px;
+  color: #232323;
+}
+h5 {
+  color: #232323;
+}
+a {
+  transition: 0.6s;
+}
+a,
+a:hover {
+  color: #666666;
+}
+a,
+a:hover,
+a:focus,
+a:active,
+button:focus {
+  text-decoration: none;
+  border: none;
+  outline: 0;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sec-title {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto 40px;
+}
+.sec-title h2 {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  top: -6px;
+}
+.sec-title h2 .sec-title-border {
+  width: 130px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top: 2px solid #222;
+  right: 0;
+  height: 0;
+  margin: auto;
+}
+.sec-title h2 .sec-title-border span {
+  width: 9px;
+  height: 9px;
+  position: relative;
+  display: inline-block;
+  margin: 0 1px;
+  bottom: 23.3px;
+}
+.sec-title h2 .sec-title-border span::before {
+  background: #222;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: rotate(45deg);
+}
+.mt-100 {
+  margin-top: 100px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.ptb-100 {
+  padding: 100px 0;
+}
+.ptb-90 {
+  padding: 90px 0;
+}
+.header.sticky .mainmenu li a.radius-btn,
+.mainmenu li a.radius-btn,
+.radius-btn {
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 15px;
+  padding: 6px 25px;
+  display: inline-block;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 500;
+}
+.header.sticky .mainmenu li a.radius-btn:hover,
+.mainmenu li a.radius-btn:hover,
+.radius-btn:hover {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #666;
+}
+.flexbox-center {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+input::-webkit-input-placeholder {
+  color: #666;
+}
+
+/*--------------------------------------
+-------- HEADER AREA CSS START --------
+---------------------------------------*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.4s;
+  width: 100%;
+  z-index: 99;
+  padding: 18px 0;
+}
+.mainmenu {
+  text-align: left;
+}
+.mainmenu li {
+  display: inline-block;
+  text-transform: uppercase;
+}
+.mainmenu li a {
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  padding: 5px 16px;
+  margin: 0 3px;
+  border: 1px solid transparent;
+}
+.slicknav_menu {
+  padding: 0;
+  background: transparent;
+}
+.slicknav_menu a.active,
+.mainmenu ul li a:hover,
+.mainmenu ul li a.active {
+  border: 1px solid #fff;
+}
+.mainmenu {
+  display: block;
+}
+.slicknav_menu {
+  display: none;
+}
+.header.sticky {
+  border-radius: 0;
+  border-bottom: 1px solid #fff;
+  background: #000529; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  );
+}
+.header.sticky {
+  padding: 10px 0;
+}
+.mainmenu li a.radius-btn {
+  margin-left: 55px;
+}
+/*--------------------------------------
+--------- HEADER AREA CSS END ---------
+---------------------------------------*/
+
+/*--------------------------------------
+-------- HERO AREA CSS START --------
+---------------------------------------*/
+.hero-area {
+  padding-top: 140px;
+  z-index: 1;
+  position: relative;
+  background-image: url(https://3dprintingindustry.com/wp-content/uploads/2014/09/lccc-ridge-campus-3d-printing-industry.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+.hero-area::before {
+  content: "";
+  top: 0;
+  left: 0;
+  opacity: 0.85;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: absolute;
+  background: #000529; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  );
+}
+.hero-area-content {
+  color: #fff;
+  padding: 80px 0 170px;
+}
+.hero-area-content h1 {
+  color: #fff;
+}
+.hero-area-content p {
+  margin: 28px 0 25px;
+}
+.hero-area-content .radius-btn {
+  margin-top: 15px;
+  margin-right: 15px;
+}
+.hand-mockup {
+  position: absolute;
+  bottom: -2px;
+  max-width: 100%;
+}
+/*------------------------------------
+--------- HERO AREA CSS END ---------
+------------------------------------*/
+
+/*--------------------------------------
+-------- ABOUT AREA CSS START --------
+---------------------------------------*/
+.about-area {
+  text-align: center;
+}
+.single-about-box {
+  padding: 25px;
+  transition: all 0.4s;
+}
+.single-about-box i::before {
+  color: #0074da;
+  font-size: 40px;
+  transition: all 0.4s;
+  display: block;
+}
+.single-about-box.active,
+.single-about-box:hover {
+  box-shadow: 0 0 5px #ccc;
+}
+.single-about-box.active i::before,
+.single-about-box:hover i::before {
+  color: #000;
+}
+.single-about-box h4 {
+  margin: 25px 0 15px;
+}
+/*--------------------------------------
+---------- ABOUT AREA CSS END ----------
+---------------------------------------*/
+
+/*--------------------------------------
+-------- FEATURE AREA CSS START --------
+---------------------------------------*/
+.feature-area {
+  z-index: 1;
+  position: relative;
+  background-image: url(https://www.sasaki.com/wp-content/uploads/2019/10/IMG_0046_website-1800x1200.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.feature-area::before {
+  content: "";
+  top: 0;
+  left: 0;
+  opacity: 0.85;
+  right: 0;
+  bottom: 0;
+  background: #000529; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  );
+  z-index: -1;
+  position: absolute;
+}
+.single-feature-box h4 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.single-feature-box li {
+  margin-bottom: 45px;
+  display: flex;
+}
+.single-feature-box li:last-child {
+  margin-bottom: 0;
+}
+.feature-box-info {
+  flex: 5;
+}
+.feature-box-icon {
+  flex: 1;
+  font-size: 20px;
+  transition: all 0.4s;
+}
+.single-feature-box li:hover .feature-box-icon i::before {
+  border-radius: 0;
+}
+.single-feature-box h2,
+.single-feature-box h3,
+.single-feature-box h4,
+.single-feature-box {
+  color: #fff;
+}
+.feature-box-icon i::before {
+  border: 2px dashed #fff;
+  width: 40px;
+  display: inline-block;
+  height: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 100%;
+  transition: all 0.4s;
+}
+/*--------------------------------------
+--------- FEATURE AREA CSS END ---------
+---------------------------------------*/
+
+/*--------------------------------------
+-------- TEAM AREA CSS START --------
+---------------------------------------*/
+.single-team-member {
+  text-align: center;
+  box-shadow: 0 2px 15px -5px #222;
+  transition: color 1s ease;
+}
+.single-team-member:hover {
+  color: white;
+  background: -moz-linear-gradient(left, #005db5 67%, #0074d9 100%);
+  background: -webkit-linear-gradient(left, #005db5 67%, #0074d9 100%);
+  background: linear-gradient(to right, #005db5 67%, #0074d9 100%);
+}
+.team-member-info h4 {
+  font-size: 20px;
+}
+.team-member-info {
+  padding: 20px 10px;
+}
+.team-member-img {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.team-member-icon {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 100%;
+  transition: all 0.4s;
+}
+.team-member-img::before {
+  content: "";
+  background: #000529;
+  background: -moz-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  );
+  background: linear-gradient(
+    to right,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  );
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  transition: all 0.4s;
+  position: absolute;
+  opacity: 0.85;
+}
+.team-member-icon a {
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  line-height: 30px;
+  border: 1px solid transparent;
+}
+.team-member-icon a:hover {
+  border: 1px solid #fff;
+}
+.single-team-member:hover .team-member-img::before {
+  width: 100%;
+}
+.single-team-member:hover .team-member-icon {
+  left: 0;
+}
+/*--------------------------------------
+--------- TEAM AREA CSS END ---------
+---------------------------------------*/
+
+/*---------------------------------------
+----- FOOTER AREA CSS START -----
+---------------------------------------*/
+.footer {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 35px;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000529; /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    #000529 1%,
+    #002055 24%,
+    #005db5 67%,
+    #0074d9 100%
+  );
+  opacity: 0.85;
+  z-index: -1;
+}
+.contact-form,
+.contact-address {
+  background: #fff;
+  padding: 40px 65px;
+  margin-bottom: 40px;
+  margin-top: -80px;
+  border: 1px solid #ddd;
+}
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  border: 1px solid #bbb;
+}
+.contact-form button {
+  transition: all 0.4s;
+}
+.blog-reply button:hover,
+.contact-form button:hover {
+  background: #0074da;
+  border-color: #0074da;
+  color: #fff;
+}
+.contact-form h4,
+.contact-address h4 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.contact-address li {
+  margin-bottom: 33px;
+  display: flex;
+}
+.contact-address li .contact-address-icon {
+  flex: 1;
+}
+.contact-address li .contact-address-info {
+  flex: 6;
+}
+.contact-address li .contact-address-icon i::before {
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  border: 1px solid #0074da;
+  display: block;
+  text-align: center;
+  line-height: 39px;
+  font-size: 18px;
+  transition: all 0.4s;
+}
+.contact-address li .contact-address-info a {
+  display: block;
+}
+.contact-address p {
+  margin-bottom: 45px;
+  padding-top: 10px;
+}
+.contact-address li:hover .contact-address-icon i::before {
+  background: #0074da;
+  color: #fff;
+}
+.subscribe-form {
+  margin: 40px 0 40px;
+  text-align: center;
+}
+.copyright-area {
+  text-align: center;
+  margin-top: 10px;
+}
+.copyright-area ul li {
+  display: inline-block;
+}
+.copyright-area ul li a {
+  width: 35px;
+  height: 35px;
+  color: #0074da;
+  background: #fff;
+  display: inline-block;
+  line-height: 35px;
+  font-size: 16px;
+  border-radius: 100%;
+  margin: 0 5px;
+}
+.copyright-area ul li a:hover {
+  background: #0074da;
+  color: #fff;
+}
+.copyright-area ul {
+  margin-bottom: 30px;
+}
+.copyright-area p {
+  color: #fff;
+}
+.copyright-area p a {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+.subscribe-form form {
+  position: relative;
+  max-width: 580px;
+  margin: auto;
+  z-index: 1;
+  border-radius: 30px;
+  display: inline-block;
+  width: 100%;
+  background: #fff;
+}
+.subscribe-form form input {
+  background: transparent;
+  border: 0;
+  width: 70%;
+  padding: 15px 30px;
+  float: left;
+  margin: 0;
+}
+.subscribe-form form button {
+  width: 29%;
+  padding: 15px 30px;
+  border: 0;
+  border-radius: 30px;
+  background: #0074da;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  float: right;
+  margin: 0;
+  margin-right: -1%;
+}
+/*---------------------------------------
+------ FOOTER AREA CSS END ------
+---------------------------------------*/
