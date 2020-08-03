@@ -348,8 +348,8 @@
     exports.AcmkitLibService = AcmkitLibService;
     exports.BasePageComponent = BasePageComponent;
     exports.CardComponent = CardComponent;
+    exports.LandingComponent = LandingComponent;
     exports.LoginCardComponent = LoginCardComponent;
-    exports.ɵa = LandingComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

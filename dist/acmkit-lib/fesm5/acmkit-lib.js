@@ -131,5 +131,5 @@ var AcmkitLibService = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LoginCardComponent, LandingComponent as ɵa };
+export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent };
 //# sourceMappingURL=acmkit-lib.js.map
