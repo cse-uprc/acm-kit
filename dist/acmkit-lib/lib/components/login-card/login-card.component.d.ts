@@ -1,5 +1,9 @@
-import { OnInit } from '@angular/core';
-export declare class LoginCardComponent implements OnInit {
+export declare class LoginCardComponent {
+    twitterLink: string;
+    twitterIcon: string;
+    githubLink: string;
+    githubIcon: string;
+    facebookLink: string;
+    facebookIcon: string;
     constructor();
-    ngOnInit(): void;
 }
