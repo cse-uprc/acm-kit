@@ -1,14 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'ak-login-card',
-  templateUrl: './login-card.component.html'
+  templateUrl: './login-card.component.html',
 })
-export class LoginCardComponent implements OnInit {
+export class LoginCardComponent {
+  twitterLink = '';
+  twitterIcon =
+    'https://cdn4.iconfinder.com/data/icons/miu-hexagon-flat-social/60/twitter-hexagon-social-media-32.png';
 
-  constructor() { }
+  githubLink = 'https://github.com/cse-uprc';
+  githubIcon =
+    'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/github_six_gray-256.png';
 
-  ngOnInit(): void {
-  }
+  facebookLink = '';
+  facebookIcon =
+    'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/Untitled-16-32.png';
 
+  constructor() {}
 }

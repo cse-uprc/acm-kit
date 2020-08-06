@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AcmkitLibComponent } from './acmkit-lib.component';
 import { BasePageComponent } from './components/base-page/base-page.component';
@@ -15,7 +17,12 @@ import { LoginCardComponent } from './components/login-card/login-card.component
     LoginCardComponent,
     LandingComponent,
   ],
-  imports: [BrowserModule, RouterModule],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatTooltipModule,
+  ],
   exports: [
     AcmkitLibComponent,
     CardComponent,

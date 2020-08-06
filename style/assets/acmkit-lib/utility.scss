@@ -1,3 +1,7 @@
+input {
+  outline: none;
+}
+
 .float-left {
   float: left;
 }
@@ -16,4 +20,16 @@
 
 .column-half {
   width: 50%;
+}
+
+.target-pointer {
+  cursor: pointer !important;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.inline-block {
+  display: inline-block;
 }
