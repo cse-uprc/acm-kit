@@ -1,8 +1,12 @@
-import { __decorate } from 'tslib';
+import { __decorate, __awaiter } from 'tslib';
 import { Component, Input, ViewChild, HostListener, NgModule, ɵɵdefineInjectable, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { RouterTestingModule } from '@angular/router/testing';
+import { configureTestSuite } from 'ng-bullet';
 
 let AcmkitLibComponent = class AcmkitLibComponent {
     constructor() { }
@@ -164,6 +168,39 @@ AcmkitLibService = __decorate([
     })
 ], AcmkitLibService);
 
+class AbstractTestBed {
+    static useProvider(moduleMetaData, provider) {
+        const index = moduleMetaData.providers.findIndex((p) => p.provide === provider || p.provide === provider.provide);
+        if (index >= 0) {
+            moduleMetaData.providers.splice(index, 1);
+        }
+        moduleMetaData.providers.push(provider);
+    }
+    static setup(updateModuleMetaData) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const moduleMetaData = this.getModuleMetaData();
+            if (updateModuleMetaData) {
+                updateModuleMetaData(moduleMetaData);
+            }
+            TestBed.configureTestingModule(moduleMetaData);
+        });
+    }
+    static getModuleMetaData() {
+        return null;
+    }
+}
+
+class AcmKitTestBed extends AbstractTestBed {
+    static getModuleMetaData() {
+        return {
+            imports: [RouterTestingModule, CommonModule],
+            declarations: [],
+        };
+    }
+}
+
+const setupTests = (initTest) => configureTestSuite(() => initTest());
+
 /**
  * Public API Surface of acmkit-lib
  */
@@ -172,5 +209,5 @@ AcmkitLibService = __decorate([
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent, setupTests };
 //# sourceMappingURL=acmkit-lib.js.map

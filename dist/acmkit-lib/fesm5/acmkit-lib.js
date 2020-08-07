@@ -1,8 +1,12 @@
-import { __decorate } from 'tslib';
+import { __decorate, __awaiter, __generator, __extends } from 'tslib';
 import { Component, Input, ViewChild, HostListener, NgModule, ɵɵdefineInjectable, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
+import { RouterTestingModule } from '@angular/router/testing';
+import { configureTestSuite } from 'ng-bullet';
 
 var AcmkitLibComponent = /** @class */ (function () {
     function AcmkitLibComponent() {
@@ -172,6 +176,51 @@ var AcmkitLibService = /** @class */ (function () {
     return AcmkitLibService;
 }());
 
+var AbstractTestBed = /** @class */ (function () {
+    function AbstractTestBed() {
+    }
+    AbstractTestBed.useProvider = function (moduleMetaData, provider) {
+        var index = moduleMetaData.providers.findIndex(function (p) { return p.provide === provider || p.provide === provider.provide; });
+        if (index >= 0) {
+            moduleMetaData.providers.splice(index, 1);
+        }
+        moduleMetaData.providers.push(provider);
+    };
+    AbstractTestBed.setup = function (updateModuleMetaData) {
+        return __awaiter(this, void 0, void 0, function () {
+            var moduleMetaData;
+            return __generator(this, function (_a) {
+                moduleMetaData = this.getModuleMetaData();
+                if (updateModuleMetaData) {
+                    updateModuleMetaData(moduleMetaData);
+                }
+                TestBed.configureTestingModule(moduleMetaData);
+                return [2 /*return*/];
+            });
+        });
+    };
+    AbstractTestBed.getModuleMetaData = function () {
+        return null;
+    };
+    return AbstractTestBed;
+}());
+
+var AcmKitTestBed = /** @class */ (function (_super) {
+    __extends(AcmKitTestBed, _super);
+    function AcmKitTestBed() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    AcmKitTestBed.getModuleMetaData = function () {
+        return {
+            imports: [RouterTestingModule, CommonModule],
+            declarations: [],
+        };
+    };
+    return AcmKitTestBed;
+}(AbstractTestBed));
+
+var setupTests = function (initTest) { return configureTestSuite(function () { return initTest(); }); };
+
 /**
  * Public API Surface of acmkit-lib
  */
@@ -180,5 +229,5 @@ var AcmkitLibService = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent, setupTests };
 //# sourceMappingURL=acmkit-lib.js.map

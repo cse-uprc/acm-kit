@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/platform-browser'), require('@angular/platform-browser/animations'), require('@angular/router')) :
-    typeof define === 'function' && define.amd ? define('acmkit-lib', ['exports', '@angular/core', '@angular/platform-browser', '@angular/platform-browser/animations', '@angular/router'], factory) :
-    (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core, global.ng.platformBrowser, global.ng.platformBrowser.animations, global.ng.router));
-}(this, (function (exports, core, platformBrowser, animations, router) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/platform-browser'), require('@angular/platform-browser/animations'), require('@angular/router'), require('@angular/core/testing'), require('@angular/common'), require('@angular/router/testing'), require('ng-bullet')) :
+    typeof define === 'function' && define.amd ? define('acmkit-lib', ['exports', '@angular/core', '@angular/platform-browser', '@angular/platform-browser/animations', '@angular/router', '@angular/core/testing', '@angular/common', '@angular/router/testing', 'ng-bullet'], factory) :
+    (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core, global.ng.platformBrowser, global.ng.platformBrowser.animations, global.ng.router, global.ng.core.testing, global.ng.common, global.ng.router.testing, global.ngBullet));
+}(this, (function (exports, core, platformBrowser, animations, router, testing, common, testing$1, ngBullet) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -391,6 +391,53 @@
         return AcmkitLibService;
     }());
 
+    var AbstractTestBed = /** @class */ (function () {
+        function AbstractTestBed() {
+        }
+        AbstractTestBed.useProvider = function (moduleMetaData, provider) {
+            var index = moduleMetaData.providers.findIndex(function (p) { return p.provide === provider || p.provide === provider.provide; });
+            if (index >= 0) {
+                moduleMetaData.providers.splice(index, 1);
+            }
+            moduleMetaData.providers.push(provider);
+        };
+        AbstractTestBed.setup = function (updateModuleMetaData) {
+            return __awaiter(this, void 0, void 0, function () {
+                var moduleMetaData;
+                return __generator(this, function (_a) {
+                    moduleMetaData = this.getModuleMetaData();
+                    if (updateModuleMetaData) {
+                        updateModuleMetaData(moduleMetaData);
+                    }
+                    testing.TestBed.configureTestingModule(moduleMetaData);
+                    return [2 /*return*/];
+                });
+            });
+        };
+        AbstractTestBed.getModuleMetaData = function () {
+            return null;
+        };
+        return AbstractTestBed;
+    }());
+
+    var AcmKitTestBed = /** @class */ (function (_super) {
+        __extends(AcmKitTestBed, _super);
+        function AcmKitTestBed() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        AcmKitTestBed.getModuleMetaData = function () {
+            return {
+                imports: [testing$1.RouterTestingModule, common.CommonModule],
+                declarations: [],
+            };
+        };
+        return AcmKitTestBed;
+    }(AbstractTestBed));
+
+    var setupTests = function (initTest) { return ngBullet.configureTestSuite(function () { return initTest(); }); };
+
+    exports.AbstractTestBed = AbstractTestBed;
+    exports.AcmKitTestBed = AcmKitTestBed;
     exports.AcmkitLibComponent = AcmkitLibComponent;
     exports.AcmkitLibModule = AcmkitLibModule;
     exports.AcmkitLibService = AcmkitLibService;
@@ -398,6 +445,7 @@
     exports.CardComponent = CardComponent;
     exports.LandingComponent = LandingComponent;
     exports.LoginCardComponent = LoginCardComponent;
+    exports.setupTests = setupTests;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 
