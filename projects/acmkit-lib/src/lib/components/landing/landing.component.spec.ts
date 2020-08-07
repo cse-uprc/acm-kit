@@ -1,17 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AcmKitTestBed } from '../../testing/acm-kit-test-bed';
+import { setupTests } from '../../testing/test-setup';
 import { LandingComponent } from './landing.component';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
   let fixture: ComponentFixture<LandingComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [LandingComponent],
-    }).compileComponents();
-  }));
+  setupTests(async () => AcmKitTestBed.setup());
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LandingComponent);

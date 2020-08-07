@@ -1,18 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { CardComponent } from 'acmkit-lib';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AcmKitTestBed } from '../../testing/acm-kit-test-bed';
+import { setupTests } from '../../testing/test-setup';
 import { LoginCardComponent } from './login-card.component';
 
 describe('LoginCardComponent', () => {
   let component: LoginCardComponent;
   let fixture: ComponentFixture<LoginCardComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [LoginCardComponent, CardComponent],
-    }).compileComponents();
-  }));
+  setupTests(async () => AcmKitTestBed.setup());
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginCardComponent);

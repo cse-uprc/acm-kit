@@ -1,17 +1,13 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AcmKitTestBed } from '../../testing/acm-kit-test-bed';
+import { setupTests } from '../../testing/test-setup';
 import { BasePageComponent } from './base-page.component';
 
 describe('BasePageComponent', () => {
   let component: BasePageComponent;
   let fixture: ComponentFixture<BasePageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BasePageComponent ]
-    })
-    .compileComponents();
-  }));
+  setupTests(async () => AcmKitTestBed.setup());
 
   beforeEach(() => {
     fixture = TestBed.createComponent(BasePageComponent);
