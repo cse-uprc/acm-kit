@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'ak-login-card',
@@ -17,5 +18,9 @@ export class LoginCardComponent {
   facebookIcon =
     'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/Untitled-16-32.png';
 
-  constructor() {}
+  constructor(private readonly authService: AuthService) {}
+
+  onSignIn(username: string, password: string) {
+    this.authService.authenticate(username, password);
+  }
 }

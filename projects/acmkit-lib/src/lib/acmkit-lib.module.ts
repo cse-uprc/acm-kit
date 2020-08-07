@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,6 +8,7 @@ import { BasePageComponent } from './components/base-page/base-page.component';
 import { CardComponent } from './components/card/card.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,13 @@ import { LoginCardComponent } from './components/login-card/login-card.component
     LoginCardComponent,
     LandingComponent,
   ],
-  imports: [BrowserModule, RouterModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    ServicesModule,
+  ],
   exports: [
     AcmkitLibComponent,
     CardComponent,
@@ -24,6 +32,5 @@ import { LoginCardComponent } from './components/login-card/login-card.component
     LoginCardComponent,
     LandingComponent,
   ],
-  providers: [],
 })
 export class AcmkitLibModule {}

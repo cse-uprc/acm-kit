@@ -12,7 +12,12 @@ export * from './lib/components/card/card.component';
 export * from './lib/components/landing/landing.component';
 export * from './lib/components/login-card/login-card.component';
 /**
- * Components
+ * Services
+ */
+export * from './lib/services/auth/auth.service';
+export * from './lib/services/services.module';
+/**
+ * Testing
  */
 export * from './lib/testing/abstract-test-bed';
 export * from './lib/testing/acm-kit-test-bed';
