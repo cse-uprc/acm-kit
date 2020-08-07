@@ -1,6 +1,6 @@
 {
   "name": "acmkit-lib",
-  "version": "7.4.4",
+  "version": "7.4.5",
   "peerDependencies": {
     "@angular/common": "^9.1.12",
     "@angular/core": "^9.1.12"
