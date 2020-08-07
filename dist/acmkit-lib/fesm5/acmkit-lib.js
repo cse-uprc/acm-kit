@@ -1,10 +1,12 @@
 import { __decorate, __awaiter, __generator, __extends } from 'tslib';
-import { Component, Input, ViewChild, HostListener, NgModule, ɵɵdefineInjectable, Injectable } from '@angular/core';
+import { Component, Input, ViewChild, HostListener, ɵɵdefineInjectable, ɵɵinject, Injectable, NgModule } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { configureTestSuite } from 'ng-bullet';
 
@@ -120,8 +122,47 @@ var LandingComponent = /** @class */ (function () {
     return LandingComponent;
 }());
 
+var Environment = /** @class */ (function () {
+    function Environment() {
+    }
+    Environment.API_URL = window.location.href.includes('acm-web')
+        ? 'https://acm-microservice-prod.herokuapp.com'
+        : 'https://acm-microservice-dev.herokuapp.com';
+    Environment.AUTH = window.location.href.includes('acm-web')
+        ? 'https://acm-microservice-prod.herokuapp.com/authenticate'
+        : 'https://acm-microservice-dev.herokuapp.com/authenticate';
+    Environment.ENV = window.location.href.includes('acm-web')
+        ? 'app prod'
+        : window.location.href.includes('localhost')
+            ? 'app local'
+            : 'app dev';
+    return Environment;
+}());
+
+var AuthService = /** @class */ (function () {
+    function AuthService(http) {
+        this.http = http;
+    }
+    AuthService.prototype.authenticate = function (username, password) {
+        this.http
+            .post(Environment.AUTH, { username: username, password: password })
+            .subscribe(function (response) { return console.log(response.token); });
+    };
+    AuthService.ctorParameters = function () { return [
+        { type: HttpClient }
+    ]; };
+    AuthService.ɵprov = ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new AuthService(ɵɵinject(HttpClient)); }, token: AuthService, providedIn: "root" });
+    AuthService = __decorate([
+        Injectable({
+            providedIn: 'root',
+        })
+    ], AuthService);
+    return AuthService;
+}());
+
 var LoginCardComponent = /** @class */ (function () {
-    function LoginCardComponent() {
+    function LoginCardComponent(authService) {
+        this.authService = authService;
         this.twitterLink = '';
         this.twitterIcon = 'https://cdn4.iconfinder.com/data/icons/miu-hexagon-flat-social/60/twitter-hexagon-social-media-32.png';
         this.githubLink = 'https://github.com/cse-uprc';
@@ -129,13 +170,31 @@ var LoginCardComponent = /** @class */ (function () {
         this.facebookLink = '';
         this.facebookIcon = 'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/Untitled-16-32.png';
     }
+    LoginCardComponent.prototype.onSignIn = function (username, password) {
+        this.authService.authenticate(username, password);
+    };
+    LoginCardComponent.ctorParameters = function () { return [
+        { type: AuthService }
+    ]; };
     LoginCardComponent = __decorate([
         Component({
             selector: 'ak-login-card',
-            template: "<div class=\"placeholder-padding\">\r\n  <div class=\"login-wrap\">\r\n    <div class=\"login-html\">\r\n      <input id=\"tab-1\" type=\"radio\" name=\"tab\" class=\"sign-in\" checked /><label\r\n        for=\"tab-1\"\r\n        class=\"tab\"\r\n        >Sign In</label\r\n      >\r\n      <input id=\"tab-2\" type=\"radio\" name=\"tab\" class=\"sign-up\" /><label\r\n        for=\"tab-2\"\r\n        class=\"tab\"\r\n        >Sign Up</label\r\n      >\r\n      <div class=\"login-form\">\r\n        <div class=\"sign-in-htm\">\r\n          <div class=\"group\">\r\n            <label for=\"user\" class=\"label\">Username</label>\r\n            <input id=\"user\" type=\"text\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label for=\"pass\" class=\"label\">Password</label>\r\n            <input\r\n              id=\"pass\"\r\n              type=\"password\"\r\n              class=\"input\"\r\n              data-type=\"password\"\r\n            />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label class=\"forgot\">Forgot Password?</label>\r\n          </div>\r\n          <div class=\"group\">\r\n            <input type=\"submit\" class=\"button\" value=\"Sign In\" />\r\n          </div>\r\n          <div class=\"hr\"></div>\r\n          <div class=\"social\">\r\n            <div class=\"inline-block\">\r\n              <a [href]=\"twitterLink\" class=\"target-pointer\" target=\"_blank\">\r\n                <img class=\"social-icon\" [src]=\"twitterIcon\" />\r\n              </a>\r\n              <div class=\"social-text\">Twitter</div>\r\n            </div>\r\n\r\n            <div class=\"inline-block\">\r\n              <a [href]=\"githubLink\" class=\"target-pointer\" target=\"_blank\">\r\n                <img class=\"social-icon\" [src]=\"githubIcon\" />\r\n              </a>\r\n              <div class=\"social-text\">Github</div>\r\n            </div>\r\n            <div class=\"inline-block\">\r\n              <a [href]=\"facebookLink\" class=\"target-pointer\" target=\"_blank\">\r\n                <img class=\"social-icon\" [src]=\"facebookIcon\" />\r\n              </a>\r\n              <div class=\"social-text\">Facebook</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"sign-up-htm\">\r\n          <div class=\"group\">\r\n            <label for=\"user\" class=\"label\">First Name</label>\r\n            <input id=\"user\" type=\"text\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label for=\"pass\" class=\"label\">Last Name</label>\r\n            <input id=\"pass\" type=\"text\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label for=\"pass\" class=\"label\">Email Address</label>\r\n            <input id=\"pass\" type=\"email\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <input type=\"submit\" class=\"button\" value=\"Sign Up\" />\r\n          </div>\r\n          <div class=\"hr\"></div>\r\n          <div class=\"foot-lnk\">\r\n            <label class=\"target-pointer\" for=\"tab-1\">Already Member?</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+            template: "<div class=\"placeholder-padding\">\r\n  <div class=\"login-wrap\">\r\n    <div class=\"login-html\">\r\n      <input id=\"tab-1\" type=\"radio\" name=\"tab\" class=\"sign-in\" checked />\r\n      <label for=\"tab-1\" class=\"tab\">Sign In</label>\r\n\r\n      <input id=\"tab-2\" type=\"radio\" name=\"tab\" class=\"sign-up\" />\r\n      <label for=\"tab-2\" class=\"tab\">Sign Up</label>\r\n      <div class=\"login-form\">\r\n        <div class=\"sign-in-htm\">\r\n          <div class=\"group\">\r\n            <label for=\"user\" class=\"label\">Username</label>\r\n            <input #username type=\"text\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label for=\"pass\" class=\"label\">Password</label>\r\n            <input #pass type=\"password\" class=\"input\" data-type=\"password\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label class=\"forgot\">Forgot Password?</label>\r\n          </div>\r\n          <div class=\"group\">\r\n            <input\r\n              (click)=\"onSignIn(username.value, pass.value)\"\r\n              type=\"submit\"\r\n              class=\"button\"\r\n              value=\"Sign In\"\r\n            />\r\n          </div>\r\n          <div class=\"hr\"></div>\r\n          <div class=\"social\">\r\n            <div class=\"inline-block\">\r\n              <a [href]=\"twitterLink\" class=\"target-pointer\" target=\"_blank\">\r\n                <img class=\"social-icon\" [src]=\"twitterIcon\" />\r\n              </a>\r\n              <div class=\"social-text\">Twitter</div>\r\n            </div>\r\n\r\n            <div class=\"inline-block\">\r\n              <a [href]=\"githubLink\" class=\"target-pointer\" target=\"_blank\">\r\n                <img class=\"social-icon\" [src]=\"githubIcon\" />\r\n              </a>\r\n              <div class=\"social-text\">Github</div>\r\n            </div>\r\n            <div class=\"inline-block\">\r\n              <a [href]=\"facebookLink\" class=\"target-pointer\" target=\"_blank\">\r\n                <img class=\"social-icon\" [src]=\"facebookIcon\" />\r\n              </a>\r\n              <div class=\"social-text\">Facebook</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"sign-up-htm\">\r\n          <div class=\"group\">\r\n            <label for=\"user\" class=\"label\">First Name</label>\r\n            <input #first type=\"text\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label for=\"pass\" class=\"label\">Last Name</label>\r\n            <input #last type=\"text\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <label for=\"pass\" class=\"label\">Email Address</label>\r\n            <input #email type=\"email\" class=\"input\" />\r\n          </div>\r\n          <div class=\"group\">\r\n            <input type=\"submit\" class=\"button\" value=\"Sign Up\" />\r\n          </div>\r\n          <div class=\"hr\"></div>\r\n          <div class=\"foot-lnk\">\r\n            <label class=\"target-pointer\" for=\"tab-1\">Already Member?</label>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         })
     ], LoginCardComponent);
     return LoginCardComponent;
+}());
+
+var ServicesModule = /** @class */ (function () {
+    function ServicesModule() {
+    }
+    ServicesModule = __decorate([
+        NgModule({
+            imports: [BrowserModule, HttpClientModule],
+            providers: [AuthService],
+        })
+    ], ServicesModule);
+    return ServicesModule;
 }());
 
 var AcmkitLibModule = /** @class */ (function () {
@@ -150,7 +209,13 @@ var AcmkitLibModule = /** @class */ (function () {
                 LoginCardComponent,
                 LandingComponent,
             ],
-            imports: [BrowserModule, RouterModule, BrowserAnimationsModule],
+            imports: [
+                BrowserModule,
+                RouterModule,
+                BrowserAnimationsModule,
+                HttpClientModule,
+                ServicesModule,
+            ],
             exports: [
                 AcmkitLibComponent,
                 CardComponent,
@@ -158,7 +223,6 @@ var AcmkitLibModule = /** @class */ (function () {
                 LoginCardComponent,
                 LandingComponent,
             ],
-            providers: [],
         })
     ], AcmkitLibModule);
     return AcmkitLibModule;
@@ -212,7 +276,7 @@ var AcmKitTestBed = /** @class */ (function (_super) {
     }
     AcmKitTestBed.getModuleMetaData = function () {
         return {
-            imports: [RouterTestingModule, CommonModule],
+            imports: [RouterTestingModule, CommonModule, HttpClientTestingModule],
             declarations: [],
         };
     };
@@ -229,5 +293,5 @@ var setupTests = function (initTest) { return configureTestSuite(function () { r
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent, setupTests };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, LandingComponent, LoginCardComponent, ServicesModule, setupTests };
 //# sourceMappingURL=acmkit-lib.js.map
