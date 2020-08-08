@@ -6,7 +6,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import * as AOS from 'aos';
 
 @Component({
   selector: 'ak-landing',
