@@ -33,17 +33,14 @@ export class LandingComponent implements AfterViewInit {
     this.teamOffset = this.teamElement.nativeElement.offsetTop - 500;
   }
 
-  ngOnInit(){
-    AOS.init();
-   }
-
   @HostListener('window:scroll', ['$event'])
   scrollHandler() {
-    if (window.pageYOffset / 4 < 40) {
+    console.log(window.pageYOffset);
+    if (window.pageYOffset < 625) {
       this.currentActive = 0;
-    } else if (window.pageYOffset / 4 >= 40 && window.pageYOffset / 4 < 162) {
+    } else if (window.pageYOffset >= 625 && window.pageYOffset < 1200) {
       this.currentActive = 1;
-    } else if (window.pageYOffset / 4 >= 162 && window.pageYOffset / 4 < 284) {
+    } else if (window.pageYOffset >= 1200 && window.pageYOffset < 1800) {
       this.currentActive = 2;
     } else {
       this.currentActive = 3;
