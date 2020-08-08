@@ -6,6 +6,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'ak-landing',
@@ -31,6 +32,10 @@ export class LandingComponent implements AfterViewInit {
     this.featureOffset = this.featureElemet.nativeElement.offsetTop - 500;
     this.teamOffset = this.teamElement.nativeElement.offsetTop - 500;
   }
+
+  ngOnInit(){
+    AOS.init();
+   }
 
   @HostListener('window:scroll', ['$event'])
   scrollHandler() {

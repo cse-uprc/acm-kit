@@ -17,11 +17,13 @@
           },
           "styles": [
             "../../node_modules/bootstrap/scss/bootstrap.scss",
+            "../../node_modules/aos/dist/aos.css",
             "src/styles.scss"
           ],
           "scripts": [
             "../../node_modules/jquery/dist/jquery.min.js",
-            "../../node_modules/bootstrap/dist/js/bootstrap.min.js"
+            "../../node_modules/bootstrap/dist/js/bootstrap.min.js",
+            "../../node_modules/aos/src/js/aos.js"
           ],
           "configurations": {
             "production": {
@@ -44,7 +46,9 @@
               "projects/acmkit-lib/tsconfig.lib.json",
               "projects/acmkit-lib/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -138,7 +142,9 @@
               "projects/acmAppTest/tsconfig.spec.json",
               "projects/acmAppTest/e2e/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "e2e": {
@@ -156,5 +162,8 @@
       }
     }
   },
-  "defaultProject": "acmkit-lib"
+  "defaultProject": "acmkit-lib",
+  "cli": {
+    "analytics": "f0caacda-d779-4c34-92fa-a21dc6274ecf"
+  }
 }
