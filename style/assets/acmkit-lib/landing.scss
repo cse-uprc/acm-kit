@@ -1,3 +1,7 @@
+html{
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -6,13 +10,7 @@ h5,
 h6 {
   font-weight: 500;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
+h1,h2,h3,h4,h5,h6, p {
   margin: 0px;
 }
 h1 {
@@ -66,11 +64,11 @@ ul {
   top: -6px;
 }
 .sec-title h2 .sec-title-border {
-  width: 130px;
+  width: 100px;
   position: absolute;
   bottom: 0;
   left: 0;
-  border-top: 2px solid #222;
+  border-top: 4px solid #222;
   right: 0;
   height: 0;
   margin: auto;
@@ -116,6 +114,7 @@ ul {
   text-transform: uppercase;
   cursor: pointer;
   font-weight: 500;
+  transition: all 75ms linear;
 }
 .header.sticky .mainmenu li a.radius-btn:hover,
 .mainmenu li a.radius-btn:hover,
@@ -178,6 +177,7 @@ input::-webkit-input-placeholder {
 .mainmenu ul li a.active {
   border: 1px solid #fff;
 }
+
 .mainmenu {
   display: block;
 }
@@ -186,14 +186,13 @@ input::-webkit-input-placeholder {
 }
 .header.sticky {
   border-radius: 0;
-  border-bottom: 1px solid #fff;
-  background: #000529;
-  background: $black-to-blue-gradient-default;
-  background: $black-to-blue-gradient-moz;
-  background: $black-to-blue-gradient-webkit;
+  border-bottom: transparent;
+  background: linear-gradient(to left, rgba(0, 32, 85, 0.8), rgb(0, 93, 181, 0.8));
+  background: -moz-linear-gradient(to left, rgba(0, 32, 85, 0.8), rgb(0, 93, 181, 0.8));
+  background: -webkit-linear-gradient(to left, rgba(0, 32, 85, 0.8), rgb(0, 93, 181, 0.8));
 }
 .header.sticky {
-  padding: 10px 15px;
+  padding: 20px 20px;
 }
 .mainmenu li a.radius-btn {
   margin-left: 55px;
@@ -206,7 +205,8 @@ input::-webkit-input-placeholder {
 -------- HERO AREA CSS START --------
 ---------------------------------------*/
 .hero-area {
-  padding-top: 140px;
+  height: 100vh;
+  transform: scale(1.1);
   z-index: 1;
   position: relative;
   background-image: url(https://3dprintingindustry.com/wp-content/uploads/2014/09/lccc-ridge-campus-3d-printing-industry.png);
@@ -216,6 +216,14 @@ input::-webkit-input-placeholder {
   background-size: cover;
   overflow: hidden;
 }
+
+.hero-area-wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
 .hero-area::before {
   content: "";
   top: 0;
@@ -253,19 +261,30 @@ input::-webkit-input-placeholder {
 ---------------------------------------*/
 .about-area {
   text-align: center;
+  height: 100vh;
+  transform: scale(1.2)
+}
+.about-area-wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
 }
 .single-about-box {
   padding: 25px;
-  transition: all 0.4s;
+  transition: all 250ms ease;
 }
 .single-about-box i::before {
   color: #0074da;
   font-size: 40px;
-  transition: all 0.4s;
+  transition: all 250ms ease;
   display: block;
 }
 .single-about-box.active,
 .single-about-box:hover {
+  transform: scale(1.025);
   box-shadow: 0 0 5px #ccc;
 }
 .single-about-box.active i::before,
@@ -282,13 +301,22 @@ input::-webkit-input-placeholder {
 /*--------------------------------------
 -------- FEATURE AREA CSS START --------
 ---------------------------------------*/
+
 .feature-area {
   z-index: 1;
+  height: 100vh;
   position: relative;
   background-image: url(https://www.sasaki.com/wp-content/uploads/2019/10/IMG_0046_website-1800x1200.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.feature-area-wrapper{
+  position: relative;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1)
 }
 .feature-area::before {
   content: "";
@@ -352,7 +380,8 @@ input::-webkit-input-placeholder {
 .single-team-member {
   text-align: center;
   box-shadow: 0 2px 15px -5px #222;
-  transition: color 1s ease;
+  background: white;
+  transition: 500ms ease;
 }
 .single-team-member:hover {
   color: white;
@@ -370,6 +399,8 @@ input::-webkit-input-placeholder {
   position: relative;
   z-index: 1;
   overflow: hidden;
+  background: white;
+  transition: all 750ms ease;
 }
 .team-member-icon {
   position: absolute;
@@ -377,7 +408,6 @@ input::-webkit-input-placeholder {
   left: -100%;
   height: 100%;
   width: 100%;
-  transition: all 0.4s;
 }
 .team-member-img::before {
   content: "";
@@ -389,7 +419,6 @@ input::-webkit-input-placeholder {
   right: 0;
   width: 0;
   height: 100%;
-  transition: all 0.4s;
   position: absolute;
   opacity: 0.85;
 }
@@ -420,7 +449,7 @@ input::-webkit-input-placeholder {
 .footer {
   position: relative;
   z-index: 1;
-  padding-bottom: 35px;
+  padding-bottom: 27.5px;
 }
 .footer::before {
   content: "";
@@ -482,13 +511,17 @@ input::-webkit-input-placeholder {
 .header-text {
   float: right;
   margin-right: 90px;
+  font-weight: 500;
   font-size: 20px;
 }
 
 .nav-link {
   padding: 0.5rem !important;
+  transition: all 250ms ease;
 }
-
+.nav-link:hover {
+  transform: scale(1.05);
+}
 @media only screen and (max-width: 767px) {
   .header-text {
     float: none !important;
@@ -498,7 +531,8 @@ input::-webkit-input-placeholder {
 
 .logo-text {
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 400;
+  padding-top: 10px
 }
 /*---------------------------------------
 ------ NAVBAR UTILITYS END ------

@@ -4,6 +4,16 @@
 
 ---
 
+## [unreleased]
+
+<h3 style="color: green;font-weight:900"> Added</h3>
+
+> [r-S0316] Animate On Scroll (AOS) Node package.
+
+<h3 style="color: orange;font-weight:900"> Changed</h3>
+
+> [r-S0316] NavBar, Section Sizing, Transitions, and Sizing for Landing.
+
 ---
 
 ## [unreleased]

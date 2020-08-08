@@ -1,3 +1,6 @@
+//aos
+@import "../../node_modules/aos/src/sass/aos.scss";
+
 // Bootstrap
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
@@ -12,6 +15,7 @@
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/pagination";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 /* Style class for testing -- imports from local*/
 @import "./acmkit-lib/variables";
 @import "./acmkit-lib/card";
