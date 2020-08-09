@@ -4,14 +4,17 @@ import {
   ElementRef,
   HostListener,
   ViewChild,
+  OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { LandingParticleConfig } from '../../assets/particles/landing';
+declare var particlesJS: any;
 
 @Component({
   selector: 'ak-landing',
   templateUrl: './landing.component.html',
 })
-export class LandingComponent implements AfterViewInit {
+export class LandingComponent implements AfterViewInit, OnInit {
   @ViewChild('home') homeElement: ElementRef;
   @ViewChild('about') aboutElement: ElementRef;
   @ViewChild('feature') featureElemet: ElementRef;
@@ -24,6 +27,10 @@ export class LandingComponent implements AfterViewInit {
   public teamOffset: number = null;
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    particlesJS('particles-js', LandingParticleConfig, function () {});
+  }
 
   ngAfterViewInit() {
     this.homeOffset = this.homeElement.nativeElement.offsetTop;
