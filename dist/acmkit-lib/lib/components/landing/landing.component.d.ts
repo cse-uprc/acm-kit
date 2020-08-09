@@ -1,7 +1,9 @@
-import { AfterViewInit, ElementRef } from '@angular/core';
+import { AfterViewInit, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-export declare class LandingComponent implements AfterViewInit {
+import { ParticlesService } from '../../services/particles/particles.service';
+export declare class LandingComponent implements AfterViewInit, OnInit {
     private router;
+    private particleService;
     homeElement: ElementRef;
     aboutElement: ElementRef;
     featureElemet: ElementRef;
@@ -11,7 +13,8 @@ export declare class LandingComponent implements AfterViewInit {
     aboutOffset: number;
     featureOffset: number;
     teamOffset: number;
-    constructor(router: Router);
+    constructor(router: Router, particleService: ParticlesService);
+    ngOnInit(): void;
     ngAfterViewInit(): void;
     scrollHandler(): void;
     onSignIn(): void;

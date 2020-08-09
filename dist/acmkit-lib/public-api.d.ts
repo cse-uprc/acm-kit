@@ -15,6 +15,7 @@ export * from './lib/components/login-card/login-card.component';
  * Services
  */
 export * from './lib/services/auth/auth.service';
+export * from './lib/services/particles/particles.service';
 export * from './lib/services/services.module';
 /**
  * Testing
