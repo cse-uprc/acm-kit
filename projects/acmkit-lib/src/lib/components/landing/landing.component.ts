@@ -7,8 +7,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { ParticlesService } from '../../services/particles/particles.service';
 import { LandingParticleConfig } from '../../assets/particles/landing';
-declare var particlesJS: any;
 
 @Component({
   selector: 'ak-landing',
@@ -26,10 +26,13 @@ export class LandingComponent implements AfterViewInit, OnInit {
   public featureOffset: number = null;
   public teamOffset: number = null;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private particleService: ParticlesService
+  ) {}
 
   ngOnInit() {
-    particlesJS('particles-js', LandingParticleConfig, function () {});
+    this.particleService.init(LandingParticleConfig);
   }
 
   ngAfterViewInit() {
