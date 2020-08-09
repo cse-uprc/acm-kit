@@ -1,4 +1,4 @@
-export const ParticlesConfig = {
+export const LandingParticleConfig = {
   particles: {
     number: {
       value: 170,
