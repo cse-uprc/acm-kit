@@ -5,7 +5,6 @@ export class JwtServiceTestData {
     return {
       value:
         'eyJhbGciOiJIUzUxMiJ9.eyJmaXJzdE5hbWUiOiJTYW0iLCJsYXN0TmFtZSI6IkJ1dGxlciIsInN1YiI6InNhbWJ1dGxlcjEwMTciLCJwYXNzd29yZCI6ImJmNDAwYTJlMWIzYTE5Yjk3NDkxNTY0MGFhNmZlN2I3ZDU3NjEwNDY3M2NkOWIzNWYyOTc3Yzg3Y2Q1YTE5N2EiLCJleHAiOjE1OTgzMjkzNDUsInVzZXJJZCI6MiwiaWF0IjoxNTk4MzExMzQ1LCJ1c2VybmFtZSI6InNhbWJ1dGxlcjEwMTcifQ.qbJQnvKL5B4OaTJsGgAoRNMoBjg_dL9CCsLmJ1MyHEwWRoceFw-lG1DUgHQX9BI4LzTtexbdOKlW7Uz94IZ6lA',
-      expiration: new Date('2020-08-25T00:22:25'),
       decoded: this.decodedToken,
     };
   }
