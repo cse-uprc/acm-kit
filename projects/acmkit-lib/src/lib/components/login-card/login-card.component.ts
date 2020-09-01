@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { UserService } from '../../services/user/user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'ak-login-card',
@@ -18,9 +20,21 @@ export class LoginCardComponent {
   facebookIcon =
     'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/Untitled-16-32.png';
 
-  constructor(private readonly authService: AuthService) {}
+  constructor(
+    private readonly authService: AuthService,
+    private readonly userService: UserService
+  ) {}
 
   onSignIn(username: string, password: string) {
     this.authService.authenticate(username, password);
+  }
+
+  onSignUp(firstName: string, lastName: string, email: string) {
+    const newUser: User = {
+      firstName,
+      lastName,
+      email,
+    };
+    this.userService.createUser(newUser);
   }
 }

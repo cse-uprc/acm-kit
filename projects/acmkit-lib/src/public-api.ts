@@ -12,6 +12,10 @@ export * from './lib/components/card/card.component';
 export * from './lib/components/landing/landing.component';
 export * from './lib/components/login-card/login-card.component';
 /**
+ * Models
+ */
+export * from './lib/models/user.model';
+/**
  * Services
  */
 export * from './lib/services/auth/auth.service';
