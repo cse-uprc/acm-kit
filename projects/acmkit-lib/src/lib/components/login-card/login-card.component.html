@@ -64,7 +64,12 @@
             <input #email type="email" class="input" />
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up" />
+            <input
+              type="submit"
+              class="button"
+              value="Sign Up"
+              (click)="onSignUp(first.value, last.value, email.value)"
+            />
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">

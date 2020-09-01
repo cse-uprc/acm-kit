@@ -15,6 +15,7 @@ export * from './lib/components/login-card/login-card.component';
  * Models
  */
 export * from './lib/models/jwt.model';
+export * from './lib/models/user.model';
 /**
  * Services
  */
