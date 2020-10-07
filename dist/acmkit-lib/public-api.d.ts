@@ -14,11 +14,13 @@ export * from './lib/components/login-card/login-card.component';
 /**
  * Models
  */
+export * from './lib/models/jwt.model';
 export * from './lib/models/user.model';
 /**
  * Services
  */
 export * from './lib/services/auth/auth.service';
+export * from './lib/services/jwt/jwt.service';
 export * from './lib/services/particles/particles.service';
 export * from './lib/services/services.module';
 /**
