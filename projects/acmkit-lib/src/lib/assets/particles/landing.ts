@@ -1,10 +1,10 @@
 export const LandingParticleConfig = {
   particles: {
     number: {
-      value: 170,
+      value: 50,
       density: {
         enable: true,
-        value_area: 1400,
+        value_area: 1500,
       },
     },
     color: {

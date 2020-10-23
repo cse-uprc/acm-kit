@@ -44,7 +44,6 @@ export class LandingComponent implements AfterViewInit, OnInit {
 
   @HostListener('window:scroll', ['$event'])
   scrollHandler() {
-    console.log(window.pageYOffset);
     if (window.pageYOffset < 625) {
       this.currentActive = 0;
     } else if (window.pageYOffset >= 625 && window.pageYOffset < 1200) {
