@@ -93,10 +93,10 @@ var ParticlesService = /** @class */ (function () {
 var LandingParticleConfig = {
     particles: {
         number: {
-            value: 170,
+            value: 50,
             density: {
                 enable: true,
-                value_area: 1400,
+                value_area: 1500,
             },
         },
         color: {
@@ -203,7 +203,6 @@ var LandingComponent = /** @class */ (function () {
         this.teamOffset = this.teamElement.nativeElement.offsetTop - 500;
     };
     LandingComponent.prototype.scrollHandler = function () {
-        console.log(window.pageYOffset);
         if (window.pageYOffset < 625) {
             this.currentActive = 0;
         }
