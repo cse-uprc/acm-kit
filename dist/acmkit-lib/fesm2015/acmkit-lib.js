@@ -90,10 +90,10 @@ ParticlesService = __decorate([
 const LandingParticleConfig = {
     particles: {
         number: {
-            value: 170,
+            value: 50,
             density: {
                 enable: true,
-                value_area: 1400,
+                value_area: 1500,
             },
         },
         color: {
@@ -200,7 +200,6 @@ let LandingComponent = class LandingComponent {
         this.teamOffset = this.teamElement.nativeElement.offsetTop - 500;
     }
     scrollHandler() {
-        console.log(window.pageYOffset);
         if (window.pageYOffset < 625) {
             this.currentActive = 0;
         }
