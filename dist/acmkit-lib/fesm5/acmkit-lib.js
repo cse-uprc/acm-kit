@@ -252,11 +252,11 @@ var LandingComponent = /** @class */ (function () {
 var Environment = /** @class */ (function () {
     function Environment() {
     }
-    Environment.RAW_URL = window.location.href.includes('acm-web')
-        ? 'acm-microservice-prod.herokuapp.com'
+    Environment.SOCKET_URL = window.location.href.includes('acm-web')
+        ? 'wss://acm-microservice-prod.herokuapp.com/api/web-notification-app/websocket'
         : window.location.href.includes('localhost')
-            ? 'localhost:8080'
-            : 'acm-microservice-dev.herokuapp.com';
+            ? 'ws://localhost:8080/api/web-notification-app/websocket'
+            : 'wss://acm-microservice-dev.herokuapp.com/api/web-notification-app/websocket';
     Environment.API_URL = window.location.href.includes('acm-web')
         ? 'https://acm-microservice-prod.herokuapp.com'
         : 'https://acm-microservice-dev.herokuapp.com';
@@ -521,8 +521,8 @@ var StompUrlService = /** @class */ (function () {
      * @param subdomain The subdomain.
      */
     StompUrlService.prototype.buildBrokerUrl = function () {
-        console.log('Socket URL:', "ws://" + Environment.RAW_URL + "/api/web-notification-app/websocket");
-        return "ws://" + Environment.RAW_URL + "/api/web-notification-app/websocket";
+        console.log(Environment.SOCKET_URL);
+        return Environment.SOCKET_URL;
     };
     StompUrlService = __decorate([
         Injectable()
