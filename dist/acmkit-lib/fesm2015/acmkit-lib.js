@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
+import { RxStompService, InjectableRxStompConfig } from '@stomp/ng2-stompjs';
+import { map } from 'rxjs/operators';
 import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -245,6 +247,11 @@ LandingComponent = __decorate([
 
 class Environment {
 }
+Environment.RAW_URL = window.location.href.includes('acm-web')
+    ? 'acm-microservice-prod.herokuapp.com'
+    : window.location.href.includes('localhost')
+        ? 'localhost:8080'
+        : 'acm-microservice-dev.herokuapp.com';
 Environment.API_URL = window.location.href.includes('acm-web')
     ? 'https://acm-microservice-prod.herokuapp.com'
     : 'https://acm-microservice-dev.herokuapp.com';
@@ -487,6 +494,120 @@ ServicesModule = __decorate([
     })
 ], ServicesModule);
 
+const defaultStompConfig = {
+    // Which server?
+    brokerURL: '',
+    // How often to heartbeat?
+    // Interval in milliseconds, set to 0 to disable
+    heartbeatIncoming: 20000,
+    heartbeatOutgoing: 20000,
+    // Wait in milliseconds before attempting auto reconnect
+    // Set to 0 to disable
+    // Typical value 500 (500 milli seconds)
+    reconnectDelay: 5000,
+};
+let StompUrlService = class StompUrlService {
+    constructor() { }
+    /**
+     * Builds the broker URL.
+     * @param subdomain The subdomain.
+     */
+    buildBrokerUrl() {
+        console.log('Socket URL:', `ws://${Environment.RAW_URL}/api/web-notification-app/websocket`);
+        return `ws://${Environment.RAW_URL}/api/web-notification-app/websocket`;
+    }
+};
+StompUrlService = __decorate([
+    Injectable()
+], StompUrlService);
+/**
+ * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
+ * @param stompUrlService The STOMP URL service
+ */
+const stompConfigFactory = (stompUrlService) => {
+    return Object.assign(Object.assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
+};
+
+/**
+ * Stomp Service
+ *
+ * @author Sam Butler
+ * @since August 31, 2020
+ */
+let StompWebsocketService = class StompWebsocketService extends RxStompService {
+    constructor() {
+        super();
+        this.isActivated = false;
+    }
+    /**
+     * Initiate the connection with the broker.
+     * If the connection breaks, as per reconnectDelay,it will keep trying to reconnect.
+     */
+    activate() {
+        if (!this.isActivated) {
+            this.isActivated = true;
+            super.activate();
+        }
+    }
+    /**
+     * Disconnect if connected and stop auto reconnect loop.
+     * Appropriate callbacks will be invoked if underlying STOMP connection was connected.
+     *
+     * To reactivate you can call activate.
+     */
+    deactivate() {
+        this.isActivated = false;
+        super.deactivate();
+    }
+    watch(destination) {
+        return super.watch(destination).pipe(map((message) => this.parse(message)));
+    }
+    /**
+     * Parses an IMessage into an StompMessage.
+     * @param message The message to parse
+     */
+    parse(message) {
+        const instance = message.body ? JSON.parse(message.body) : null;
+        return Object.assign(Object.assign({}, message), { data: instance });
+    }
+};
+StompWebsocketService.ɵprov = ɵɵdefineInjectable({ factory: function StompWebsocketService_Factory() { return new StompWebsocketService(); }, token: StompWebsocketService, providedIn: "root" });
+StompWebsocketService = __decorate([
+    Injectable({
+        providedIn: 'root',
+    })
+], StompWebsocketService);
+/**
+ * Factory to create an setup the StompWebsocketService.
+ * @param authService The AuthService
+ */
+const stompWebsocketServiceFactory = (stompConfig) => {
+    const service = new StompWebsocketService();
+    service.configure(stompConfig);
+    return service;
+};
+
+const ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
+let StompWebsocketModule = class StompWebsocketModule {
+};
+StompWebsocketModule = __decorate([
+    NgModule({
+        providers: [
+            StompUrlService,
+            {
+                provide: StompWebsocketService,
+                useFactory: ɵ0,
+                deps: [InjectableRxStompConfig],
+            },
+            {
+                provide: InjectableRxStompConfig,
+                useFactory: ɵ1,
+                deps: [StompUrlService],
+            },
+        ],
+    })
+], StompWebsocketModule);
+
 let AcmkitLibModule = class AcmkitLibModule {
 };
 AcmkitLibModule = __decorate([
@@ -504,6 +625,7 @@ AcmkitLibModule = __decorate([
             BrowserAnimationsModule,
             HttpClientModule,
             ServicesModule,
+            StompWebsocketModule,
         ],
         exports: [
             AcmkitLibComponent,
@@ -511,6 +633,7 @@ AcmkitLibModule = __decorate([
             BasePageComponent,
             LoginCardComponent,
             LandingComponent,
+            StompWebsocketModule,
         ],
     })
 ], AcmkitLibModule);
@@ -566,5 +689,5 @@ const setupTests = (initTest) => configureTestSuite(() => initTest());
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, TOKEN_NAME, setupTests, UserService as ɵa };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UserService as ɵa };
 //# sourceMappingURL=acmkit-lib.js.map

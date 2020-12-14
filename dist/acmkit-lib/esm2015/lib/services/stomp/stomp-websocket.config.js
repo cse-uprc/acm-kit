@@ -1,0 +1,38 @@
+import { __decorate } from "tslib";
+import { Injectable } from '@angular/core';
+import { Environment } from '../../assets/globals';
+export const defaultStompConfig = {
+    // Which server?
+    brokerURL: '',
+    // How often to heartbeat?
+    // Interval in milliseconds, set to 0 to disable
+    heartbeatIncoming: 20000,
+    heartbeatOutgoing: 20000,
+    // Wait in milliseconds before attempting auto reconnect
+    // Set to 0 to disable
+    // Typical value 500 (500 milli seconds)
+    reconnectDelay: 5000,
+};
+let StompUrlService = class StompUrlService {
+    constructor() { }
+    /**
+     * Builds the broker URL.
+     * @param subdomain The subdomain.
+     */
+    buildBrokerUrl() {
+        console.log('Socket URL:', `ws://${Environment.RAW_URL}/api/web-notification-app/websocket`);
+        return `ws://${Environment.RAW_URL}/api/web-notification-app/websocket`;
+    }
+};
+StompUrlService = __decorate([
+    Injectable()
+], StompUrlService);
+export { StompUrlService };
+/**
+ * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
+ * @param stompUrlService The STOMP URL service
+ */
+export const stompConfigFactory = (stompUrlService) => {
+    return Object.assign(Object.assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3RvbXAtd2Vic29ja2V0LmNvbmZpZy5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2FjbWtpdC1saWIvIiwic291cmNlcyI6WyJsaWIvc2VydmljZXMvc3RvbXAvc3RvbXAtd2Vic29ja2V0LmNvbmZpZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUUzQyxPQUFPLEVBQUUsV0FBVyxFQUFFLE1BQU0sc0JBQXNCLENBQUM7QUFFbkQsTUFBTSxDQUFDLE1BQU0sa0JBQWtCLEdBQTRCO0lBQ3pELGdCQUFnQjtJQUNoQixTQUFTLEVBQUUsRUFBRTtJQUViLDBCQUEwQjtJQUMxQixnREFBZ0Q7SUFDaEQsaUJBQWlCLEVBQUUsS0FBSztJQUN4QixpQkFBaUIsRUFBRSxLQUFLO0lBRXhCLHdEQUF3RDtJQUN4RCxzQkFBc0I7SUFDdEIsd0NBQXdDO0lBQ3hDLGNBQWMsRUFBRSxJQUFJO0NBQ3JCLENBQUM7QUFHRixJQUFhLGVBQWUsR0FBNUIsTUFBYSxlQUFlO0lBQzFCLGdCQUFlLENBQUM7SUFDaEI7OztPQUdHO0lBQ0gsY0FBYztRQUNaLE9BQU8sQ0FBQyxHQUFHLENBQ1QsYUFBYSxFQUNiLFFBQVEsV0FBVyxDQUFDLE9BQU8scUNBQXFDLENBQ2pFLENBQUM7UUFDRixPQUFPLFFBQVEsV0FBVyxDQUFDLE9BQU8scUNBQXFDLENBQUM7SUFDMUUsQ0FBQztDQUNGLENBQUE7QUFiWSxlQUFlO0lBRDNCLFVBQVUsRUFBRTtHQUNBLGVBQWUsQ0FhM0I7U0FiWSxlQUFlO0FBZTVCOzs7R0FHRztBQUNILE1BQU0sQ0FBQyxNQUFNLGtCQUFrQixHQUFHLENBQ2hDLGVBQWdDLEVBQ1AsRUFBRTtJQUMzQix1Q0FDSyxrQkFBa0IsS0FDckIsU0FBUyxFQUFFLGVBQWUsQ0FBQyxjQUFjLEVBQUUsSUFDM0M7QUFDSixDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IEluamVjdGFibGVSeFN0b21wQ29uZmlnIH0gZnJvbSAnQHN0b21wL25nMi1zdG9tcGpzJztcclxuaW1wb3J0IHsgRW52aXJvbm1lbnQgfSBmcm9tICcuLi8uLi9hc3NldHMvZ2xvYmFscyc7XHJcblxyXG5leHBvcnQgY29uc3QgZGVmYXVsdFN0b21wQ29uZmlnOiBJbmplY3RhYmxlUnhTdG9tcENvbmZpZyA9IHtcclxuICAvLyBXaGljaCBzZXJ2ZXI/XHJcbiAgYnJva2VyVVJMOiAnJyxcclxuXHJcbiAgLy8gSG93IG9mdGVuIHRvIGhlYXJ0YmVhdD9cclxuICAvLyBJbnRlcnZhbCBpbiBtaWxsaXNlY29uZHMsIHNldCB0byAwIHRvIGRpc2FibGVcclxuICBoZWFydGJlYXRJbmNvbWluZzogMjAwMDAsIC8vIFR5cGljYWwgdmFsdWUgMCAtIGRpc2FibGVkXHJcbiAgaGVhcnRiZWF0T3V0Z29pbmc6IDIwMDAwLCAvLyBUeXBpY2FsIHZhbHVlIDIwMDAwIC0gZXZlcnkgMjAgc2Vjb25kc1xyXG5cclxuICAvLyBXYWl0IGluIG1pbGxpc2Vjb25kcyBiZWZvcmUgYXR0ZW1wdGluZyBhdXRvIHJlY29ubmVjdFxyXG4gIC8vIFNldCB0byAwIHRvIGRpc2FibGVcclxuICAvLyBUeXBpY2FsIHZhbHVlIDUwMCAoNTAwIG1pbGxpIHNlY29uZHMpXHJcbiAgcmVjb25uZWN0RGVsYXk6IDUwMDAsXHJcbn07XHJcblxyXG5ASW5qZWN0YWJsZSgpXHJcbmV4cG9ydCBjbGFzcyBTdG9tcFVybFNlcnZpY2Uge1xyXG4gIGNvbnN0cnVjdG9yKCkge31cclxuICAvKipcclxuICAgKiBCdWlsZHMgdGhlIGJyb2tlciBVUkwuXHJcbiAgICogQHBhcmFtIHN1YmRvbWFpbiBUaGUgc3ViZG9tYWluLlxyXG4gICAqL1xyXG4gIGJ1aWxkQnJva2VyVXJsKCk6IHN0cmluZyB7XHJcbiAgICBjb25zb2xlLmxvZyhcclxuICAgICAgJ1NvY2tldCBVUkw6JyxcclxuICAgICAgYHdzOi8vJHtFbnZpcm9ubWVudC5SQVdfVVJMfS9hcGkvd2ViLW5vdGlmaWNhdGlvbi1hcHAvd2Vic29ja2V0YFxyXG4gICAgKTtcclxuICAgIHJldHVybiBgd3M6Ly8ke0Vudmlyb25tZW50LlJBV19VUkx9L2FwaS93ZWItbm90aWZpY2F0aW9uLWFwcC93ZWJzb2NrZXRgO1xyXG4gIH1cclxufVxyXG5cclxuLyoqXHJcbiAqIEEgZmFjdG9yeSBmb3IgY3JlYXRpbmcgYW4gSW5qZWN0YWJsZVJ4U3RvbXBDb25maWcgZm9yIHVzZSB3aXRoIEluc2l0ZSBub3RpZmljYXRpb25zLlxyXG4gKiBAcGFyYW0gc3RvbXBVcmxTZXJ2aWNlIFRoZSBTVE9NUCBVUkwgc2VydmljZVxyXG4gKi9cclxuZXhwb3J0IGNvbnN0IHN0b21wQ29uZmlnRmFjdG9yeSA9IChcclxuICBzdG9tcFVybFNlcnZpY2U6IFN0b21wVXJsU2VydmljZVxyXG4pOiBJbmplY3RhYmxlUnhTdG9tcENvbmZpZyA9PiB7XHJcbiAgcmV0dXJuIHtcclxuICAgIC4uLmRlZmF1bHRTdG9tcENvbmZpZyxcclxuICAgIGJyb2tlclVSTDogc3RvbXBVcmxTZXJ2aWNlLmJ1aWxkQnJva2VyVXJsKCksXHJcbiAgfTtcclxufTtcclxuIl19

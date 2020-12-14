@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common/http'), require('@angular/platform-browser'), require('@angular/platform-browser/animations'), require('@angular/router'), require('jwt-decode'), require('@angular/core/testing'), require('@angular/common'), require('@angular/common/http/testing'), require('@angular/router/testing'), require('ng-bullet')) :
-    typeof define === 'function' && define.amd ? define('acmkit-lib', ['exports', '@angular/core', '@angular/common/http', '@angular/platform-browser', '@angular/platform-browser/animations', '@angular/router', 'jwt-decode', '@angular/core/testing', '@angular/common', '@angular/common/http/testing', '@angular/router/testing', 'ng-bullet'], factory) :
-    (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core, global.ng.common.http, global.ng.platformBrowser, global.ng.platformBrowser.animations, global.ng.router, global.jwt_decode, global.ng.core.testing, global.ng.common, global.ng.common.http.testing, global.ng.router.testing, global.ngBullet));
-}(this, (function (exports, core, http, platformBrowser, animations, router, jwt_decode, testing, common, testing$1, testing$2, ngBullet) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/common/http'), require('@angular/platform-browser'), require('@angular/platform-browser/animations'), require('@angular/router'), require('jwt-decode'), require('@stomp/ng2-stompjs'), require('rxjs/operators'), require('@angular/core/testing'), require('@angular/common'), require('@angular/common/http/testing'), require('@angular/router/testing'), require('ng-bullet')) :
+    typeof define === 'function' && define.amd ? define('acmkit-lib', ['exports', '@angular/core', '@angular/common/http', '@angular/platform-browser', '@angular/platform-browser/animations', '@angular/router', 'jwt-decode', '@stomp/ng2-stompjs', 'rxjs/operators', '@angular/core/testing', '@angular/common', '@angular/common/http/testing', '@angular/router/testing', 'ng-bullet'], factory) :
+    (global = global || self, factory(global['acmkit-lib'] = {}, global.ng.core, global.ng.common.http, global.ng.platformBrowser, global.ng.platformBrowser.animations, global.ng.router, global.jwt_decode, global.ng2Stompjs, global.rxjs.operators, global.ng.core.testing, global.ng.common, global.ng.common.http.testing, global.ng.router.testing, global.ngBullet));
+}(this, (function (exports, core, http, platformBrowser, animations, router, jwt_decode, ng2Stompjs, operators, testing, common, testing$1, testing$2, ngBullet) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -462,6 +462,11 @@
     var Environment = /** @class */ (function () {
         function Environment() {
         }
+        Environment.RAW_URL = window.location.href.includes('acm-web')
+            ? 'acm-microservice-prod.herokuapp.com'
+            : window.location.href.includes('localhost')
+                ? 'localhost:8080'
+                : 'acm-microservice-dev.herokuapp.com';
         Environment.API_URL = window.location.href.includes('acm-web')
             ? 'https://acm-microservice-prod.herokuapp.com'
             : 'https://acm-microservice-dev.herokuapp.com';
@@ -706,6 +711,129 @@
         return ServicesModule;
     }());
 
+    var defaultStompConfig = {
+        // Which server?
+        brokerURL: '',
+        // How often to heartbeat?
+        // Interval in milliseconds, set to 0 to disable
+        heartbeatIncoming: 20000,
+        heartbeatOutgoing: 20000,
+        // Wait in milliseconds before attempting auto reconnect
+        // Set to 0 to disable
+        // Typical value 500 (500 milli seconds)
+        reconnectDelay: 5000,
+    };
+    var StompUrlService = /** @class */ (function () {
+        function StompUrlService() {
+        }
+        /**
+         * Builds the broker URL.
+         * @param subdomain The subdomain.
+         */
+        StompUrlService.prototype.buildBrokerUrl = function () {
+            console.log('Socket URL:', "ws://" + Environment.RAW_URL + "/api/web-notification-app/websocket");
+            return "ws://" + Environment.RAW_URL + "/api/web-notification-app/websocket";
+        };
+        StompUrlService = __decorate([
+            core.Injectable()
+        ], StompUrlService);
+        return StompUrlService;
+    }());
+    /**
+     * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
+     * @param stompUrlService The STOMP URL service
+     */
+    var stompConfigFactory = function (stompUrlService) {
+        return __assign(__assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
+    };
+
+    /**
+     * Stomp Service
+     *
+     * @author Sam Butler
+     * @since August 31, 2020
+     */
+    var StompWebsocketService = /** @class */ (function (_super) {
+        __extends(StompWebsocketService, _super);
+        function StompWebsocketService() {
+            var _this = _super.call(this) || this;
+            _this.isActivated = false;
+            return _this;
+        }
+        /**
+         * Initiate the connection with the broker.
+         * If the connection breaks, as per reconnectDelay,it will keep trying to reconnect.
+         */
+        StompWebsocketService.prototype.activate = function () {
+            if (!this.isActivated) {
+                this.isActivated = true;
+                _super.prototype.activate.call(this);
+            }
+        };
+        /**
+         * Disconnect if connected and stop auto reconnect loop.
+         * Appropriate callbacks will be invoked if underlying STOMP connection was connected.
+         *
+         * To reactivate you can call activate.
+         */
+        StompWebsocketService.prototype.deactivate = function () {
+            this.isActivated = false;
+            _super.prototype.deactivate.call(this);
+        };
+        StompWebsocketService.prototype.watch = function (destination) {
+            var _this = this;
+            return _super.prototype.watch.call(this, destination).pipe(operators.map(function (message) { return _this.parse(message); }));
+        };
+        /**
+         * Parses an IMessage into an StompMessage.
+         * @param message The message to parse
+         */
+        StompWebsocketService.prototype.parse = function (message) {
+            var instance = message.body ? JSON.parse(message.body) : null;
+            return __assign(__assign({}, message), { data: instance });
+        };
+        StompWebsocketService.ɵprov = core.ɵɵdefineInjectable({ factory: function StompWebsocketService_Factory() { return new StompWebsocketService(); }, token: StompWebsocketService, providedIn: "root" });
+        StompWebsocketService = __decorate([
+            core.Injectable({
+                providedIn: 'root',
+            })
+        ], StompWebsocketService);
+        return StompWebsocketService;
+    }(ng2Stompjs.RxStompService));
+    /**
+     * Factory to create an setup the StompWebsocketService.
+     * @param authService The AuthService
+     */
+    var stompWebsocketServiceFactory = function (stompConfig) {
+        var service = new StompWebsocketService();
+        service.configure(stompConfig);
+        return service;
+    };
+
+    var ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
+    var StompWebsocketModule = /** @class */ (function () {
+        function StompWebsocketModule() {
+        }
+        StompWebsocketModule = __decorate([
+            core.NgModule({
+                providers: [
+                    StompUrlService,
+                    {
+                        provide: StompWebsocketService,
+                        useFactory: ɵ0,
+                        deps: [ng2Stompjs.InjectableRxStompConfig],
+                    },
+                    {
+                        provide: ng2Stompjs.InjectableRxStompConfig,
+                        useFactory: ɵ1,
+                        deps: [StompUrlService],
+                    },
+                ],
+            })
+        ], StompWebsocketModule);
+        return StompWebsocketModule;
+    }());
+
     var AcmkitLibModule = /** @class */ (function () {
         function AcmkitLibModule() {
         }
@@ -724,6 +852,7 @@
                     animations.BrowserAnimationsModule,
                     http.HttpClientModule,
                     ServicesModule,
+                    StompWebsocketModule,
                 ],
                 exports: [
                     AcmkitLibComponent,
@@ -731,6 +860,7 @@
                     BasePageComponent,
                     LoginCardComponent,
                     LandingComponent,
+                    StompWebsocketModule,
                 ],
             })
         ], AcmkitLibModule);
@@ -807,8 +937,16 @@
     exports.LoginCardComponent = LoginCardComponent;
     exports.ParticlesService = ParticlesService;
     exports.ServicesModule = ServicesModule;
+    exports.StompUrlService = StompUrlService;
+    exports.StompWebsocketModule = StompWebsocketModule;
+    exports.StompWebsocketService = StompWebsocketService;
     exports.TOKEN_NAME = TOKEN_NAME;
+    exports.defaultStompConfig = defaultStompConfig;
     exports.setupTests = setupTests;
+    exports.stompConfigFactory = stompConfigFactory;
+    exports.stompWebsocketServiceFactory = stompWebsocketServiceFactory;
+    exports.ɵ0 = ɵ0;
+    exports.ɵ1 = ɵ1;
     exports.ɵa = UserService;
 
     Object.defineProperty(exports, '__esModule', { value: true });

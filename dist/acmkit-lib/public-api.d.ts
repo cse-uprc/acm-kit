@@ -29,3 +29,10 @@ export * from './lib/services/services.module';
 export * from './lib/testing/abstract-test-bed';
 export * from './lib/testing/acm-kit-test-bed';
 export * from './lib/testing/test-setup';
+/**
+ * Stomp Websockets
+ */
+export * from './lib/services/stomp/stomp-websocket.config';
+export * from './lib/services/stomp/stomp-websocket.model';
+export * from './lib/services/stomp/stomp-websocket.module';
+export * from './lib/services/stomp/stomp-websocket.service';
