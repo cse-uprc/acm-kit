@@ -1,9 +1,9 @@
 export class Environment {
-  public static RAW_URL = window.location.href.includes('acm-web')
-    ? 'acm-microservice-prod.herokuapp.com'
+  public static SOCKET_URL = window.location.href.includes('acm-web')
+    ? 'wss://acm-microservice-prod.herokuapp.com/api/web-notification-app/websocket'
     : window.location.href.includes('localhost')
-    ? 'localhost:8080'
-    : 'acm-microservice-dev.herokuapp.com';
+    ? 'ws://localhost:8080/api/web-notification-app/websocket'
+    : 'wss://acm-microservice-dev.herokuapp.com/api/web-notification-app/websocket';
 
   public static API_URL = window.location.href.includes('acm-web')
     ? 'https://acm-microservice-prod.herokuapp.com'

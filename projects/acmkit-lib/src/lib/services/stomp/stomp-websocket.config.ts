@@ -25,11 +25,8 @@ export class StompUrlService {
    * @param subdomain The subdomain.
    */
   buildBrokerUrl(): string {
-    console.log(
-      'Socket URL:',
-      `ws://${Environment.RAW_URL}/api/web-notification-app/websocket`
-    );
-    return `ws://${Environment.RAW_URL}/api/web-notification-app/websocket`;
+    console.log(Environment.SOCKET_URL);
+    return Environment.SOCKET_URL;
   }
 }
 
