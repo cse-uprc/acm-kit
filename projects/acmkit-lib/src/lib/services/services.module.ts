@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AuthService } from './auth/auth.service';
 import { JwtService } from './jwt/jwt.service';
 import { ParticlesService } from './particles/particles.service';
-import { StompWebsocketService } from './stomp/stomp-websocket.service';
+import { StompWebsocketModule } from './stomp/stomp-websocket.module';
 import { UrlService } from './url/url.service';
 import { UserService } from './user/user.service';
 
@@ -16,7 +16,7 @@ import { UserService } from './user/user.service';
     UserService,
     JwtService,
     UrlService,
-    StompWebsocketService,
   ],
+  exports: [StompWebsocketModule],
 })
 export class ServicesModule {}
