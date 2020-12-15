@@ -9,7 +9,6 @@ import { CardComponent } from './components/card/card.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
 import { ServicesModule } from './services/services.module';
-import { StompWebsocketModule } from './services/stomp/stomp-websocket.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { StompWebsocketModule } from './services/stomp/stomp-websocket.module';
     BrowserAnimationsModule,
     HttpClientModule,
     ServicesModule,
-    StompWebsocketModule,
   ],
   exports: [
     AcmkitLibComponent,
@@ -33,7 +31,7 @@ import { StompWebsocketModule } from './services/stomp/stomp-websocket.module';
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
-    StompWebsocketModule,
+    ServicesModule,
   ],
 })
 export class AcmkitLibModule {}

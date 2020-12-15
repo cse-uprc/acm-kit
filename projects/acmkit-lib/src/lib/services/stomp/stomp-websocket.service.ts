@@ -11,9 +11,7 @@ import { InjectableRxStompConfig, RxStompService } from '@stomp/ng2-stompjs';
  * @author Sam Butler
  * @since August 31, 2020
  */
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class StompWebsocketService extends RxStompService {
   isActivated = false;
 

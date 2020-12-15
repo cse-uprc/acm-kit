@@ -1,16 +1,16 @@
 import { TestBed } from '@angular/core/testing';
+
+import { UrlService } from './url.service';
 import { AcmKitTestBed } from '../../testing/acm-kit-test-bed';
 import { setupTests } from '../../testing/test-setup';
 
-import { ParticlesService } from './particles.service';
-
-describe('ParticlesService', () => {
-  let service: ParticlesService;
+describe('UrlService', () => {
+  let service: UrlService;
 
   setupTests(async () => AcmKitTestBed.setup());
 
   beforeEach(() => {
-    service = TestBed.inject(ParticlesService);
+    service = TestBed.inject(UrlService);
   });
 
   it('should be created', () => {

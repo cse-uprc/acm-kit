@@ -8,9 +8,7 @@ import { Environment } from '../../assets/globals';
  * @author Sam Butler
  * @since August 24, 2020
  */
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
 

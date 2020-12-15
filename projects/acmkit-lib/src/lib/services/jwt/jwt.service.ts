@@ -11,9 +11,7 @@ export const TOKEN_NAME = 'token';
  * @author Sam Butler
  * @since August 24, 2020
  */
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class JwtService {
   constructor(private router: Router) {}
 

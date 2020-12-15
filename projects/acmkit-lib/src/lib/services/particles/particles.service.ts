@@ -7,9 +7,7 @@ declare var particlesJS: any;
  * @author Sam Butler
  * @since August 24, 2020
  */
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ParticlesService {
   constructor() {}
 
