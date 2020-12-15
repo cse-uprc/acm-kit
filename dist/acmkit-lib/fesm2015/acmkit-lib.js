@@ -1,12 +1,12 @@
 import { __decorate, __awaiter } from 'tslib';
-import { Component, Input, ɵɵdefineInjectable, Injectable, ViewChild, HostListener, ɵɵinject, NgModule } from '@angular/core';
+import { Component, Input, Injectable, ViewChild, HostListener, NgModule, ɵɵdefineInjectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
-import { RxStompService, InjectableRxStompConfig } from '@stomp/ng2-stompjs';
 import { map } from 'rxjs/operators';
+import { RxStompService, InjectableRxStompConfig } from '@stomp/ng2-stompjs';
 import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -82,11 +82,8 @@ let ParticlesService = class ParticlesService {
         particlesJS('particles-js', configFile, () => { });
     }
 };
-ParticlesService.ɵprov = ɵɵdefineInjectable({ factory: function ParticlesService_Factory() { return new ParticlesService(); }, token: ParticlesService, providedIn: "root" });
 ParticlesService = __decorate([
-    Injectable({
-        providedIn: 'root',
-    })
+    Injectable()
 ], ParticlesService);
 
 const LandingParticleConfig = {
@@ -289,21 +286,17 @@ let AuthService = class AuthService {
 AuthService.ctorParameters = () => [
     { type: HttpClient }
 ];
-AuthService.ɵprov = ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new AuthService(ɵɵinject(HttpClient)); }, token: AuthService, providedIn: "root" });
 AuthService = __decorate([
-    Injectable({
-        providedIn: 'root',
-    })
+    Injectable()
 ], AuthService);
 
-let UserService = 
 /**
  * User Service class that deal with the user microservice
  *
  * @author Sam Butler
  * @since August 31, 2020
  */
-class UserService {
+let UserService = class UserService {
     constructor(http) {
         this.http = http;
         this.BASE = Environment.API_URL;
@@ -323,17 +316,8 @@ class UserService {
 UserService.ctorParameters = () => [
     { type: HttpClient }
 ];
-UserService.ɵprov = ɵɵdefineInjectable({ factory: function UserService_Factory() { return new UserService(ɵɵinject(HttpClient)); }, token: UserService, providedIn: "root" });
 UserService = __decorate([
-    Injectable({
-        providedIn: 'root',
-    })
-    /**
-     * User Service class that deal with the user microservice
-     *
-     * @author Sam Butler
-     * @since August 31, 2020
-     */
+    Injectable()
 ], UserService);
 
 let LoginCardComponent = class LoginCardComponent {
@@ -478,55 +462,9 @@ let JwtService = class JwtService {
 JwtService.ctorParameters = () => [
     { type: Router }
 ];
-JwtService.ɵprov = ɵɵdefineInjectable({ factory: function JwtService_Factory() { return new JwtService(ɵɵinject(Router)); }, token: JwtService, providedIn: "root" });
 JwtService = __decorate([
-    Injectable({
-        providedIn: 'root',
-    })
-], JwtService);
-
-let ServicesModule = class ServicesModule {
-};
-ServicesModule = __decorate([
-    NgModule({
-        imports: [BrowserModule, HttpClientModule],
-        providers: [AuthService, ParticlesService, UserService, JwtService],
-    })
-], ServicesModule);
-
-const defaultStompConfig = {
-    // Which server?
-    brokerURL: '',
-    // How often to heartbeat?
-    // Interval in milliseconds, set to 0 to disable
-    heartbeatIncoming: 20000,
-    heartbeatOutgoing: 20000,
-    // Wait in milliseconds before attempting auto reconnect
-    // Set to 0 to disable
-    // Typical value 500 (500 milli seconds)
-    reconnectDelay: 5000,
-};
-let StompUrlService = class StompUrlService {
-    constructor() { }
-    /**
-     * Builds the broker URL.
-     * @param subdomain The subdomain.
-     */
-    buildBrokerUrl() {
-        console.log(Environment.SOCKET_URL);
-        return Environment.SOCKET_URL;
-    }
-};
-StompUrlService = __decorate([
     Injectable()
-], StompUrlService);
-/**
- * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
- * @param stompUrlService The STOMP URL service
- */
-const stompConfigFactory = (stompUrlService) => {
-    return Object.assign(Object.assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
-};
+], JwtService);
 
 /**
  * Stomp Service
@@ -571,11 +509,8 @@ let StompWebsocketService = class StompWebsocketService extends RxStompService {
         return Object.assign(Object.assign({}, message), { data: instance });
     }
 };
-StompWebsocketService.ɵprov = ɵɵdefineInjectable({ factory: function StompWebsocketService_Factory() { return new StompWebsocketService(); }, token: StompWebsocketService, providedIn: "root" });
 StompWebsocketService = __decorate([
-    Injectable({
-        providedIn: 'root',
-    })
+    Injectable()
 ], StompWebsocketService);
 /**
  * Factory to create an setup the StompWebsocketService.
@@ -587,26 +522,33 @@ const stompWebsocketServiceFactory = (stompConfig) => {
     return service;
 };
 
-const ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
-let StompWebsocketModule = class StompWebsocketModule {
+/**
+ * URL Service
+ *
+ * @author Sam Butler
+ * @since Dec 15, 2020
+ */
+let UrlService = class UrlService {
 };
-StompWebsocketModule = __decorate([
+UrlService = __decorate([
+    Injectable()
+], UrlService);
+
+let ServicesModule = class ServicesModule {
+};
+ServicesModule = __decorate([
     NgModule({
+        imports: [BrowserModule, HttpClientModule],
         providers: [
-            StompUrlService,
-            {
-                provide: StompWebsocketService,
-                useFactory: ɵ0,
-                deps: [InjectableRxStompConfig],
-            },
-            {
-                provide: InjectableRxStompConfig,
-                useFactory: ɵ1,
-                deps: [StompUrlService],
-            },
+            AuthService,
+            ParticlesService,
+            UserService,
+            JwtService,
+            UrlService,
+            StompWebsocketService,
         ],
     })
-], StompWebsocketModule);
+], ServicesModule);
 
 let AcmkitLibModule = class AcmkitLibModule {
 };
@@ -625,7 +567,6 @@ AcmkitLibModule = __decorate([
             BrowserAnimationsModule,
             HttpClientModule,
             ServicesModule,
-            StompWebsocketModule,
         ],
         exports: [
             AcmkitLibComponent,
@@ -633,7 +574,7 @@ AcmkitLibModule = __decorate([
             BasePageComponent,
             LoginCardComponent,
             LandingComponent,
-            StompWebsocketModule,
+            ServicesModule,
         ],
     })
 ], AcmkitLibModule);
@@ -673,13 +614,73 @@ class AbstractTestBed {
 class AcmKitTestBed extends AbstractTestBed {
     static getModuleMetaData() {
         return {
-            imports: [RouterTestingModule, CommonModule, HttpClientTestingModule],
+            imports: [
+                RouterTestingModule,
+                CommonModule,
+                HttpClientTestingModule,
+                AcmkitLibModule,
+            ],
             declarations: [],
         };
     }
 }
 
 const setupTests = (initTest) => configureTestSuite(() => initTest());
+
+const defaultStompConfig = {
+    // Which server?
+    brokerURL: '',
+    // How often to heartbeat?
+    // Interval in milliseconds, set to 0 to disable
+    heartbeatIncoming: 20000,
+    heartbeatOutgoing: 20000,
+    // Wait in milliseconds before attempting auto reconnect
+    // Set to 0 to disable
+    // Typical value 500 (500 milli seconds)
+    reconnectDelay: 5000,
+};
+let StompUrlService = class StompUrlService {
+    constructor() { }
+    /**
+     * Builds the broker URL.
+     * @param subdomain The subdomain.
+     */
+    buildBrokerUrl() {
+        console.log(Environment.SOCKET_URL);
+        return Environment.SOCKET_URL;
+    }
+};
+StompUrlService = __decorate([
+    Injectable()
+], StompUrlService);
+/**
+ * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
+ * @param stompUrlService The STOMP URL service
+ */
+const stompConfigFactory = (stompUrlService) => {
+    return Object.assign(Object.assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
+};
+
+const ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
+let StompWebsocketModule = class StompWebsocketModule {
+};
+StompWebsocketModule = __decorate([
+    NgModule({
+        providers: [
+            StompUrlService,
+            {
+                provide: StompWebsocketService,
+                useFactory: ɵ0,
+                deps: [InjectableRxStompConfig],
+            },
+            {
+                provide: InjectableRxStompConfig,
+                useFactory: ɵ1,
+                deps: [StompUrlService],
+            },
+        ],
+    })
+], StompWebsocketModule);
 
 /**
  * Public API Surface of acmkit-lib
@@ -689,5 +690,5 @@ const setupTests = (initTest) => configureTestSuite(() => initTest());
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UserService as ɵa };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UserService as ɵa, UrlService as ɵb };
 //# sourceMappingURL=acmkit-lib.js.map

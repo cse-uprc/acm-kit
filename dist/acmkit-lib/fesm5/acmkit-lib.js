@@ -1,12 +1,12 @@
-import { __decorate, __assign, __extends, __awaiter, __generator } from 'tslib';
-import { Component, Input, ɵɵdefineInjectable, Injectable, ViewChild, HostListener, ɵɵinject, NgModule } from '@angular/core';
+import { __decorate, __extends, __assign, __awaiter, __generator } from 'tslib';
+import { Component, Input, Injectable, ViewChild, HostListener, NgModule, ɵɵdefineInjectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
-import { RxStompService, InjectableRxStompConfig } from '@stomp/ng2-stompjs';
 import { map } from 'rxjs/operators';
+import { RxStompService, InjectableRxStompConfig } from '@stomp/ng2-stompjs';
 import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -83,11 +83,8 @@ var ParticlesService = /** @class */ (function () {
     ParticlesService.prototype.init = function (configFile) {
         particlesJS('particles-js', configFile, function () { });
     };
-    ParticlesService.ɵprov = ɵɵdefineInjectable({ factory: function ParticlesService_Factory() { return new ParticlesService(); }, token: ParticlesService, providedIn: "root" });
     ParticlesService = __decorate([
-        Injectable({
-            providedIn: 'root',
-        })
+        Injectable()
     ], ParticlesService);
     return ParticlesService;
 }());
@@ -295,15 +292,18 @@ var AuthService = /** @class */ (function () {
     AuthService.ctorParameters = function () { return [
         { type: HttpClient }
     ]; };
-    AuthService.ɵprov = ɵɵdefineInjectable({ factory: function AuthService_Factory() { return new AuthService(ɵɵinject(HttpClient)); }, token: AuthService, providedIn: "root" });
     AuthService = __decorate([
-        Injectable({
-            providedIn: 'root',
-        })
+        Injectable()
     ], AuthService);
     return AuthService;
 }());
 
+/**
+ * User Service class that deal with the user microservice
+ *
+ * @author Sam Butler
+ * @since August 31, 2020
+ */
 var UserService = /** @class */ (function () {
     function UserService(http) {
         this.http = http;
@@ -323,17 +323,8 @@ var UserService = /** @class */ (function () {
     UserService.ctorParameters = function () { return [
         { type: HttpClient }
     ]; };
-    UserService.ɵprov = ɵɵdefineInjectable({ factory: function UserService_Factory() { return new UserService(ɵɵinject(HttpClient)); }, token: UserService, providedIn: "root" });
     UserService = __decorate([
-        Injectable({
-            providedIn: 'root',
-        })
-        /**
-         * User Service class that deal with the user microservice
-         *
-         * @author Sam Butler
-         * @since August 31, 2020
-         */
+        Injectable()
     ], UserService);
     return UserService;
 }());
@@ -480,62 +471,11 @@ var JwtService = /** @class */ (function () {
     JwtService.ctorParameters = function () { return [
         { type: Router }
     ]; };
-    JwtService.ɵprov = ɵɵdefineInjectable({ factory: function JwtService_Factory() { return new JwtService(ɵɵinject(Router)); }, token: JwtService, providedIn: "root" });
     JwtService = __decorate([
-        Injectable({
-            providedIn: 'root',
-        })
+        Injectable()
     ], JwtService);
     return JwtService;
 }());
-
-var ServicesModule = /** @class */ (function () {
-    function ServicesModule() {
-    }
-    ServicesModule = __decorate([
-        NgModule({
-            imports: [BrowserModule, HttpClientModule],
-            providers: [AuthService, ParticlesService, UserService, JwtService],
-        })
-    ], ServicesModule);
-    return ServicesModule;
-}());
-
-var defaultStompConfig = {
-    // Which server?
-    brokerURL: '',
-    // How often to heartbeat?
-    // Interval in milliseconds, set to 0 to disable
-    heartbeatIncoming: 20000,
-    heartbeatOutgoing: 20000,
-    // Wait in milliseconds before attempting auto reconnect
-    // Set to 0 to disable
-    // Typical value 500 (500 milli seconds)
-    reconnectDelay: 5000,
-};
-var StompUrlService = /** @class */ (function () {
-    function StompUrlService() {
-    }
-    /**
-     * Builds the broker URL.
-     * @param subdomain The subdomain.
-     */
-    StompUrlService.prototype.buildBrokerUrl = function () {
-        console.log(Environment.SOCKET_URL);
-        return Environment.SOCKET_URL;
-    };
-    StompUrlService = __decorate([
-        Injectable()
-    ], StompUrlService);
-    return StompUrlService;
-}());
-/**
- * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
- * @param stompUrlService The STOMP URL service
- */
-var stompConfigFactory = function (stompUrlService) {
-    return __assign(__assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
-};
 
 /**
  * Stomp Service
@@ -582,11 +522,8 @@ var StompWebsocketService = /** @class */ (function (_super) {
         var instance = message.body ? JSON.parse(message.body) : null;
         return __assign(__assign({}, message), { data: instance });
     };
-    StompWebsocketService.ɵprov = ɵɵdefineInjectable({ factory: function StompWebsocketService_Factory() { return new StompWebsocketService(); }, token: StompWebsocketService, providedIn: "root" });
     StompWebsocketService = __decorate([
-        Injectable({
-            providedIn: 'root',
-        })
+        Injectable()
     ], StompWebsocketService);
     return StompWebsocketService;
 }(RxStompService));
@@ -600,28 +537,38 @@ var stompWebsocketServiceFactory = function (stompConfig) {
     return service;
 };
 
-var ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
-var StompWebsocketModule = /** @class */ (function () {
-    function StompWebsocketModule() {
+/**
+ * URL Service
+ *
+ * @author Sam Butler
+ * @since Dec 15, 2020
+ */
+var UrlService = /** @class */ (function () {
+    function UrlService() {
     }
-    StompWebsocketModule = __decorate([
+    UrlService = __decorate([
+        Injectable()
+    ], UrlService);
+    return UrlService;
+}());
+
+var ServicesModule = /** @class */ (function () {
+    function ServicesModule() {
+    }
+    ServicesModule = __decorate([
         NgModule({
+            imports: [BrowserModule, HttpClientModule],
             providers: [
-                StompUrlService,
-                {
-                    provide: StompWebsocketService,
-                    useFactory: ɵ0,
-                    deps: [InjectableRxStompConfig],
-                },
-                {
-                    provide: InjectableRxStompConfig,
-                    useFactory: ɵ1,
-                    deps: [StompUrlService],
-                },
+                AuthService,
+                ParticlesService,
+                UserService,
+                JwtService,
+                UrlService,
+                StompWebsocketService,
             ],
         })
-    ], StompWebsocketModule);
-    return StompWebsocketModule;
+    ], ServicesModule);
+    return ServicesModule;
 }());
 
 var AcmkitLibModule = /** @class */ (function () {
@@ -642,7 +589,6 @@ var AcmkitLibModule = /** @class */ (function () {
                 BrowserAnimationsModule,
                 HttpClientModule,
                 ServicesModule,
-                StompWebsocketModule,
             ],
             exports: [
                 AcmkitLibComponent,
@@ -650,7 +596,7 @@ var AcmkitLibModule = /** @class */ (function () {
                 BasePageComponent,
                 LoginCardComponent,
                 LandingComponent,
-                StompWebsocketModule,
+                ServicesModule,
             ],
         })
     ], AcmkitLibModule);
@@ -705,7 +651,12 @@ var AcmKitTestBed = /** @class */ (function (_super) {
     }
     AcmKitTestBed.getModuleMetaData = function () {
         return {
-            imports: [RouterTestingModule, CommonModule, HttpClientTestingModule],
+            imports: [
+                RouterTestingModule,
+                CommonModule,
+                HttpClientTestingModule,
+                AcmkitLibModule,
+            ],
             declarations: [],
         };
     };
@@ -713,6 +664,66 @@ var AcmKitTestBed = /** @class */ (function (_super) {
 }(AbstractTestBed));
 
 var setupTests = function (initTest) { return configureTestSuite(function () { return initTest(); }); };
+
+var defaultStompConfig = {
+    // Which server?
+    brokerURL: '',
+    // How often to heartbeat?
+    // Interval in milliseconds, set to 0 to disable
+    heartbeatIncoming: 20000,
+    heartbeatOutgoing: 20000,
+    // Wait in milliseconds before attempting auto reconnect
+    // Set to 0 to disable
+    // Typical value 500 (500 milli seconds)
+    reconnectDelay: 5000,
+};
+var StompUrlService = /** @class */ (function () {
+    function StompUrlService() {
+    }
+    /**
+     * Builds the broker URL.
+     * @param subdomain The subdomain.
+     */
+    StompUrlService.prototype.buildBrokerUrl = function () {
+        console.log(Environment.SOCKET_URL);
+        return Environment.SOCKET_URL;
+    };
+    StompUrlService = __decorate([
+        Injectable()
+    ], StompUrlService);
+    return StompUrlService;
+}());
+/**
+ * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
+ * @param stompUrlService The STOMP URL service
+ */
+var stompConfigFactory = function (stompUrlService) {
+    return __assign(__assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
+};
+
+var ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
+var StompWebsocketModule = /** @class */ (function () {
+    function StompWebsocketModule() {
+    }
+    StompWebsocketModule = __decorate([
+        NgModule({
+            providers: [
+                StompUrlService,
+                {
+                    provide: StompWebsocketService,
+                    useFactory: ɵ0,
+                    deps: [InjectableRxStompConfig],
+                },
+                {
+                    provide: InjectableRxStompConfig,
+                    useFactory: ɵ1,
+                    deps: [StompUrlService],
+                },
+            ],
+        })
+    ], StompWebsocketModule);
+    return StompWebsocketModule;
+}());
 
 /**
  * Public API Surface of acmkit-lib
@@ -722,5 +733,5 @@ var setupTests = function (initTest) { return configureTestSuite(function () { r
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UserService as ɵa };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UserService as ɵa, UrlService as ɵb };
 //# sourceMappingURL=acmkit-lib.js.map
