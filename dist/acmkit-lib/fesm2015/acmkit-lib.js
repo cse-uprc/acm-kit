@@ -4,9 +4,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
-import * as jwt_decode from 'jwt-decode';
 import { map } from 'rxjs/operators';
 import { RxStompService, InjectableRxStompConfig } from '@stomp/ng2-stompjs';
+import * as jwt_decode from 'jwt-decode';
 import { TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -179,10 +179,67 @@ const LandingParticleConfig = {
     retina_detect: true,
 };
 
+/**
+ * Stomp Service
+ *
+ * @author Sam Butler
+ * @since August 31, 2020
+ */
+let StompWebsocketService = class StompWebsocketService extends RxStompService {
+    constructor() {
+        super();
+        this.isActivated = false;
+    }
+    /**
+     * Initiate the connection with the broker.
+     * If the connection breaks, as per reconnectDelay,it will keep trying to reconnect.
+     */
+    activate() {
+        if (!this.isActivated) {
+            this.isActivated = true;
+            super.activate();
+        }
+    }
+    /**
+     * Disconnect if connected and stop auto reconnect loop.
+     * Appropriate callbacks will be invoked if underlying STOMP connection was connected.
+     *
+     * To reactivate you can call activate.
+     */
+    deactivate() {
+        this.isActivated = false;
+        super.deactivate();
+    }
+    watch(destination) {
+        return super.watch(destination).pipe(map((message) => this.parse(message)));
+    }
+    /**
+     * Parses an IMessage into an StompMessage.
+     * @param message The message to parse
+     */
+    parse(message) {
+        const instance = message.body ? JSON.parse(message.body) : null;
+        return Object.assign(Object.assign({}, message), { data: instance });
+    }
+};
+StompWebsocketService = __decorate([
+    Injectable()
+], StompWebsocketService);
+/**
+ * Factory to create an setup the StompWebsocketService.
+ * @param authService The AuthService
+ */
+const stompWebsocketServiceFactory = (stompConfig) => {
+    const service = new StompWebsocketService();
+    service.configure(stompConfig);
+    return service;
+};
+
 let LandingComponent = class LandingComponent {
-    constructor(router, particleService) {
+    constructor(router, particleService, stompService) {
         this.router = router;
         this.particleService = particleService;
+        this.stompService = stompService;
         this.currentActive = 0;
         this.homeOffset = null;
         this.aboutOffset = null;
@@ -191,6 +248,10 @@ let LandingComponent = class LandingComponent {
     }
     ngOnInit() {
         this.particleService.init(LandingParticleConfig);
+        this.stompService.activate();
+        this.stompService
+            .watch('/notifications')
+            .subscribe((res) => console.log(res));
     }
     ngAfterViewInit() {
         this.homeOffset = this.homeElement.nativeElement.offsetTop;
@@ -218,7 +279,8 @@ let LandingComponent = class LandingComponent {
 };
 LandingComponent.ctorParameters = () => [
     { type: Router },
-    { type: ParticlesService }
+    { type: ParticlesService },
+    { type: StompWebsocketService }
 ];
 __decorate([
     ViewChild('home')
@@ -466,61 +528,60 @@ JwtService = __decorate([
     Injectable()
 ], JwtService);
 
-/**
- * Stomp Service
- *
- * @author Sam Butler
- * @since August 31, 2020
- */
-let StompWebsocketService = class StompWebsocketService extends RxStompService {
-    constructor() {
-        super();
-        this.isActivated = false;
-    }
+const defaultStompConfig = {
+    // Which server?
+    brokerURL: '',
+    // How often to heartbeat?
+    // Interval in milliseconds, set to 0 to disable
+    heartbeatIncoming: 20000,
+    heartbeatOutgoing: 20000,
+    // Wait in milliseconds before attempting auto reconnect
+    // Set to 0 to disable
+    // Typical value 500 (500 milli seconds)
+    reconnectDelay: 5000,
+};
+let StompUrlService = class StompUrlService {
+    constructor() { }
     /**
-     * Initiate the connection with the broker.
-     * If the connection breaks, as per reconnectDelay,it will keep trying to reconnect.
+     * Builds the broker URL.
+     * @param subdomain The subdomain.
      */
-    activate() {
-        if (!this.isActivated) {
-            this.isActivated = true;
-            super.activate();
-        }
-    }
-    /**
-     * Disconnect if connected and stop auto reconnect loop.
-     * Appropriate callbacks will be invoked if underlying STOMP connection was connected.
-     *
-     * To reactivate you can call activate.
-     */
-    deactivate() {
-        this.isActivated = false;
-        super.deactivate();
-    }
-    watch(destination) {
-        return super.watch(destination).pipe(map((message) => this.parse(message)));
-    }
-    /**
-     * Parses an IMessage into an StompMessage.
-     * @param message The message to parse
-     */
-    parse(message) {
-        const instance = message.body ? JSON.parse(message.body) : null;
-        return Object.assign(Object.assign({}, message), { data: instance });
+    buildBrokerUrl() {
+        console.log(Environment.SOCKET_URL);
+        return Environment.SOCKET_URL;
     }
 };
-StompWebsocketService = __decorate([
+StompUrlService = __decorate([
     Injectable()
-], StompWebsocketService);
+], StompUrlService);
 /**
- * Factory to create an setup the StompWebsocketService.
- * @param authService The AuthService
+ * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
+ * @param stompUrlService The STOMP URL service
  */
-const stompWebsocketServiceFactory = (stompConfig) => {
-    const service = new StompWebsocketService();
-    service.configure(stompConfig);
-    return service;
+const stompConfigFactory = (stompUrlService) => {
+    return Object.assign(Object.assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
 };
+
+const ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
+let StompWebsocketModule = class StompWebsocketModule {
+};
+StompWebsocketModule = __decorate([
+    NgModule({
+        providers: [
+            StompUrlService,
+            {
+                provide: StompWebsocketService,
+                useFactory: ɵ0,
+                deps: [InjectableRxStompConfig],
+            },
+            {
+                provide: InjectableRxStompConfig,
+                useFactory: ɵ1,
+                deps: [StompUrlService],
+            },
+        ],
+    })
+], StompWebsocketModule);
 
 /**
  * URL Service
@@ -545,8 +606,8 @@ ServicesModule = __decorate([
             UserService,
             JwtService,
             UrlService,
-            StompWebsocketService,
         ],
+        exports: [StompWebsocketModule],
     })
 ], ServicesModule);
 
@@ -626,61 +687,6 @@ class AcmKitTestBed extends AbstractTestBed {
 }
 
 const setupTests = (initTest) => configureTestSuite(() => initTest());
-
-const defaultStompConfig = {
-    // Which server?
-    brokerURL: '',
-    // How often to heartbeat?
-    // Interval in milliseconds, set to 0 to disable
-    heartbeatIncoming: 20000,
-    heartbeatOutgoing: 20000,
-    // Wait in milliseconds before attempting auto reconnect
-    // Set to 0 to disable
-    // Typical value 500 (500 milli seconds)
-    reconnectDelay: 5000,
-};
-let StompUrlService = class StompUrlService {
-    constructor() { }
-    /**
-     * Builds the broker URL.
-     * @param subdomain The subdomain.
-     */
-    buildBrokerUrl() {
-        console.log(Environment.SOCKET_URL);
-        return Environment.SOCKET_URL;
-    }
-};
-StompUrlService = __decorate([
-    Injectable()
-], StompUrlService);
-/**
- * A factory for creating an InjectableRxStompConfig for use with Insite notifications.
- * @param stompUrlService The STOMP URL service
- */
-const stompConfigFactory = (stompUrlService) => {
-    return Object.assign(Object.assign({}, defaultStompConfig), { brokerURL: stompUrlService.buildBrokerUrl() });
-};
-
-const ɵ0 = stompWebsocketServiceFactory, ɵ1 = stompConfigFactory;
-let StompWebsocketModule = class StompWebsocketModule {
-};
-StompWebsocketModule = __decorate([
-    NgModule({
-        providers: [
-            StompUrlService,
-            {
-                provide: StompWebsocketService,
-                useFactory: ɵ0,
-                deps: [InjectableRxStompConfig],
-            },
-            {
-                provide: InjectableRxStompConfig,
-                useFactory: ɵ1,
-                deps: [StompUrlService],
-            },
-        ],
-    })
-], StompWebsocketModule);
 
 /**
  * Public API Surface of acmkit-lib
