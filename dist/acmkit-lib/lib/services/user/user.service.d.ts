@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { UrlService } from '../url/url.service';
 /**
  * User Service class that deal with the user microservice
  *
@@ -8,9 +9,8 @@ import { User } from '../../models/user.model';
  */
 export declare class UserService {
     private http;
-    private BASE;
-    private USER_MICROSERVICE;
-    constructor(http: HttpClient);
+    private urlService;
+    constructor(http: HttpClient, urlService: UrlService);
     /**
      * Method to create a new user given a User object
      *

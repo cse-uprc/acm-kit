@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { UrlService } from '../url/url.service';
 /**
  * Auth service class that deals with authorizing a user
  *
@@ -7,7 +8,8 @@ import { HttpClient } from '@angular/common/http';
  */
 export declare class AuthService {
     private http;
-    constructor(http: HttpClient);
+    private urlService;
+    constructor(http: HttpClient, urlService: UrlService);
     /**
      * Logs a user in and generates a JWT token for that user
      *
