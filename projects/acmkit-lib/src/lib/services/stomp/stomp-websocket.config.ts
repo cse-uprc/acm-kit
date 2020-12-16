@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InjectableRxStompConfig } from '@stomp/ng2-stompjs';
 import { Environment } from '../../assets/globals';
+import { UrlService } from '../url/url.service';
 
 export const defaultStompConfig: InjectableRxStompConfig = {
   // Which server?
@@ -19,14 +20,13 @@ export const defaultStompConfig: InjectableRxStompConfig = {
 
 @Injectable()
 export class StompUrlService {
-  constructor() {}
+  constructor(private urlService: UrlService) {}
   /**
    * Builds the broker URL.
    * @param subdomain The subdomain.
    */
   buildBrokerUrl(): string {
-    console.log(Environment.SOCKET_URL);
-    return Environment.SOCKET_URL;
+    return this.urlService.getSocketPath();
   }
 }
 

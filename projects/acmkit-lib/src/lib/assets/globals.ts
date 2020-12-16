@@ -1,21 +1,12 @@
 export class Environment {
-  public static SOCKET_URL = window.location.href.includes('acm-web')
-    ? 'wss://acm-microservice-prod.herokuapp.com/api/web-notification-app/websocket'
-    : window.location.href.includes('localhost')
-    ? 'ws://localhost:8080/api/web-notification-app/websocket'
-    : 'wss://acm-microservice-dev.herokuapp.com/api/web-notification-app/websocket';
+  public static PRODUCTION_HOST = 'acm-microservice-prod';
+  public static DEVELOPMENT_HOST = 'acm-microservice-dev';
+  public static LOCAL_HOST = 'localhost:8080';
+  public static HEROKU_URI = 'herokuapp.com';
 
-  public static API_URL = window.location.href.includes('acm-web')
-    ? 'https://acm-microservice-prod.herokuapp.com'
-    : 'https://acm-microservice-dev.herokuapp.com';
+  public static PRODUCTION_PATH = 'acm-ui-dev';
+  public static DEVELOPMENT_PATH = 'acm-web';
+  public static LOCAL_PATH = 'localhost:4200';
 
-  public static AUTH = window.location.href.includes('acm-web')
-    ? 'https://acm-microservice-prod.herokuapp.com/authenticate'
-    : 'https://acm-microservice-dev.herokuapp.com/authenticate';
-
-  public static ENV = window.location.href.includes('acm-web')
-    ? 'app prod'
-    : window.location.href.includes('localhost')
-    ? 'app local'
-    : 'app dev';
+  public static SOCKET_ENDPOINT = '/api/web-notification-app/websocket';
 }

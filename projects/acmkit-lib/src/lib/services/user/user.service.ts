@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
 import { Environment } from '../../assets/globals';
+import { UrlService } from '../url/url.service';
 
 /**
  * User Service class that deal with the user microservice
@@ -11,9 +12,7 @@ import { Environment } from '../../assets/globals';
  */
 @Injectable()
 export class UserService {
-  private BASE = Environment.API_URL;
-  private USER_MICROSERVICE = `${this.BASE}/api/acm/users`;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private urlService: UrlService) {}
 
   /**
    * Method to create a new user given a User object
@@ -22,7 +21,7 @@ export class UserService {
    */
   createUser(newUser: User) {
     this.http
-      .post(this.USER_MICROSERVICE, newUser)
+      .post(`${this.urlService.getAPIUrl()}/api/acm/users`, newUser)
       .subscribe((r) => console.log(r));
   }
 }

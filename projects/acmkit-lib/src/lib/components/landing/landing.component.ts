@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { ParticlesService } from '../../services/particles/particles.service';
 import { LandingParticleConfig } from '../../assets/particles/landing';
 import { StompWebsocketService } from '../../services/stomp/stomp-websocket.service';
+import { UrlService } from '../../services/url/url.service';
 
 @Component({
   selector: 'ak-landing',
@@ -29,16 +30,11 @@ export class LandingComponent implements AfterViewInit, OnInit {
 
   constructor(
     private router: Router,
-    private particleService: ParticlesService,
-    private stompService: StompWebsocketService
+    private particleService: ParticlesService
   ) {}
 
   ngOnInit() {
     this.particleService.init(LandingParticleConfig);
-    this.stompService.activate();
-    this.stompService
-      .watch('/notifications')
-      .subscribe((res) => console.log(res));
   }
 
   ngAfterViewInit() {
