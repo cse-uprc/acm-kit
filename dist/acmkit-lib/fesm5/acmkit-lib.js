@@ -253,8 +253,8 @@ var Environment = /** @class */ (function () {
     Environment.DEVELOPMENT_HOST = 'acm-microservice-dev';
     Environment.LOCAL_HOST = 'localhost:8080';
     Environment.HEROKU_URI = 'herokuapp.com';
-    Environment.PRODUCTION_PATH = 'acm-ui-dev';
-    Environment.DEVELOPMENT_PATH = 'acm-web';
+    Environment.PRODUCTION_PATH = 'acm-web';
+    Environment.DEVELOPMENT_PATH = 'acm-ui-dev';
     Environment.LOCAL_PATH = 'localhost:4200';
     Environment.SOCKET_ENDPOINT = '/api/web-notification-app/websocket';
     return Environment;
