@@ -1,7 +1,9 @@
 import { InjectableRxStompConfig } from '@stomp/ng2-stompjs';
+import { UrlService } from '../url/url.service';
 export declare const defaultStompConfig: InjectableRxStompConfig;
 export declare class StompUrlService {
-    constructor();
+    private urlService;
+    constructor(urlService: UrlService);
     /**
      * Builds the broker URL.
      * @param subdomain The subdomain.
