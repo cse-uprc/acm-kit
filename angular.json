@@ -6,7 +6,7 @@
     "acmkit-lib": {
       "projectType": "library",
       "root": "projects/acmkit-lib",
-      "sourceRoot": "projects/acmkit-lib/src",
+      "sourceRoot": "projects/acmkit-lib",
       "prefix": "ak",
       "architect": {
         "build": {

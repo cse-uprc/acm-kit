@@ -1,0 +1,53 @@
+@import "icons";
+
+body {
+  background-color: #edf1f7;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.acm-nav {
+  background-color: #ffffff;
+  box-shadow: 0 0.5rem 1rem 0 rgba(44, 51, 73, 0.1);
+  overflow: hidden;
+  padding: 1.25rem;
+  height: 4.75rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+}
+
+.acm-nav a {
+  color: #222b45;
+  text-align: center;
+  padding: 0 20px;
+  text-decoration: none;
+  font-size: 28px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.icon-bell {
+  display: block;
+  text-indent: -9999px;
+  width: 100px;
+  height: 82px;
+  background-image: $bell;
+  background-size: 100px 82px;
+}

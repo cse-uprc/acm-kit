@@ -4,13 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { AcmkitLibComponent } from './acmkit-lib.component';
+import { IconsModule } from './assets/icons/icons.module';
 import { BasePageComponent } from './components/base-page/base-page.component';
 import { CardComponent } from './components/card/card.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
+import { ACMNavbarComponent } from './components/navbar/acm-navbar.component';
 import { ServicesModule } from './services/services.module';
-import { StompWebsocketModule } from './services/stomp/stomp-websocket.module';
-import { StompWebsocketService } from './services/stomp/stomp-websocket.service';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { StompWebsocketService } from './services/stomp/stomp-websocket.service'
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
+    ACMNavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import { StompWebsocketService } from './services/stomp/stomp-websocket.service'
     BrowserAnimationsModule,
     HttpClientModule,
     ServicesModule,
+    IconsModule,
   ],
   exports: [
     AcmkitLibComponent,
@@ -33,7 +35,9 @@ import { StompWebsocketService } from './services/stomp/stomp-websocket.service'
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
+    ACMNavbarComponent,
     ServicesModule,
+    IconsModule,
   ],
 })
 export class AcmkitLibModule {}
