@@ -11,6 +11,7 @@ export * from './lib/components/base-page/base-page.component';
 export * from './lib/components/card/card.component';
 export * from './lib/components/landing/landing.component';
 export * from './lib/components/login-card/login-card.component';
+export * from './lib/components/navbar/acm-navbar.component';
 /**
  * Models
  */
@@ -36,3 +37,8 @@ export * from './lib/services/stomp/stomp-websocket.config';
 export * from './lib/services/stomp/stomp-websocket.model';
 export * from './lib/services/stomp/stomp-websocket.module';
 export * from './lib/services/stomp/stomp-websocket.service';
+/**
+ * Icons
+ */
+export * from './lib/assets/icons/bell/bell.component';
+export * from './lib/assets/icons/icons.module';

@@ -1,7 +1,7 @@
 import { __decorate, __assign, __extends, __awaiter, __generator } from 'tslib';
-import { Component, Input, Injectable, ViewChild, HostListener, NgModule, ɵɵdefineInjectable } from '@angular/core';
+import { Component, NgModule, Input, Injectable, ViewChild, HostListener, ɵɵdefineInjectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import { DomSanitizer, BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
@@ -24,6 +24,30 @@ var AcmkitLibComponent = /** @class */ (function () {
         })
     ], AcmkitLibComponent);
     return AcmkitLibComponent;
+}());
+
+var BellIconComponent = /** @class */ (function () {
+    function BellIconComponent() {
+    }
+    BellIconComponent = __decorate([
+        Component({
+            selector: 'ak-icon-bell',
+            template: "<svg\r\n  viewBox=\"0 0 24 24\"\r\n  xmlns=\"http://www.w3.org/2000/svg\"\r\n  width=\"32px\"\r\n  height=\"32px\"\r\n>\r\n  <path\r\n    d=\"M12,24c1.6,0,2.9-1.1,3.3-2.6H8.7C9.1,22.9,10.4,24,12,24z M18.9,14.6v-6c0-2.8-1.8-5.4-4.5-6.4L13.7,0h-3.5\r\n  \tL9.5,2.2c-2.7,1-4.5,3.6-4.5,6.4v6c0,1.4-1.2,2.6-2.6,2.6v2.6h19v-2.6C20.1,17.1,18.9,16,18.9,14.6z\"\r\n    fill=\"#A8A8A8\"\r\n  />\r\n</svg>"
+        })
+    ], BellIconComponent);
+    return BellIconComponent;
+}());
+
+var IconsModule = /** @class */ (function () {
+    function IconsModule() {
+    }
+    IconsModule = __decorate([
+        NgModule({
+            declarations: [BellIconComponent],
+            exports: [BellIconComponent],
+        })
+    ], IconsModule);
+    return IconsModule;
 }());
 
 var BasePageComponent = /** @class */ (function () {
@@ -458,6 +482,26 @@ var LoginCardComponent = /** @class */ (function () {
     return LoginCardComponent;
 }());
 
+var ACMNavbarComponent = /** @class */ (function () {
+    function ACMNavbarComponent(sanitizer) {
+        this.sanitizer = sanitizer;
+        this.title = '';
+    }
+    ACMNavbarComponent.ctorParameters = function () { return [
+        { type: DomSanitizer }
+    ]; };
+    __decorate([
+        Input()
+    ], ACMNavbarComponent.prototype, "title", void 0);
+    ACMNavbarComponent = __decorate([
+        Component({
+            selector: 'ak-navbar',
+            template: "<ng-container>\r\n  <div class=\"nav acm-nav\">\r\n    <div class=\"header-container\">\r\n      <div class=\"logo-container\">\r\n        <a href=\"#home\">{{ title }}</a>\r\n      </div>\r\n    </div>\r\n    <div class=\"header-container\">\r\n      <ak-icon-bell></ak-icon-bell>\r\n    </div>\r\n  </div>\r\n</ng-container>\r\n"
+        })
+    ], ACMNavbarComponent);
+    return ACMNavbarComponent;
+}());
+
 var TOKEN_NAME = 'token';
 /**
  * JWT class to handle all the modifications of a users jwt token
@@ -724,6 +768,7 @@ var AcmkitLibModule = /** @class */ (function () {
                 BasePageComponent,
                 LoginCardComponent,
                 LandingComponent,
+                ACMNavbarComponent,
             ],
             imports: [
                 BrowserModule,
@@ -731,6 +776,7 @@ var AcmkitLibModule = /** @class */ (function () {
                 BrowserAnimationsModule,
                 HttpClientModule,
                 ServicesModule,
+                IconsModule,
             ],
             exports: [
                 AcmkitLibComponent,
@@ -738,7 +784,9 @@ var AcmkitLibModule = /** @class */ (function () {
                 BasePageComponent,
                 LoginCardComponent,
                 LandingComponent,
+                ACMNavbarComponent,
                 ServicesModule,
+                IconsModule,
             ],
         })
     ], AcmkitLibModule);
@@ -815,5 +863,5 @@ var setupTests = function (initTest) { return configureTestSuite(function () { r
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, CardComponent, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UrlService as ɵa, UserService as ɵb };
+export { ACMNavbarComponent, AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, BellIconComponent, CardComponent, IconsModule, JwtService, LandingComponent, LoginCardComponent, ParticlesService, ServicesModule, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UrlService as ɵa, UserService as ɵb };
 //# sourceMappingURL=acmkit-lib.js.map
