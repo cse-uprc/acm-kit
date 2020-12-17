@@ -10,6 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
 import { ACMNavbarComponent } from './components/navbar/acm-navbar.component';
+import { SiderbarComponent } from './components/sidebar/sidebar.component';
 import { ServicesModule } from './services/services.module';
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ServicesModule } from './services/services.module';
     LoginCardComponent,
     LandingComponent,
     ACMNavbarComponent,
+    SiderbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { ServicesModule } from './services/services.module';
     LoginCardComponent,
     LandingComponent,
     ACMNavbarComponent,
+    SiderbarComponent,
     ServicesModule,
     IconsModule,
   ],
