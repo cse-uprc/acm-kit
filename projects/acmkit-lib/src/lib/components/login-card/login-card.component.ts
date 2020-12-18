@@ -6,6 +6,7 @@ import { User } from '../../models/user.model';
 @Component({
   selector: 'ak-login-card',
   templateUrl: './login-card.component.html',
+  styleUrls: ['./login-card.component.scss'],
 })
 export class LoginCardComponent {
   twitterLink = '';

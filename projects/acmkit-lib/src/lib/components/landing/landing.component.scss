@@ -1,4 +1,6 @@
-html{
+@import "style/assets/acmkit-lib/variables.scss";
+
+html {
   overflow-x: hidden;
 }
 
@@ -10,7 +12,13 @@ h5,
 h6 {
   font-weight: 500;
 }
-h1,h2,h3,h4,h5,h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0px;
 }
 h1 {
@@ -187,8 +195,16 @@ input::-webkit-input-placeholder {
 .header.sticky {
   border-radius: 0;
   border-bottom: transparent;
-  background: linear-gradient(to left, rgba(0, 32, 85, 0.8), rgb(0, 93, 181, 0.8));
-  background: -moz-linear-gradient(to left, rgba(0, 32, 85, 0.8), rgb(0, 93, 181, 0.8));
+  background: linear-gradient(
+    to left,
+    rgba(0, 32, 85, 0.8),
+    rgb(0, 93, 181, 0.8)
+  );
+  background: -moz-linear-gradient(
+    to left,
+    rgba(0, 32, 85, 0.8),
+    rgb(0, 93, 181, 0.8)
+  );
 }
 .header.sticky {
   padding: 20px 20px;
@@ -216,11 +232,11 @@ input::-webkit-input-placeholder {
   overflow: hidden;
 }
 
-.hero-area-wrapper{
+.hero-area-wrapper {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 
 .hero-area::before {
@@ -261,7 +277,7 @@ input::-webkit-input-placeholder {
 .about-area {
   text-align: center;
   height: 100vh;
-  transform: scale(1.2)
+  transform: scale(1.2);
 }
 .about-area-wrapper {
   margin: 0;
@@ -269,7 +285,7 @@ input::-webkit-input-placeholder {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%)
+  transform: translate(-50%, -50%);
 }
 .single-about-box {
   padding: 25px;
@@ -310,12 +326,12 @@ input::-webkit-input-placeholder {
   background-position: center;
   background-size: cover;
 }
-.feature-area-wrapper{
+.feature-area-wrapper {
   position: relative;
   margin: 0;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.1)
+  transform: translate(-50%, -50%) scale(1.1);
 }
 .feature-area::before {
   content: "";
@@ -531,7 +547,7 @@ input::-webkit-input-placeholder {
 .logo-text {
   font-size: 25px;
   font-weight: 400;
-  padding-top: 10px
+  padding-top: 10px;
 }
 /*---------------------------------------
 ------ NAVBAR UTILITYS END ------

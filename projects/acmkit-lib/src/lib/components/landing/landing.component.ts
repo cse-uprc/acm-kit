@@ -9,12 +9,11 @@ import {
 import { Router } from '@angular/router';
 import { ParticlesService } from '../../services/particles/particles.service';
 import { LandingParticleConfig } from '../../assets/particles/landing';
-import { StompWebsocketService } from '../../services/stomp/stomp-websocket.service';
-import { UrlService } from '../../services/url/url.service';
 
 @Component({
   selector: 'ak-landing',
   templateUrl: './landing.component.html',
+  // styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements AfterViewInit, OnInit {
   @ViewChild('home') homeElement: ElementRef;

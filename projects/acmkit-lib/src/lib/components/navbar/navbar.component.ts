@@ -3,9 +3,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'ak-navbar',
-  templateUrl: './acm-navbar.component.html',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class ACMNavbarComponent {
+export class NavbarComponent {
   @Input() title = '';
   constructor(protected sanitizer: DomSanitizer) {}
 }
