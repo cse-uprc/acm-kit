@@ -13,7 +13,7 @@ import { LandingParticleConfig } from '../../assets/particles/landing';
 @Component({
   selector: 'ak-landing',
   templateUrl: './landing.component.html',
-  // styleUrls: ['./landing.component.scss'],
+  styleUrls: ['./landing.component.scss'],
 })
 export class LandingComponent implements AfterViewInit, OnInit {
   @ViewChild('home') homeElement: ElementRef;
