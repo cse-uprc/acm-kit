@@ -9,7 +9,7 @@ import { BasePageComponent } from './components/base-page/base-page.component';
 import { CardComponent } from './components/card/card.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { LoginCardComponent } from './components/login-card/login-card.component';
-import { ACMNavbarComponent } from './components/navbar/acm-navbar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { SiderbarComponent } from './components/sidebar/sidebar.component';
 import { ServicesModule } from './services/services.module';
 
@@ -20,7 +20,7 @@ import { ServicesModule } from './services/services.module';
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
-    ACMNavbarComponent,
+    NavbarComponent,
     SiderbarComponent,
   ],
   imports: [
@@ -37,7 +37,7 @@ import { ServicesModule } from './services/services.module';
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
-    ACMNavbarComponent,
+    NavbarComponent,
     SiderbarComponent,
     ServicesModule,
     IconsModule,

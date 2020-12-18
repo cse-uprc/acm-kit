@@ -11,7 +11,7 @@ export * from './lib/components/base-page/base-page.component';
 export * from './lib/components/card/card.component';
 export * from './lib/components/landing/landing.component';
 export * from './lib/components/login-card/login-card.component';
-export * from './lib/components/navbar/acm-navbar.component';
+export * from './lib/components/navbar/navbar.component';
 /**
  * Models
  */

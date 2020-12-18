@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'ak-card',
   templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
   @Input() title: string;

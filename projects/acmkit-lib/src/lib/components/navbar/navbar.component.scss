@@ -1,5 +1,3 @@
-@import "icons";
-
 body {
   background-color: #edf1f7;
 }
@@ -41,13 +39,4 @@ body {
   display: flex;
   align-items: center;
   width: auto;
-}
-
-.icon-bell {
-  display: block;
-  text-indent: -9999px;
-  width: 100px;
-  height: 82px;
-  background-image: $bell;
-  background-size: 100px 82px;
 }
