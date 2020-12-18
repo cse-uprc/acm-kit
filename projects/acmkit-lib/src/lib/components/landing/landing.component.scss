@@ -1,9 +1,5 @@
 @import "style/assets/acmkit-lib/variables.scss";
 
-html {
-  overflow-x: hidden;
-}
-
 h1,
 h2,
 h3,
@@ -110,6 +106,9 @@ ul {
 }
 .ptb-90 {
   padding: 90px 0;
+}
+.header {
+  display: inline-block;
 }
 .header.sticky .mainmenu li a.radius-btn,
 .mainmenu li a.radius-btn,
