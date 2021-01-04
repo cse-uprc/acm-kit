@@ -537,6 +537,20 @@ var NavbarComponent = /** @class */ (function () {
 
 var SiderbarComponent = /** @class */ (function () {
     function SiderbarComponent() {
+        this.items = [
+            { name: 'Dashboard', icon: 'house' },
+            { name: 'Classroom', icon: 'house' },
+            { name: 'Resources', icon: 'house' },
+            { name: 'Teachers', icon: 'house' },
+            { name: 'Student Advisors', icon: 'house' },
+            { name: 'Video Lectures', icon: 'house' },
+            { name: 'Calendar Events', icon: 'house' },
+            { name: 'Event Sign Up', icon: 'house' },
+            { name: 'ACM Information', icon: 'house' },
+            { name: 'Bot Service Info', icon: 'house' },
+            { name: 'About Us', icon: 'house' },
+            { name: 'Contact Services', icon: 'house' },
+        ];
     }
     __decorate([
         Input()
@@ -545,7 +559,7 @@ var SiderbarComponent = /** @class */ (function () {
         Component({
             selector: 'ak-sidebar',
             template: "<ul class=\"menu-items\">\r\n  <li class=\"menu-item\" *ngFor=\"let item of items\">\r\n    <a>\r\n      <ak-icon [icon]=\"item.icon\" class=\"icon\"></ak-icon>\r\n      <span class=\"title\" for=\"id1\">{{ item.name }}</span>\r\n    </a>\r\n  </li>\r\n</ul>\r\n",
-            styles: [":host{background:#fff;box-shadow:.5rem .5rem 1rem 0 rgba(44,51,73,.1);font-family:Arial,\"Helvetica Neue\",Helvetica,sans-serif}li{border-bottom:1px solid #edf1f7}.menu-items{color:#222b45;top:0;left:0;bottom:0;width:12%;min-width:250px;z-index:0;font-weight:400;margin:0;padding:0;position:relative}.menu-item{font-family:Open Sans,sans-serif;font-size:1rem;font-weight:600;line-height:1.5rem;list-style:none;padding:1.25rem 1rem;cursor:pointer;transition:.4s}.menu-item a .title{flex:1 0 auto;vertical-align:text-top}.menu-item a .icon{color:#8f9bb3;margin:0 .5rem 0 0}.menu-item:hover{color:#36f}"]
+            styles: ["li{border-bottom:1px solid #edf1f7}.menu-items{color:#222b45;top:0;left:0;bottom:0;width:12%;min-width:250px;z-index:0;font-weight:400;margin:0;padding:0;position:relative;background:#fff;box-shadow:.5rem .5rem 1rem 0 rgba(44,51,73,.1);font-family:Arial,\"Helvetica Neue\",Helvetica,sans-serif}.menu-item{font-family:Open Sans,sans-serif;font-size:1rem;font-weight:600;line-height:1.5rem;list-style:none;padding:1.25rem 1rem;cursor:pointer;transition:.4s}.menu-item a .title{flex:1 0 auto;vertical-align:text-top}.menu-item a .icon{color:#8f9bb3;margin:0 .5rem 0 0}.menu-item:hover{color:#36f}"]
         })
     ], SiderbarComponent);
     return SiderbarComponent;
