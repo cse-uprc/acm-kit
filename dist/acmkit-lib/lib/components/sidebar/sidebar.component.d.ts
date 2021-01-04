@@ -1,4 +1,7 @@
 export declare class SiderbarComponent {
-    items: any;
+    items: {
+        name: string;
+        icon: string;
+    }[];
     constructor();
 }
