@@ -1,16 +1,19 @@
 import { __decorate } from "tslib";
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 var SiderbarComponent = /** @class */ (function () {
     function SiderbarComponent() {
     }
+    __decorate([
+        Input()
+    ], SiderbarComponent.prototype, "items", void 0);
     SiderbarComponent = __decorate([
         Component({
             selector: 'ak-sidebar',
-            template: "<ul>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n</ul>\r\n",
-            styles: [":host{background:#fff;color:#222b45;position:fixed;top:0;left:0;bottom:0;width:12%;min-width:250px;z-index:0;font-weight:400;box-shadow:0 .5rem 1rem 0 rgba(44,51,73,.1);font-family:Arial,\"Helvetica Neue\",Helvetica,sans-serif;padding:1.25rem}ul{font-size:18px;line-height:3;font-weight:400;padding-top:50px;list-style:none}"]
+            template: "<ul class=\"menu-items\">\r\n  <li class=\"menu-item\" *ngFor=\"let item of items\">\r\n    <a>\r\n      <ak-icon [icon]=\"item.icon\" class=\"icon\"></ak-icon>\r\n      <span class=\"title\" for=\"id1\">{{ item.name }}</span>\r\n    </a>\r\n  </li>\r\n</ul>\r\n",
+            styles: [":host{background:#fff;box-shadow:.5rem .5rem 1rem 0 rgba(44,51,73,.1);font-family:Arial,\"Helvetica Neue\",Helvetica,sans-serif}li{border-bottom:1px solid #edf1f7}.menu-items{color:#222b45;top:0;left:0;bottom:0;width:12%;min-width:250px;z-index:0;font-weight:400;margin:0;padding:0;position:relative}.menu-item{font-family:Open Sans,sans-serif;font-size:1rem;font-weight:600;line-height:1.5rem;list-style:none;padding:1.25rem 1rem;cursor:pointer;transition:.4s}.menu-item a .title{flex:1 0 auto;vertical-align:text-top}.menu-item a .icon{color:#8f9bb3;margin:0 .5rem 0 0}.menu-item:hover{color:#36f}"]
         })
     ], SiderbarComponent);
     return SiderbarComponent;
 }());
 export { SiderbarComponent };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2lkZWJhci5jb21wb25lbnQuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9hY21raXQtbGliLyIsInNvdXJjZXMiOlsibGliL2NvbXBvbmVudHMvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxFQUFFLFNBQVMsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQU8xQztJQUNFO0lBQWUsQ0FBQztJQURMLGlCQUFpQjtRQUw3QixTQUFTLENBQUM7WUFDVCxRQUFRLEVBQUUsWUFBWTtZQUN0Qiw2S0FBdUM7O1NBRXhDLENBQUM7T0FDVyxpQkFBaUIsQ0FFN0I7SUFBRCx3QkFBQztDQUFBLEFBRkQsSUFFQztTQUZZLGlCQUFpQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5cclxuQENvbXBvbmVudCh7XHJcbiAgc2VsZWN0b3I6ICdhay1zaWRlYmFyJyxcclxuICB0ZW1wbGF0ZVVybDogJy4vc2lkZWJhci5jb21wb25lbnQuaHRtbCcsXHJcbiAgc3R5bGVVcmxzOiBbJy4vc2lkZWJhci5jb21wb25lbnQuc2NzcyddLFxyXG59KVxyXG5leHBvcnQgY2xhc3MgU2lkZXJiYXJDb21wb25lbnQge1xyXG4gIGNvbnN0cnVjdG9yKCkge31cclxufVxyXG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2lkZWJhci5jb21wb25lbnQuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9hY21raXQtbGliLyIsInNvdXJjZXMiOlsibGliL2NvbXBvbmVudHMvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxFQUFFLFNBQVMsRUFBRSxLQUFLLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFPakQ7SUFFRTtJQUFlLENBQUM7SUFEUDtRQUFSLEtBQUssRUFBRTtvREFBTztJQURKLGlCQUFpQjtRQUw3QixTQUFTLENBQUM7WUFDVCxRQUFRLEVBQUUsWUFBWTtZQUN0QixrUkFBdUM7O1NBRXhDLENBQUM7T0FDVyxpQkFBaUIsQ0FHN0I7SUFBRCx3QkFBQztDQUFBLEFBSEQsSUFHQztTQUhZLGlCQUFpQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCwgSW5wdXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcclxuXHJcbkBDb21wb25lbnQoe1xyXG4gIHNlbGVjdG9yOiAnYWstc2lkZWJhcicsXHJcbiAgdGVtcGxhdGVVcmw6ICcuL3NpZGViYXIuY29tcG9uZW50Lmh0bWwnLFxyXG4gIHN0eWxlVXJsczogWycuL3NpZGViYXIuY29tcG9uZW50LnNjc3MnXSxcclxufSlcclxuZXhwb3J0IGNsYXNzIFNpZGVyYmFyQ29tcG9uZW50IHtcclxuICBASW5wdXQoKSBpdGVtcztcclxuICBjb25zdHJ1Y3RvcigpIHt9XHJcbn1cclxuIl19

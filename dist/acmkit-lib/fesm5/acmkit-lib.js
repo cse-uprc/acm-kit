@@ -1,7 +1,7 @@
 import { __decorate, __assign, __extends, __awaiter, __generator } from 'tslib';
-import { Component, NgModule, Input, Injectable, ViewChild, HostListener, ɵɵdefineInjectable } from '@angular/core';
+import { Component, Input, NgModule, Injectable, ViewChild, HostListener, ɵɵdefineInjectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { DomSanitizer, BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Router, RouterModule } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
@@ -38,13 +38,42 @@ var BellIconComponent = /** @class */ (function () {
     return BellIconComponent;
 }());
 
+var HouseIconComponent = /** @class */ (function () {
+    function HouseIconComponent() {
+    }
+    HouseIconComponent = __decorate([
+        Component({
+            selector: 'ak-icon-house',
+            template: "<svg\r\n  xmlns=\"http://www.w3.org/2000/svg\"\r\n  width=\"1.5rem\"\r\n  height=\"1.5rem\"\r\n  viewBox=\"0 0 24 24\"\r\n  class=\"eva eva-home-outline\"\r\n  fill=\"currentColor\"\r\n>\r\n  <g data-name=\"Layer 2\">\r\n    <g data-name=\"home\">\r\n      <rect width=\"24\" height=\"24\" opacity=\"0\"></rect>\r\n      <path\r\n        d=\"M20.42 10.18L12.71 2.3a1 1 0 0 0-1.42 0l-7.71 7.89A2 2 0 0 0 3 11.62V20a2 2 0 0 0 1.89 2h14.22A2 2 0 0 0 21 20v-8.38a2.07 2.07 0 0 0-.58-1.44zM10 20v-6h4v6zm9 0h-3v-7a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v7H5v-8.42l7-7.15 7 7.19z\"\r\n      ></path>\r\n    </g>\r\n  </g>\r\n</svg>\r\n"
+        })
+    ], HouseIconComponent);
+    return HouseIconComponent;
+}());
+
+var IconComponent = /** @class */ (function () {
+    function IconComponent() {
+        this.icon = '';
+    }
+    __decorate([
+        Input()
+    ], IconComponent.prototype, "icon", void 0);
+    IconComponent = __decorate([
+        Component({
+            selector: 'ak-icon',
+            template: "<ak-icon-house *ngIf=\"icon\"></ak-icon-house>\r\n<ak-icon-bell *ngIf=\"icon === 'bell'\"></ak-icon-bell>\r\n"
+        })
+    ], IconComponent);
+    return IconComponent;
+}());
+
 var IconsModule = /** @class */ (function () {
     function IconsModule() {
     }
     IconsModule = __decorate([
         NgModule({
-            declarations: [BellIconComponent],
-            exports: [BellIconComponent],
+            declarations: [BellIconComponent, HouseIconComponent, IconComponent],
+            exports: [BellIconComponent, HouseIconComponent, IconComponent],
+            imports: [BrowserModule],
         })
     ], IconsModule);
     return IconsModule;
@@ -500,7 +529,7 @@ var NavbarComponent = /** @class */ (function () {
         Component({
             selector: 'ak-navbar',
             template: "<ng-container>\r\n  <div class=\"nav acm-nav\">\r\n    <div class=\"header-container\">\r\n      <div class=\"logo-container\">\r\n        <a href=\"#home\">{{ title }}</a>\r\n      </div>\r\n    </div>\r\n    <div class=\"header-container\">\r\n      <ak-icon-bell></ak-icon-bell>\r\n    </div>\r\n  </div>\r\n</ng-container>\r\n",
-            styles: ["body{background-color:#edf1f7}.nav{display:flex;justify-content:space-between;width:100%}.acm-nav{background-color:#fff;box-shadow:0 .5rem 1rem 0 rgba(44,51,73,.1);overflow:hidden;padding:1.25rem;height:4.75rem;position:fixed;top:0;left:0;right:0;z-index:1040}.acm-nav a{color:#222b45;text-align:center;padding:0 20px;text-decoration:none;font-size:28px}.header-container,.logo-container{display:flex;align-items:center;width:auto}"]
+            styles: ["body{background-color:#edf1f7}.nav{display:flex;justify-content:space-between;max-width:1920px;margin-left:auto;margin-right:auto;width:100%}.acm-nav{background-color:#fff;box-shadow:0 .5rem 1rem 0 rgba(44,51,73,.1);overflow:hidden;padding:1.25rem;height:4.75rem;position:fixed;top:0;left:0;right:0;z-index:1040}.acm-nav a{color:#222b45;text-align:center;padding:0 20px;text-decoration:none;font-size:28px}.header-container,.logo-container{display:flex;align-items:center;width:auto}"]
         })
     ], NavbarComponent);
     return NavbarComponent;
@@ -509,11 +538,14 @@ var NavbarComponent = /** @class */ (function () {
 var SiderbarComponent = /** @class */ (function () {
     function SiderbarComponent() {
     }
+    __decorate([
+        Input()
+    ], SiderbarComponent.prototype, "items", void 0);
     SiderbarComponent = __decorate([
         Component({
             selector: 'ak-sidebar',
-            template: "<ul>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n  <li>Menu Item</li>\r\n</ul>\r\n",
-            styles: [":host{background:#fff;color:#222b45;position:fixed;top:0;left:0;bottom:0;width:12%;min-width:250px;z-index:0;font-weight:400;box-shadow:0 .5rem 1rem 0 rgba(44,51,73,.1);font-family:Arial,\"Helvetica Neue\",Helvetica,sans-serif;padding:1.25rem}ul{font-size:18px;line-height:3;font-weight:400;padding-top:50px;list-style:none}"]
+            template: "<ul class=\"menu-items\">\r\n  <li class=\"menu-item\" *ngFor=\"let item of items\">\r\n    <a>\r\n      <ak-icon [icon]=\"item.icon\" class=\"icon\"></ak-icon>\r\n      <span class=\"title\" for=\"id1\">{{ item.name }}</span>\r\n    </a>\r\n  </li>\r\n</ul>\r\n",
+            styles: [":host{background:#fff;box-shadow:.5rem .5rem 1rem 0 rgba(44,51,73,.1);font-family:Arial,\"Helvetica Neue\",Helvetica,sans-serif}li{border-bottom:1px solid #edf1f7}.menu-items{color:#222b45;top:0;left:0;bottom:0;width:12%;min-width:250px;z-index:0;font-weight:400;margin:0;padding:0;position:relative}.menu-item{font-family:Open Sans,sans-serif;font-size:1rem;font-weight:600;line-height:1.5rem;list-style:none;padding:1.25rem 1rem;cursor:pointer;transition:.4s}.menu-item a .title{flex:1 0 auto;vertical-align:text-top}.menu-item a .icon{color:#8f9bb3;margin:0 .5rem 0 0}.menu-item:hover{color:#36f}"]
         })
     ], SiderbarComponent);
     return SiderbarComponent;
@@ -882,5 +914,5 @@ var setupTests = function (initTest) { return configureTestSuite(function () { r
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, BellIconComponent, CardComponent, IconsModule, JwtService, LandingComponent, LoginCardComponent, NavbarComponent, ParticlesService, ServicesModule, SiderbarComponent, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UrlService as ɵa, UserService as ɵb };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, BellIconComponent, CardComponent, IconsModule, JwtService, LandingComponent, LoginCardComponent, NavbarComponent, ParticlesService, ServicesModule, SiderbarComponent, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UrlService as ɵa, UserService as ɵb, HouseIconComponent as ɵc, IconComponent as ɵd };
 //# sourceMappingURL=acmkit-lib.js.map
