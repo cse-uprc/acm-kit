@@ -1,8 +1,8 @@
-<ul>
-  <li>Menu Item</li>
-  <li>Menu Item</li>
-  <li>Menu Item</li>
-  <li>Menu Item</li>
-  <li>Menu Item</li>
-  <li>Menu Item</li>
+<ul class="menu-items">
+  <li class="menu-item" *ngFor="let item of items">
+    <a>
+      <ak-icon [icon]="item.icon" class="icon"></ak-icon>
+      <span class="title" for="id1">{{ item.name }}</span>
+    </a>
+  </li>
 </ul>
