@@ -12,6 +12,7 @@ import { LoginCardComponent } from './components/login-card/login-card.component
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SiderbarComponent } from './components/sidebar/sidebar.component';
 import { ServicesModule } from './services/services.module';
+import { ClassroomTileComponent } from './components/classroom-tile/classroom-tile.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ServicesModule } from './services/services.module';
     LandingComponent,
     NavbarComponent,
     SiderbarComponent,
+    ClassroomTileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,31 @@
+@import "style/assets/acmkit-lib/variables.scss";
+
+.classroom-tile {
+  width: 250px;
+  display: inline-block;
+  height: 250px;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 0 2px 15px -5px #222;
+}
+
+.classroom-image {
+  height: 60%;
+  border-radius: 5px 5px 0 0;
+  background: #256fe8;
+}
+
+#class-name {
+  margin: 10px;
+}
+
+#class-name a {
+  text-decoration: none;
+  color: #454a51;
+  font-size: 20px;
+  font-family: $header-font-family;
+}
+
+#class-name a:hover {
+  text-decoration: underline;
+}
