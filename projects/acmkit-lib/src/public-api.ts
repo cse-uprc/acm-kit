@@ -18,6 +18,7 @@ export * from './lib/components/sidebar/sidebar.component';
  */
 export * from './lib/models/jwt.model';
 export * from './lib/models/user.model';
+export * from './lib/models/sidebar-item.model';
 /**
  * Services
  */
