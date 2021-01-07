@@ -1,2 +1,21 @@
-<ak-icon-house *ngIf="icon"></ak-icon-house>
-<ak-icon-bell *ngIf="icon === 'bell'"></ak-icon-bell>
+<div style="display: inline-block;">
+  <ak-icon-house *ngIf="icon === 'house'"></ak-icon-house>
+  <ak-icon-bell *ngIf="icon === 'bell'"></ak-icon-bell>
+  <ak-icon-hamburger *ngIf="icon === 'hamburger'"></ak-icon-hamburger>
+  <ak-icon-video *ngIf="icon === 'video'"></ak-icon-video>
+  <ak-icon-classroom *ngIf="icon === 'classroom'"></ak-icon-classroom>
+  <ak-icon-resources *ngIf="icon === 'resources'"></ak-icon-resources>
+  <ak-icon-teachers *ngIf="icon === 'teachers'"></ak-icon-teachers>
+  <ak-icon-board-members
+    *ngIf="icon === 'board-members'"
+  ></ak-icon-board-members>
+  <ak-icon-contract
+    style="margin-left: 2px;"
+    *ngIf="icon === 'contract'"
+  ></ak-icon-contract>
+  <ak-icon-calendar *ngIf="icon === 'calendar'"></ak-icon-calendar>
+  <ak-icon-info *ngIf="icon === 'info'"></ak-icon-info>
+  <ak-icon-robot *ngIf="icon === 'robot'"></ak-icon-robot>
+  <ak-icon-question *ngIf="icon === 'question'"></ak-icon-question>
+  <ak-icon-contact *ngIf="icon === 'contact'"></ak-icon-contact>
+</div>

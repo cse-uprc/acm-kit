@@ -1,8 +1,17 @@
-<ul class="menu-items scrollable">
+<ul id="sidebar" class="menu-items scrollable">
   <li class="menu-item" *ngFor="let item of items" (click)="route(item)">
     <a>
-      <ak-icon [icon]="item.icon" class="icon"></ak-icon>
-      <span class="title" for="id1">{{ item.name }}</span>
+      <ak-icon
+        [icon]="item.icon"
+        class="icon"
+        [ngClass]="{ 'item-selected': path === item.link }"
+      ></ak-icon>
+      <span
+        class="title"
+        [ngClass]="{ 'item-selected': path === item.link }"
+        *ngIf="sidebarOpen"
+        >{{ item.name }}</span
+      >
     </a>
   </li>
   <li class="menu-item">

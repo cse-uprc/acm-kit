@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'ak-navbar',
@@ -8,5 +7,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class NavbarComponent {
   @Input() title = '';
-  constructor(protected sanitizer: DomSanitizer) {}
+  @Output() sidebarClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+  constructor() {}
+
+  toggleSidebar() {
+    this.sidebarClicked.emit(true);
+  }
 }

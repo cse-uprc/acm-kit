@@ -1,6 +1,10 @@
 <ng-container>
   <div class="nav acm-nav">
     <div class="header-container">
+      <ak-icon-hamburger
+        class="nav-icon"
+        (click)="toggleSidebar()"
+      ></ak-icon-hamburger>
       <div class="logo-container">
         <a href="#home">{{ title }}</a>
       </div>

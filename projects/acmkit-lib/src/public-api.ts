@@ -43,4 +43,17 @@ export * from './lib/services/stomp/stomp-websocket.service';
  * Icons
  */
 export * from './lib/assets/icons/bell/bell.component';
+export * from './lib/assets/icons/board-members/board-members.component';
+export * from './lib/assets/icons/calendar/calendar.component';
+export * from './lib/assets/icons/classroom/classroom.component';
+export * from './lib/assets/icons/contact/contact.component';
+export * from './lib/assets/icons/contract/contract.component';
+export * from './lib/assets/icons/hamburger/hamburger.component';
+export * from './lib/assets/icons/house/house.component';
+export * from './lib/assets/icons/info/info.component';
+export * from './lib/assets/icons/question/question.component';
+export * from './lib/assets/icons/resources/resources.component';
+export * from './lib/assets/icons/robot/robot.component';
+export * from './lib/assets/icons/teachers/teachers.component';
+export * from './lib/assets/icons/video/video.component';
 export * from './lib/assets/icons/icons.module';
