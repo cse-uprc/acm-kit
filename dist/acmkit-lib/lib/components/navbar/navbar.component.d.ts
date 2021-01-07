@@ -1,6 +1,7 @@
-import { DomSanitizer } from '@angular/platform-browser';
+import { EventEmitter } from '@angular/core';
 export declare class NavbarComponent {
-    protected sanitizer: DomSanitizer;
     title: string;
-    constructor(sanitizer: DomSanitizer);
+    sidebarClicked: EventEmitter<boolean>;
+    constructor();
+    toggleSidebar(): void;
 }
