@@ -717,12 +717,35 @@ var NavbarComponent = /** @class */ (function () {
 var SiderbarComponent = /** @class */ (function () {
     function SiderbarComponent(router) {
         this.router = router;
+        this.items = [
+            { name: 'Dashboard', icon: 'house', link: '/home/dashboard' },
+            { name: 'Classroom', icon: 'classroom', link: '/home/classroom' },
+            { name: 'Resources', icon: 'resources', link: '/home/resources' },
+            { name: 'Teachers', icon: 'teachers', link: '/home/teachers' },
+            {
+                name: 'Student Advisors',
+                icon: 'board-members',
+                link: '/home/student-advisors',
+            },
+            { name: 'Video Lectures', icon: 'video', link: '/home/video-lectures' },
+            { name: 'Calendar', icon: 'calendar', link: '/home/calendar' },
+            { name: 'Event Sign Up', icon: 'contract', link: '/home/event-sign-up' },
+            { name: 'ACM Information', icon: 'info', link: '/home/acm-information' },
+            { name: 'Bot Service Info', icon: 'robot', link: '/home/bot-service-info' },
+            { name: 'About Us', icon: 'question', link: '/home/about-us' },
+            {
+                name: 'Contact Services',
+                icon: 'contact',
+                link: '/home/contact-services',
+            },
+        ];
         this.sidebarOpen = true;
     }
     SiderbarComponent.prototype.ngOnInit = function () {
         this.path = window.location.pathname;
     };
     SiderbarComponent.prototype.route = function (item) {
+        this.path = window.location.pathname;
         this.router.navigate([item.link]);
     };
     SiderbarComponent.prototype.open = function () {
