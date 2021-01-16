@@ -955,7 +955,7 @@
             this.path = window.location.pathname;
         };
         SiderbarComponent.prototype.route = function (item) {
-            this.path = window.location.pathname;
+            this.path = item.link;
             this.router.navigate([item.link]);
         };
         SiderbarComponent.prototype.open = function () {
