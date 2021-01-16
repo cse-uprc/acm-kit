@@ -40,7 +40,7 @@ export class SiderbarComponent implements OnInit {
   }
 
   route(item: SidebarItem) {
-    this.path = window.location.pathname;
+    this.path = item.link;
     this.router.navigate([item.link]);
   }
 
