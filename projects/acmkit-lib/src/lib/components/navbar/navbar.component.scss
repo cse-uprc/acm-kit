@@ -49,3 +49,9 @@ body {
   align-items: center;
   width: auto;
 }
+
+@media only screen and (max-width: 380px) {
+  .acm-nav a {
+    font-size: 25px;
+  }
+}
