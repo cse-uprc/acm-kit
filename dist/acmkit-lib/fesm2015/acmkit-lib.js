@@ -701,7 +701,7 @@ let SiderbarComponent = class SiderbarComponent {
         this.path = window.location.pathname;
     }
     route(item) {
-        this.path = window.location.pathname;
+        this.path = item.link;
         this.router.navigate([item.link]);
     }
     open() {
