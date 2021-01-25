@@ -21,16 +21,20 @@ export class LoginCardComponent {
   facebookIcon =
     'https://cdn3.iconfinder.com/data/icons/free-social-icons/67/Untitled-16-32.png';
 
+  loading = false;
+
   constructor(
     private readonly authService: AuthService,
     private readonly userService: UserService
   ) {}
 
   onSignIn(username: string, password: string) {
+    this.loading = true;
     this.authService.authenticate(username, password);
   }
 
   onSignUp(firstName: string, lastName: string, email: string) {
+    this.loading = true;
     const newUser: User = {
       firstName,
       lastName,
