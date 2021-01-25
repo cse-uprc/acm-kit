@@ -9,6 +9,7 @@ export declare class LoginCardComponent {
     githubIcon: string;
     facebookLink: string;
     facebookIcon: string;
+    loading: boolean;
     constructor(authService: AuthService, userService: UserService);
     onSignIn(username: string, password: string): void;
     onSignUp(firstName: string, lastName: string, email: string): void;
