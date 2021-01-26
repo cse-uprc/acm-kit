@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth/auth.service';
-import { UserService } from '../../services/user/user.service';
+import { Router } from '@angular/router';
 import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth/auth.service';
+import { JwtService } from '../../services/jwt/jwt.service';
+import { ToastService } from '../../services/toast/toast.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'ak-login-card',
@@ -25,12 +28,24 @@ export class LoginCardComponent {
 
   constructor(
     private readonly authService: AuthService,
-    private readonly userService: UserService
+    private readonly userService: UserService,
+    private readonly router: Router,
+    private readonly toastService: ToastService,
+    private readonly jwtService: JwtService
   ) {}
 
   onSignIn(username: string, password: string) {
     this.loading = true;
-    this.authService.authenticate(username, password);
+    this.authService.authenticate(username, password).subscribe(
+      (data: any) => {
+        this.jwtService.setToken(data.token);
+        this.router.navigate(['home']);
+      },
+      (error) => {
+        this.toastService.createError('Invalid Username or Password!');
+        this.loading = false;
+      }
+    );
   }
 
   onSignUp(firstName: string, lastName: string, email: string) {
@@ -40,6 +55,15 @@ export class LoginCardComponent {
       lastName,
       email,
     };
-    this.userService.createUser(newUser);
+    this.userService.createUser(newUser).subscribe(
+      (data) => {
+        this.router.navigate(['/landing']);
+        this.toastService.createSuccess('User Request submitted!');
+      },
+      (error) => {
+        this.router.navigate(['/landing']);
+        this.toastService.createError('Error Processing Request!');
+      }
+    );
   }
 }

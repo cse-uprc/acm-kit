@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from '../../models/user.model';
 import { UrlService } from '../url/url.service';
-import { Router } from '@angular/router';
 
 /**
  * User Service class that deal with the user microservice
@@ -12,20 +12,17 @@ import { Router } from '@angular/router';
  */
 @Injectable()
 export class UserService {
-  constructor(
-    private http: HttpClient,
-    private urlService: UrlService,
-    private router: Router
-  ) {}
+  constructor(private http: HttpClient, private urlService: UrlService) {}
 
   /**
    * Method to create a new user given a User object
    *
    * @param newUser - The new user to be created
    */
-  createUser(newUser: User) {
-    this.http
-      .post(`${this.urlService.getAPIUrl()}/api/acm/users`, newUser)
-      .subscribe((r) => this.router.navigate(['/landing']));
+  createUser(newUser: User): Observable<any> {
+    return this.http.post(
+      `${this.urlService.getAPIUrl()}/api/acm/users/dim-user`,
+      newUser
+    );
   }
 }

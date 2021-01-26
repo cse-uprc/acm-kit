@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 import { AcmkitLibComponent } from './acmkit-lib.component';
 import { IconsModule } from './assets/icons/icons.module';
 import { BasePageComponent } from './components/base-page/base-page.component';
@@ -16,12 +17,12 @@ import { ServicesModule } from './services/services.module';
 @NgModule({
   declarations: [
     AcmkitLibComponent,
-    CardComponent,
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
     NavbarComponent,
     SiderbarComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,10 +31,10 @@ import { ServicesModule } from './services/services.module';
     HttpClientModule,
     ServicesModule,
     IconsModule,
+    ToastrModule.forRoot(),
   ],
   exports: [
     AcmkitLibComponent,
-    CardComponent,
     BasePageComponent,
     LoginCardComponent,
     LandingComponent,
@@ -41,6 +42,7 @@ import { ServicesModule } from './services/services.module';
     SiderbarComponent,
     ServicesModule,
     IconsModule,
+    CardComponent,
   ],
 })
 export class AcmkitLibModule {}

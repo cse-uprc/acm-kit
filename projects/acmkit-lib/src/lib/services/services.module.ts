@@ -5,6 +5,7 @@ import { AuthService } from './auth/auth.service';
 import { JwtService } from './jwt/jwt.service';
 import { ParticlesService } from './particles/particles.service';
 import { StompWebsocketModule } from './stomp/stomp-websocket.module';
+import { ToastService } from './toast/toast.service';
 import { UrlService } from './url/url.service';
 import { UserService } from './user/user.service';
 
@@ -16,6 +17,7 @@ import { UserService } from './user/user.service';
     UserService,
     JwtService,
     UrlService,
+    ToastService,
   ],
   exports: [StompWebsocketModule],
 })

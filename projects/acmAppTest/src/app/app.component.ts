@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { SiderbarComponent } from 'acmkit-lib';
+import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
+import { ToastService } from 'projects/acmkit-lib/src/lib/services/toast/toast.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +8,13 @@ import * as AOS from 'aos';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'acmAppTest';
-  @ViewChild(SiderbarComponent, { static: false }) sidebar: SiderbarComponent;
+  constructor(private toastService: ToastService) {}
+
+  showToaster() {
+    this.toastService.createError('User Request submitted!');
+  }
 
   ngOnInit() {
     AOS.init();
-  }
-
-  toggleSidebar(event) {
-    this.sidebar.toggle();
   }
 }

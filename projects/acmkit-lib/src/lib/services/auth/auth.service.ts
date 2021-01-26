@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Environment } from '../../assets/globals';
+import { Observable } from 'rxjs';
 import { UrlService } from '../url/url.service';
 
 /**
@@ -13,9 +12,8 @@ import { UrlService } from '../url/url.service';
 @Injectable()
 export class AuthService {
   constructor(
-    private http: HttpClient,
-    private urlService: UrlService,
-    private router: Router
+    private readonly http: HttpClient,
+    private readonly urlService: UrlService
   ) {}
 
   /**
@@ -24,13 +22,10 @@ export class AuthService {
    * @param username - username of the user
    * @param password - password for the user
    */
-  authenticate(username: string, password: string) {
-    console.log(`${this.urlService.getAPIUrl()}/authenticate`);
-    this.http
-      .post(`${this.urlService.getAPIUrl()}/authenticate`, {
-        username,
-        password,
-      })
-      .subscribe(() => this.router.navigate(['home']));
+  authenticate(username: string, password: string): Observable<any> {
+    return this.http.post(`${this.urlService.getAPIUrl()}/authenticate`, {
+      username,
+      password,
+    });
   }
 }
