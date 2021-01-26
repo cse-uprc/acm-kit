@@ -1,0 +1,21 @@
+{
+  "name": "acmkit-lib",
+  "version": "8.4.1",
+  "peerDependencies": {
+    "@angular/common": "^9.1.12",
+    "@angular/core": "^9.1.12"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "main": "bundles/acmkit-lib.umd.js",
+  "module": "fesm5/acmkit-lib.js",
+  "es2015": "fesm2015/acmkit-lib.js",
+  "esm5": "esm5/acmkit-lib.js",
+  "esm2015": "esm2015/acmkit-lib.js",
+  "fesm5": "fesm5/acmkit-lib.js",
+  "fesm2015": "fesm2015/acmkit-lib.js",
+  "typings": "acmkit-lib.d.ts",
+  "metadata": "acmkit-lib.metadata.json",
+  "sideEffects": false
+}

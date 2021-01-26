@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ParticlesService } from '../../services/particles/particles.service';
 import { AcmKitTestBed } from '../../testing/acm-kit-test-bed';
 import { setupTests } from '../../testing/test-setup';
 import { LandingComponent } from './landing.component';
-import { ParticlesService } from '../../services/particles/particles.service';
 
 describe('LandingComponent', () => {
   let component: LandingComponent;
@@ -14,7 +14,7 @@ describe('LandingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LandingComponent);
     component = fixture.componentInstance;
-    particleService = TestBed.get(ParticlesService);
+    particleService = TestBed.inject(ParticlesService);
 
     spyOn(particleService, 'init');
 
