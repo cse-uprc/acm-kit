@@ -1341,6 +1341,7 @@
                     http.HttpClientModule,
                     ServicesModule,
                     IconsModule,
+                    ngxToastr.ToastrModule,
                 ],
                 exports: [
                     AcmkitLibComponent,
@@ -1353,7 +1354,6 @@
                     IconsModule,
                     CardComponent,
                 ],
-                providers: [ngxToastr.ToastrModule],
             })
         ], AcmkitLibModule);
         return AcmkitLibModule;
@@ -1437,6 +1437,7 @@
     exports.ContractIconComponent = ContractIconComponent;
     exports.HamburgerIconComponent = HamburgerIconComponent;
     exports.HouseIconComponent = HouseIconComponent;
+    exports.IconComponent = IconComponent;
     exports.IconsModule = IconsModule;
     exports.InfoIconComponent = InfoIconComponent;
     exports.JwtService = JwtService;
@@ -1454,6 +1455,9 @@
     exports.StompWebsocketService = StompWebsocketService;
     exports.TOKEN_NAME = TOKEN_NAME;
     exports.TeachersIconComponent = TeachersIconComponent;
+    exports.ToastService = ToastService;
+    exports.UrlService = UrlService;
+    exports.UserService = UserService;
     exports.VideoIconComponent = VideoIconComponent;
     exports.defaultStompConfig = defaultStompConfig;
     exports.setupTests = setupTests;
@@ -1461,10 +1465,6 @@
     exports.stompWebsocketServiceFactory = stompWebsocketServiceFactory;
     exports.ɵ0 = ɵ0;
     exports.ɵ1 = ɵ1;
-    exports.ɵa = UrlService;
-    exports.ɵb = UserService;
-    exports.ɵc = ToastService;
-    exports.ɵd = IconComponent;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

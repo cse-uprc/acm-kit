@@ -1132,6 +1132,7 @@ var AcmkitLibModule = /** @class */ (function () {
                 HttpClientModule,
                 ServicesModule,
                 IconsModule,
+                ToastrModule,
             ],
             exports: [
                 AcmkitLibComponent,
@@ -1144,7 +1145,6 @@ var AcmkitLibModule = /** @class */ (function () {
                 IconsModule,
                 CardComponent,
             ],
-            providers: [ToastrModule],
         })
     ], AcmkitLibModule);
     return AcmkitLibModule;
@@ -1220,5 +1220,5 @@ var setupTests = function (initTest) { return configureTestSuite(function () { r
  * Generated bundle index. Do not edit.
  */
 
-export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, BellIconComponent, BoardMemebersIconComponent, CalendarIconComponent, CardComponent, ClassroomIconComponent, ContactIconComponent, ContractIconComponent, HamburgerIconComponent, HouseIconComponent, IconsModule, InfoIconComponent, JwtService, LandingComponent, LoginCardComponent, NavbarComponent, ParticlesService, QuestionIconComponent, ResourcesIconComponent, RobotIconComponent, ServicesModule, SiderbarComponent, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, TeachersIconComponent, VideoIconComponent, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1, UrlService as ɵa, UserService as ɵb, ToastService as ɵc, IconComponent as ɵd };
+export { AbstractTestBed, AcmKitTestBed, AcmkitLibComponent, AcmkitLibModule, AcmkitLibService, AuthService, BasePageComponent, BellIconComponent, BoardMemebersIconComponent, CalendarIconComponent, CardComponent, ClassroomIconComponent, ContactIconComponent, ContractIconComponent, HamburgerIconComponent, HouseIconComponent, IconComponent, IconsModule, InfoIconComponent, JwtService, LandingComponent, LoginCardComponent, NavbarComponent, ParticlesService, QuestionIconComponent, ResourcesIconComponent, RobotIconComponent, ServicesModule, SiderbarComponent, StompUrlService, StompWebsocketModule, StompWebsocketService, TOKEN_NAME, TeachersIconComponent, ToastService, UrlService, UserService, VideoIconComponent, defaultStompConfig, setupTests, stompConfigFactory, stompWebsocketServiceFactory, ɵ0, ɵ1 };
 //# sourceMappingURL=acmkit-lib.js.map

@@ -31,6 +31,7 @@ import { ServicesModule } from './services/services.module';
     HttpClientModule,
     ServicesModule,
     IconsModule,
+    ToastrModule,
   ],
   exports: [
     AcmkitLibComponent,
@@ -43,6 +44,5 @@ import { ServicesModule } from './services/services.module';
     IconsModule,
     CardComponent,
   ],
-  providers: [ToastrModule],
 })
 export class AcmkitLibModule {}
