@@ -31,7 +31,7 @@ import { ServicesModule } from './services/services.module';
     HttpClientModule,
     ServicesModule,
     IconsModule,
-    ToastrModule,
+    ToastrModule.forRoot(),
   ],
   exports: [
     AcmkitLibComponent,

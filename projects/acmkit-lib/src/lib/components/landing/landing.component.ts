@@ -3,12 +3,12 @@ import {
   Component,
   ElementRef,
   HostListener,
-  ViewChild,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { ParticlesService } from '../../services/particles/particles.service';
 import { LandingParticleConfig } from '../../assets/particles/landing';
+import { ParticlesService } from '../../services/particles/particles.service';
 
 @Component({
   selector: 'ak-landing',
@@ -43,7 +43,7 @@ export class LandingComponent implements AfterViewInit, OnInit {
     this.teamOffset = this.teamElement.nativeElement.offsetTop - 500;
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll', [])
   scrollHandler() {
     if (window.pageYOffset < 625) {
       this.currentActive = 0;

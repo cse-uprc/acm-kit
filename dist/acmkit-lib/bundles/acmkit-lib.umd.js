@@ -506,29 +506,6 @@
         return CardComponent;
     }());
 
-    /**
-     * Class to help manage a particle config.
-     *
-     * @author Sam Butler
-     * @since August 24, 2020
-     */
-    var ParticlesService = /** @class */ (function () {
-        function ParticlesService() {
-        }
-        /**
-         * Initializes the particlesJS based on the passed in config file
-         *
-         * @param configFile - The particle config file we want to initialize
-         */
-        ParticlesService.prototype.init = function (configFile) {
-            particlesJS('particles-js', configFile, function () { });
-        };
-        ParticlesService = __decorate([
-            core.Injectable()
-        ], ParticlesService);
-        return ParticlesService;
-    }());
-
     var LandingParticleConfig = {
         particles: {
             number: {
@@ -622,6 +599,29 @@
         retina_detect: true,
     };
 
+    /**
+     * Class to help manage a particle config.
+     *
+     * @author Sam Butler
+     * @since August 24, 2020
+     */
+    var ParticlesService = /** @class */ (function () {
+        function ParticlesService() {
+        }
+        /**
+         * Initializes the particlesJS based on the passed in config file
+         *
+         * @param configFile - The particle config file we want to initialize
+         */
+        ParticlesService.prototype.init = function (configFile) {
+            particlesJS('particles-js', configFile, function () { });
+        };
+        ParticlesService = __decorate([
+            core.Injectable()
+        ], ParticlesService);
+        return ParticlesService;
+    }());
+
     var LandingComponent = /** @class */ (function () {
         function LandingComponent(router, particleService) {
             this.router = router;
@@ -675,7 +675,7 @@
             core.ViewChild('team')
         ], LandingComponent.prototype, "teamElement", void 0);
         __decorate([
-            core.HostListener('window:scroll', ['$event'])
+            core.HostListener('window:scroll', [])
         ], LandingComponent.prototype, "scrollHandler", null);
         LandingComponent = __decorate([
             core.Component({
@@ -1341,7 +1341,7 @@
                     http.HttpClientModule,
                     ServicesModule,
                     IconsModule,
-                    ngxToastr.ToastrModule,
+                    ngxToastr.ToastrModule.forRoot(),
                 ],
                 exports: [
                     AcmkitLibComponent,

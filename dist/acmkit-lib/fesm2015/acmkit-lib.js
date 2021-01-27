@@ -264,27 +264,6 @@ CardComponent = __decorate([
     })
 ], CardComponent);
 
-/**
- * Class to help manage a particle config.
- *
- * @author Sam Butler
- * @since August 24, 2020
- */
-let ParticlesService = class ParticlesService {
-    constructor() { }
-    /**
-     * Initializes the particlesJS based on the passed in config file
-     *
-     * @param configFile - The particle config file we want to initialize
-     */
-    init(configFile) {
-        particlesJS('particles-js', configFile, () => { });
-    }
-};
-ParticlesService = __decorate([
-    Injectable()
-], ParticlesService);
-
 const LandingParticleConfig = {
     particles: {
         number: {
@@ -378,6 +357,27 @@ const LandingParticleConfig = {
     retina_detect: true,
 };
 
+/**
+ * Class to help manage a particle config.
+ *
+ * @author Sam Butler
+ * @since August 24, 2020
+ */
+let ParticlesService = class ParticlesService {
+    constructor() { }
+    /**
+     * Initializes the particlesJS based on the passed in config file
+     *
+     * @param configFile - The particle config file we want to initialize
+     */
+    init(configFile) {
+        particlesJS('particles-js', configFile, () => { });
+    }
+};
+ParticlesService = __decorate([
+    Injectable()
+], ParticlesService);
+
 let LandingComponent = class LandingComponent {
     constructor(router, particleService) {
         this.router = router;
@@ -432,7 +432,7 @@ __decorate([
     ViewChild('team')
 ], LandingComponent.prototype, "teamElement", void 0);
 __decorate([
-    HostListener('window:scroll', ['$event'])
+    HostListener('window:scroll', [])
 ], LandingComponent.prototype, "scrollHandler", null);
 LandingComponent = __decorate([
     Component({
@@ -1071,7 +1071,7 @@ AcmkitLibModule = __decorate([
             HttpClientModule,
             ServicesModule,
             IconsModule,
-            ToastrModule,
+            ToastrModule.forRoot(),
         ],
         exports: [
             AcmkitLibComponent,
