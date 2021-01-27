@@ -10,16 +10,24 @@ input {
   float: right;
 }
 
+.column-full {
+  width: 100% !important;
+}
+
 .column-wide {
   width: 60%;
+}
+
+.column-half {
+  width: 50% !important;
 }
 
 .column-narrow {
   width: 40% !important;
 }
 
-.column-half {
-  width: 50% !important;
+.column-quarter {
+  width: 25% !important;
 }
 
 .target-pointer {

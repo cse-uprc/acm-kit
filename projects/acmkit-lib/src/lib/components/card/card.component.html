@@ -1,4 +1,14 @@
-<div class="card column-half" [ngClass]="{ 'card-padding': !title }">
+<div
+  class="card"
+  [ngClass]="{
+    'card-padding': !title,
+    'column-quarter': width === 'quarter',
+    'column-narrow': width === 'narrow',
+    'column-half': width === 'half',
+    'column-wide': width === 'wide',
+    'column-full': width === 'full'
+  }"
+>
   <div *ngIf="title" class="header">
     <div class="title">{{ title }}</div>
     <div *ngIf="editRoute" class="edit-icon"></div>

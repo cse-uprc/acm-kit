@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class CardComponent implements OnInit {
   @Input() title: string;
   @Input() editRoute = '/';
+  @Input() width = 'full';
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
