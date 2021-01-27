@@ -8,3 +8,7 @@
 html {
   background-color: #edf1f7 !important;
 }
+
+.arrow-icon:after {
+  content: " \22C0";
+}

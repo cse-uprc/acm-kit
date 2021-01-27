@@ -2,7 +2,6 @@
 
 .card {
   display: inline-block;
-  height: auto;
   border-radius: $border-radius-full;
   text-align: left;
   background: linear-gradient(to bottom, $white 12%, $dark-white 100%);
@@ -17,6 +16,7 @@
   background: $wheat;
   border-bottom: 1px solid $dark-wheat;
   padding: $padding-half $margin-half;
+  cursor: pointer;
 }
 
 .header .title {
@@ -31,6 +31,17 @@
   padding: $padding-full;
 }
 
+.content-container {
+  overflow: hidden;
+  transition: all 0.6s;
+}
+
 .content-padding {
   padding: $padding-half;
+}
+
+.collapse-icon {
+  font-weight: 800;
+  font-size: 22px;
+  float: right;
 }

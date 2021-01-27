@@ -9,11 +9,14 @@
     'column-full': width === 'full'
   }"
 >
-  <div *ngIf="title" class="header">
+  <div id="header" *ngIf="title" class="header" (click)="toggleCollapse()">
     <div class="title">{{ title }}</div>
-    <div *ngIf="editRoute" class="edit-icon"></div>
+    <div id="collapse-icon" class="collapse-icon">
+      <div *ngIf="!cardOpen">+</div>
+      <div *ngIf="cardOpen">-</div>
+    </div>
   </div>
-  <div class="content-padding">
-    <ng-content></ng-content>
+  <div id="content" class="content-container">
+    <div class="content-padding"><ng-content></ng-content></div>
   </div>
 </div>

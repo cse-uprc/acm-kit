@@ -8,13 +8,33 @@ import { Router } from '@angular/router';
 })
 export class CardComponent implements OnInit {
   @Input() title: string;
-  @Input() editRoute = '/';
   @Input() width = 'full';
+
+  cardOpen = true;
+
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    document.getElementById('content').style.height =
+      document.getElementById('content').scrollHeight + 'px';
+  }
 
-  onEditClick() {
-    this.router.navigate([this.editRoute]);
+  toggleCollapse() {
+    if (this.cardOpen) {
+      this.closeCard();
+    } else {
+      this.openCard();
+    }
+  }
+
+  closeCard() {
+    this.cardOpen = false;
+    document.getElementById('content').style.height = '0';
+  }
+
+  openCard() {
+    this.cardOpen = true;
+    document.getElementById('content').style.height =
+      document.getElementById('content').scrollHeight + 'px';
   }
 }
